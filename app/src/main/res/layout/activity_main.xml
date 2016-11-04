@@ -13,6 +13,7 @@
         <TextView
             android:text="Centrum Pomocy Technicznej"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp"
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="wrap_content"
@@ -48,12 +49,20 @@
                 android:layout_weight="1"
                 android:padding="3px" />
             <Button
+                android:text="Telefony alarmowe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_alarms"
+                android:layout_weight="1"
+                android:padding="3px" />
+            <Button
                 android:text="Kontakt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_contact"
                 android:layout_weight="1"
                 android:padding="3px" />
+
         </LinearLayout>
         <LinearLayout
             android:id="@+id/menu2"
@@ -83,6 +92,13 @@
                 android:id="@+id/btn_about"
                 android:padding="3px"
                 android:layout_weight="1" />
+            <Button
+                android:text="Wyloguj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_logout"
+                android:layout_weight="1"
+                android:padding="3px" />
         </LinearLayout>
      </LinearLayout>
 </RelativeLayout>
