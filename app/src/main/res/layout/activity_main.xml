@@ -24,99 +24,92 @@
                 android:id="@+id/app_name" />
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/menu_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_below="@+id/app_name_layout"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:id="@+id/menuLeft"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/menu_left"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <ImageButton
-                    android:text="Zgłoś usterkę"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorAccent"
-                    android:src="@drawable/add_icon"
-                    android:scaleType="centerInside"
-                    android:id="@+id/btn_report_fault" />
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_report_fault"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/add_icon"
+                        android:scaleType="centerInside"/>
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_show_faults"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/my_icon"
+                        android:scaleType="centerInside"/>
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_alarms"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/emergency_icon"
+                        android:scaleType="centerInside"/>
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_contact"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/contact_icon"
+                        android:scaleType="centerInside"/>
 
-                <ImageButton
-                    android:text="Moje zgłoszenia"
-                    android:src="@drawable/my_icon"
-                    android:layout_width="match_parent"
-                    android:backgroundTint="@color/colorAccent"
-                    android:scaleType="centerInside"
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btn_show_faults"
-                    android:layout_weight="1" />
-                <ImageButton
-                    android:text="Telefony alarmowe"
-                    android:src="@drawable/emergency_icon"
-                    android:layout_width="match_parent"
-                    android:backgroundTint="@color/colorAccent"
-                    android:scaleType="centerInside"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_alarms"
-                    android:layout_weight="1" />
-                <ImageButton
-                    android:text="Kontakt"
-                    android:src="@drawable/contact_icon"
-                    android:layout_width="match_parent"
-                    android:backgroundTint="@color/colorAccent"
-                    android:scaleType="centerInside"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_contact"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/menuRight"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/app_name_layout"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <ImageButton
-                    android:text="Edytuj zgłoszenie"
-                    android:src="@drawable/edit_icon"
-                    android:backgroundTint="@color/colorAccent"
-                    android:scaleType="centerInside"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_edit_fault"
-                    android:layout_weight="1" />
-                <ImageButton
-                    android:text="Wszystkie usterki"
-                    android:src="@drawable/all_icon"
-                    android:backgroundTint="@color/colorAccent"
-                    android:scaleType="centerInside"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_local_faults"
-                    android:layout_weight="1" />
-                <ImageButton
-                    android:text="O programie"
-                    android:src="@drawable/info_icon"
-                    android:backgroundTint="@color/colorAccent"
-                    android:scaleType="centerInside"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_about"
-                    android:layout_weight="1" />
-                <ImageButton
-                    android:text="Wyloguj"
-                    android:src="@drawable/logout_icon"
-                    android:backgroundTint="@color/colorAccent"
-                    android:scaleType="centerInside"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btn_logout"
-                    android:layout_weight="1" />
-            </LinearLayout>
-         </LinearLayout>
+                    android:id="@+id/menu_right"
+                    android:layout_weight="1"
+                    android:layout_toRightOf="@+id/menu_left"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_edit_fault"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/edit_icon"
+                        android:scaleType="centerInside"/>
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_local_faults"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/all_icon"
+                        android:scaleType="centerInside"/>
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_about"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/info_icon"
+                        android:scaleType="centerInside"/>
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_logout"
+                        android:layout_margin="10dp"
+                        android:background="@color/colorAccent"
+                        android:src="@drawable/logout_icon"
+                        android:scaleType="centerInside"/>
+
+                </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>
