@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">CPT_MobileApp</string>
+    <string name="app_name">Centrum Pomocy Technicznej</string>
+    <string name="about_project">Projekt napisany pod katem zaliczenia z przedmiotów:\n
+        - Przetwarzanie w chmurze dla aplikacji mobilnych\n
+        - Systemy operacyjne na platformach mobilnych.\n
+        Równolegle wykonywana jest aplikacja webowa o tej samej tematyce, która będzie
+        współpracowała z aplikacją mobilną.\n
+        \n
+        Wykorzystane technologie:\n
+        - MySQL (chmura: Amazon.com)\n
+        - Android Studio (Java 8)\n
+        - Genymotion (testowanie aplikacji)\n
+        - OpenCV for Java (rozpoznawanie obrazu)\n
+        \n
+        Projekt będzie bazą dla pracy inżynierskiej.</string>
+
 </resources>
