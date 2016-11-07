@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 /**
  * Created by Makiec on 03.11.2016.
@@ -28,21 +29,22 @@ public class MainActivity extends Activity implements View.OnClickListener{
         initialize();
     }
 
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case Constant.BTN_REPORT_FAULT:
-                setContentView(Constant.ADD_LAYOUT);
+                startActivityForResult(new Intent(getApplicationContext(), ReportActivity.class),
+                        Constant.REPORT_REQUEST_CODE);
                 break;
             case Constant.BTN_EDIT_FAULT:
-                setContentView(Constant.EDIT_LAYOUT);
+                startActivityForResult(new Intent(getApplicationContext(), ReportActivity.class),
+                        Constant.EDIT_REQUEST_CODE);
                 break;
             case Constant.BTN_SHOW_FAULTS:
-                setContentView(Constant.USER_PROBLEMS_LAYOUT);
+                openPresentActivity(Constant.BTN_SHOW_FAULTS);
                 break;
             case Constant.BTN_LOCAL_FAULTS:
-                setContentView(Constant.ALL_PROBLEMS_LAYOUT);
+                openPresentActivity(Constant.BTN_LOCAL_FAULTS);
                 break;
             case Constant.BTN_ALARMS:
                 openInfoActivity(Constant.EMERGENCY_LAYOUT);
@@ -58,10 +60,35 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }
     }
 
+    private void openPresentActivity(int layoutId) {
+        Intent InfoIntent = new Intent(getApplicationContext(), PresentActivity.class);
+        InfoIntent.putExtra(Constant.LAYOUT, layoutId);
+        startActivity(InfoIntent);
+    }
+
     private void openInfoActivity(int layoutId) {
         Intent InfoIntent = new Intent(getApplicationContext(), InfoActivity.class);
         InfoIntent.putExtra(Constant.LAYOUT, layoutId);
         startActivity(InfoIntent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == Constant.REPORT_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                // adding to database
+            } else {
+                Toast.makeText(getApplicationContext(), Constant.DATA_ERROR,
+                        Toast.LENGTH_LONG);
+            }
+        } else if(requestCode == Constant.EDIT_REQUEST_CODE){
+            if (resultCode == RESULT_OK) {
+                // editing database
+            } else {
+                Toast.makeText(getApplicationContext(), Constant.DATA_ERROR,
+                        Toast.LENGTH_LONG);
+            }
+        }
     }
 
     private void initialize(){

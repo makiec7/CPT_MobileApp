@@ -33,4 +33,6 @@ public class Constant {
     public static final int BTN_SHOW_FAULTS = R.id.btn_show_faults;
     public static final int BTN_EDIT_FAULT = R.id.btn_edit_fault;
     public static final int BTN_REPORT_FAULT = R.id.btn_report_fault;
+    public static final int REPORT_REQUEST_CODE = 5000;
+    public static final int EDIT_REQUEST_CODE = 6500;
 }
