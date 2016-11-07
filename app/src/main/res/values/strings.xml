@@ -6,6 +6,8 @@
         - Systemy operacyjne na platformach mobilnych.\n
         Równolegle wykonywana jest aplikacja webowa o tej samej tematyce, która będzie
         współpracowała z aplikacją mobilną.\n
+        Początkowo aplikacja zostanie wdrożona jedynie w Centrum Technologii Informatycznych
+        w celach testowych.\n
         \n
         Wykorzystane technologie:\n
         - MySQL (chmura: Amazon.com)\n
@@ -29,6 +31,12 @@
         - Policja: 997\n
         - Straż Pożarna: 998\n
         - Pogotowie Ratunkowe: 999\n
+    </string>
+
+    <string name="administration_contact">
+        Kontakt z administracją Centrum Technologii Informatycznych:\n
+        - email: cti@adm.p.lodz.pl\n
+        - telefon: + 48 42 631 24 40\n
     </string>
 
 </resources>
