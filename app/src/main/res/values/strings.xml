@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Centrum Pomocy Technicznej</string>
+
     <string name="about_project">Projekt napisany pod katem zaliczenia z przedmiotów:\n
         - Przetwarzanie w chmurze dla aplikacji mobilnych\n
         - Systemy operacyjne na platformach mobilnych.\n
@@ -13,5 +14,21 @@
         - OpenCV for Java (rozpoznawanie obrazu)\n
         \n
         Projekt będzie bazą dla pracy inżynierskiej.</string>
+
+    <string name="emergency_contact">
+        Numery alarmowe:\n
+        - numer alarmowy: 112\n
+        - Pogotowie Rzeczne: 984\n
+        - Ratownictwo Morskie i Górskie: 985\n
+        - Straż Miejska: 986\n
+        - woj. zarządzanie kryzysowe: 987\n
+        - Pogotowie Energetyczne: 991\n
+        - Pogotowie Gazowe: 992\n
+        - Pogotowie Ciepłownicze: 993\n
+        - Pogotowie Wodociągowe: 994\n
+        - Policja: 997\n
+        - Straż Pożarna: 998\n
+        - Pogotowie Ratunkowe: 999\n
+    </string>
 
 </resources>
