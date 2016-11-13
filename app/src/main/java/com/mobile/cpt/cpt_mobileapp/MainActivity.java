@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-/**
- * Created by Makiec on 03.11.2016.
- */
 public class MainActivity extends Activity implements View.OnClickListener{
 
     ImageButton btnAdd;

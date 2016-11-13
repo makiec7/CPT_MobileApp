@@ -1,9 +1,5 @@
 package com.mobile.cpt.cpt_mobileapp;
 
-/**
- * Created by Makiec on 07.11.2016.
- */
-
 public class Constant {
 
     // INTENT EXTRAS

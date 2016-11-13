@@ -4,10 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-/**
- * Created by Makiec on 07.11.2016.
- */
-
 public class PresentActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
