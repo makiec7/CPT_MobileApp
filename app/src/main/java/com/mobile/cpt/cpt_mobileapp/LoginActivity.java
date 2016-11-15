@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.concurrent.ExecutionException;
+
 public class LoginActivity extends AppCompatActivity {
 
     Button loginButton;
@@ -26,17 +28,26 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (loginEdit.getText().toString().equals("180122")
-                        && passwordEdit.getText().toString().equals("180122")) {
-                    Toast.makeText(getApplicationContext(), "Dobre dane logowania",
-                            Toast.LENGTH_LONG);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                } else {
-                    Toast.makeText(getApplicationContext(), "Złe dane logowania",
-                            Toast.LENGTH_LONG);
+                try {
+                    LoginResult lr = new LoginExecution(getApplicationContext()).execute(loginEdit.getText().toString(),
+                            passwordEdit.getText().toString()).get();
+                    if (lr!=null && lr.isLogged) {
+                        Toast.makeText(getApplicationContext(), "Dobre dane logowania",
+                                Toast.LENGTH_LONG);
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Złe dane logowania",
+                                Toast.LENGTH_LONG);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
                 }
+
             }
         });
+
 
 
     }
