@@ -28,17 +28,27 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String login = loginEdit.getText().toString();
+                String password = passwordEdit.getText().toString();
+                if(login.equals("") || password.equals("")){
+                    Toast.makeText(getApplicationContext(), "Username or password must be filled", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 try {
-                    LoginResult lr = new LoginExecution(getApplicationContext()).execute(loginEdit.getText().toString(),
-                            passwordEdit.getText().toString()).get();
-                    if (lr!=null && lr.isLogged) {
+                    LoginResult lr = new LoginExecution(getParent()).execute(login, password).get();
+                    if (lr != null) {
+                        Toast.makeText(getApplicationContext(), "true", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "false", Toast.LENGTH_LONG).show();
+                    }
+                   /* if (lr!=null && lr.isLogged) {
                         Toast.makeText(getApplicationContext(), "Dobre dane logowania",
                                 Toast.LENGTH_LONG);
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Złe dane logowania",
                                 Toast.LENGTH_LONG);
-                    }
+                    }*/
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {
