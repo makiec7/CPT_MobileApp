@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Centrum Pomocy Technicznej</string>
+    <string name="short_app_name">CPT</string>
+
 
     <string name="about_project">Projekt napisany pod katem zaliczenia z przedmiotów:\n
         - Przetwarzanie w chmurze dla aplikacji mobilnych\n

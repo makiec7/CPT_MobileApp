@@ -1,16 +1,18 @@
-package com.mobile.cpt.cpt_mobileapp;
+package com.mobile.cpt.cpt_mobileapp.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobile.cpt.cpt_mobileapp.R;
+import com.mobile.cpt.cpt_mobileapp.async.LoginAsync;
+import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
+
+import java.io.Serializable;
 import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,13 +41,15 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 try {
-                   LoginResult lr = new LoginExecution(getParent()).execute(login, password).get();
+                   LoginModel lr = new LoginAsync(getParent()).execute(login, password).get();
                    if (lr!=null) {
                         if (lr.isLogged){
                             Toast.makeText(getApplicationContext(), "Zalogowany jako: " + lr.index_no,
                                     Toast.LENGTH_LONG).show();
-                            startActivityForResult(new Intent(getApplicationContext(),
-                                    MainActivity.class), 10);
+                            Intent toMain = new Intent(getApplicationContext(),
+                                    MainActivity.class);
+                            toMain.putExtra("userData", (Serializable) lr);
+                            startActivityForResult(toMain, 10);
                         }
                     } else {
                         Toast.makeText(getApplicationContext(), "Złe dane logowania",

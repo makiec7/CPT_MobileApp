@@ -1,12 +1,14 @@
-package com.mobile.cpt.cpt_mobileapp;
+package com.mobile.cpt.cpt_mobileapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.mobile.cpt.cpt_mobileapp.Constant;
+import com.mobile.cpt.cpt_mobileapp.R;
 
 public class MainActivity extends Activity implements View.OnClickListener{
 

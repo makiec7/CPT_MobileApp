@@ -1,8 +1,10 @@
-package com.mobile.cpt.cpt_mobileapp;
+package com.mobile.cpt.cpt_mobileapp.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.mobile.cpt.cpt_mobileapp.Constant;
 
 public class InfoActivity extends Activity {
 

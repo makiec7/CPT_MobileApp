@@ -1,14 +1,14 @@
-package com.mobile.cpt.cpt_mobileapp;
+package com.mobile.cpt.cpt_mobileapp.model;
 
 /**
  * Created by Makiec on 14.11.2016.
  */
 
-public class LoginResult {
+public class LoginModel {
     public boolean isLogged;
     public String index_no;
 
-    public LoginResult(boolean isLogged, String index_no){
+    public LoginModel(boolean isLogged, String index_no){
         this.isLogged = isLogged;
         this.index_no = index_no;
     }

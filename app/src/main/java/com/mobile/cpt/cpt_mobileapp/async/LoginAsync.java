@@ -1,35 +1,28 @@
-package com.mobile.cpt.cpt_mobileapp;
+package com.mobile.cpt.cpt_mobileapp.async;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
-import org.json.JSONException;
+import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
+
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.logging.Logger;
 
-public class LoginExecution extends AsyncTask<String, String, LoginResult> {
+public class LoginAsync extends AsyncTask<String, String, LoginModel> {
     private Activity activity;
 
-    public LoginExecution(Activity activity) {
+    public LoginAsync(Activity activity) {
         this.activity = activity;
     }
 
     @Override
-    protected LoginResult doInBackground(String... arg0) {
+    protected LoginModel doInBackground(String... arg0) {
 
         String indexNo = arg0[0];
         String password = arg0[1];
@@ -57,7 +50,7 @@ public class LoginExecution extends AsyncTask<String, String, LoginResult> {
                 String login_status = (String) jsonObj.get("login_status");
                 if (login_status.equals("true")){
                     Log.i("islogged", login_status);
-                    return new LoginResult(true, (String) jsonObj.get("user"));
+                    return new LoginModel(true, (String) jsonObj.get("user"));
                 } else {
                     Log.i("islogged", login_status);
                     return null;
