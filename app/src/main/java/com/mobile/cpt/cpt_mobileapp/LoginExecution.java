@@ -21,7 +21,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.logging.Logger;
 
-public class LoginExecution extends AsyncTask<String, String, Boolean> {
+public class LoginExecution extends AsyncTask<String, String, LoginResult> {
     private Activity activity;
 
     public LoginExecution(Activity activity) {
@@ -29,7 +29,7 @@ public class LoginExecution extends AsyncTask<String, String, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(String... arg0) {
+    protected LoginResult doInBackground(String... arg0) {
 
         String indexNo = arg0[0];
         String password = arg0[1];
@@ -43,29 +43,30 @@ public class LoginExecution extends AsyncTask<String, String, Boolean> {
             link = "http://cpt4cti.000webhostapp.com/login.php" + data;
             Log.i("link", link);
             URL url = new URL(link);
-            Log.i("url",url.toString());
+            Log.i("URL",url.toString());
             conn = (HttpURLConnection) url.openConnection();
             conn.setDoInput(true);
-            Log.i("url2",url.toString());
             conn.connect();
             bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            Log.i("url3",url.toString());
-            Log.i("content", bufferedReader.readLine().toString());
-
-            String jsonStr = bufferedReader.readLine();
+            String jsonStr = bufferedReader.readLine().toString();
             JSONObject jsonObj = new JSONObject(jsonStr);
-            Log.i("json", jsonObj.toString());
+            Log.i("JSON", jsonObj.toString());
             bufferedReader.close();
             conn.disconnect();
             if (jsonStr != null) {
-                //JSONObject jsonObj = new JSONObject(jsonStr);
-                Log.i("json", jsonObj.toString());
-                return false;
+                String login_status = (String) jsonObj.get("login_status");
+                if (login_status.equals("true")){
+                    Log.i("islogged", login_status);
+                    return new LoginResult(true, (String) jsonObj.get("user"));
+                } else {
+                    Log.i("islogged", login_status);
+                    return null;
+                }
             } else {
-                return false;
+                return null;
             }
         } catch (Exception e) {
-            return false;
+            return null;
         }
     }
 
