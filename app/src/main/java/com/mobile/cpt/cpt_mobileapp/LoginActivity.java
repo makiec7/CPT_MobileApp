@@ -3,6 +3,7 @@ package com.mobile.cpt.cpt_mobileapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -28,27 +29,33 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String login = loginEdit.getText().toString();
                 String password = passwordEdit.getText().toString();
-                if(login.equals("") || password.equals("")){
+
+               /* if(login.equals("") || password.equals("")){
                     Toast.makeText(getApplicationContext(), "Username or password must be filled", Toast.LENGTH_LONG).show();
                     return;
-                }
+                }*/
                 try {
-                    LoginResult lr = new LoginExecution(getParent()).execute(login, password).get();
-                    if (lr != null) {
+                    Boolean lr = new LoginExecution(getParent()).execute(login, password).get();
+                    Log.i("lr", lr.toString()+ "działa");
+                    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Toast.makeText(getApplicationContext(), lr.toString(),
+                            Toast.LENGTH_LONG);
+                    /*if (lr != null) {
                         Toast.makeText(getApplicationContext(), "true", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "false", Toast.LENGTH_LONG).show();
-                    }
-                   /* if (lr!=null && lr.isLogged) {
+                    }*/
+                   if (lr!=false) {
                         Toast.makeText(getApplicationContext(), "Dobre dane logowania",
                                 Toast.LENGTH_LONG);
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Złe dane logowania",
                                 Toast.LENGTH_LONG);
-                    }*/
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (ExecutionException e) {

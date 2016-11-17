@@ -12,4 +12,9 @@ public class LoginResult {
         this.isLogged = isLogged;
         this.index_no = index_no;
     }
+
+    @Override
+    public String toString() {
+        return index_no;
+    }
 }
