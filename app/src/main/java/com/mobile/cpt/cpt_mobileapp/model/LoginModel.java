@@ -1,7 +1,9 @@
 package com.mobile.cpt.cpt_mobileapp.model;
 
 
-public class LoginModel {
+import java.io.Serializable;
+
+public class LoginModel implements Serializable{
     private boolean isLogged;
     private String index_no;
 

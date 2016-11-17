@@ -39,7 +39,7 @@
                     android:id="@+id/issuer_id_layout"
                     android:layout_margin="5dp">
                     <TextView
-                    android:text="Issuer:"
+                    android:text="Twój numer indeksu:"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -194,7 +194,7 @@
                     android:id="@+id/descriptiono_layout"
                     android:layout_margin="5dp">
                     <TextView
-                        android:text="Numer sali:"
+                        android:text="Opis problemu:"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -1,10 +1,11 @@
 package com.mobile.cpt.cpt_mobileapp.model;
 
+import java.io.Serializable;
+
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
-public class FaultModel {
+public class FaultModel implements Serializable {
 
-    private int id;
     private int issuer;
     private String phone_no;
     private String topic;
@@ -17,10 +18,9 @@ public class FaultModel {
     private String handler;
     private int priority;
 
-    public FaultModel(int id, int issuer, String phone_no, String topic, String obj_name,
+    public FaultModel(int issuer, String phone_no, String topic, String obj_name,
                       String description, int obj_no, int room_no, int floor_no, int status,
                       String handler, int priority){
-        this.id=id;
         this.issuer=issuer;
         this.phone_no=phone_no;
         this.topic=topic;
@@ -44,10 +44,6 @@ public class FaultModel {
 
     public void setHandler(String handler) {
         this.handler = handler;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setIssuer(int issuer) {
@@ -84,10 +80,6 @@ public class FaultModel {
 
     public int getFloor_no() {
         return floor_no;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public int getIssuer() {

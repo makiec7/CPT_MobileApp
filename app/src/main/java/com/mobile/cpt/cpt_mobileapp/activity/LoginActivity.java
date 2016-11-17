@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                                             Toast.LENGTH_LONG).show();
                                     Intent toMain = new Intent(getApplicationContext(),
                                             MainActivity.class);
-                                    toMain.putExtra(USER_DATA, (Serializable) lr);
+                                    toMain.putExtra(USER_DATA, lr);
                                     startActivityForResult(toMain, MAIN_ACTIVITY_REQ_CODE);
                                 } else {
                                     Toast.makeText(getApplicationContext(), WRONG_LOGIN_DATA,
