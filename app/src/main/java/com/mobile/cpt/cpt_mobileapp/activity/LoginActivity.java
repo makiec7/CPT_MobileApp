@@ -53,9 +53,12 @@ public class LoginActivity extends AppCompatActivity {
                                             MainActivity.class);
                                     toMain.putExtra("userData", (Serializable) lr);
                                     startActivityForResult(toMain, 10);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Złe dane logowania",
+                                            Toast.LENGTH_LONG).show();
                                 }
                             } else {
-                                Toast.makeText(getApplicationContext(), "Złe dane logowania",
+                                Toast.makeText(getApplicationContext(), "Błąd połączenia z serwerem",
                                         Toast.LENGTH_LONG).show();
                             }
                         } catch (InterruptedException e) {
