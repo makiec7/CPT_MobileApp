@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.R;
 
@@ -24,81 +25,80 @@ public class MainActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(MAIN_LAYOUT);
         initialize();
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case Constant.BTN_REPORT_FAULT:
+            case BTN_REPORT_FAULT:
                 startActivityForResult(new Intent(getApplicationContext(), ReportActivity.class),
-                        Constant.REPORT_REQUEST_CODE);
+                        REPORT_REQUEST_CODE);
                 break;
-            case Constant.BTN_EDIT_FAULT:
+            case BTN_EDIT_FAULT:
                 startActivityForResult(new Intent(getApplicationContext(), ReportActivity.class),
-                        Constant.EDIT_REQUEST_CODE);
+                        EDIT_REQUEST_CODE);
                 break;
-            case Constant.BTN_SHOW_FAULTS:
-                openPresentActivity(Constant.BTN_SHOW_FAULTS);
+            case BTN_SHOW_FAULTS:
+                openPresentActivity(BTN_SHOW_FAULTS);
                 break;
-            case Constant.BTN_LOCAL_FAULTS:
-                openPresentActivity(Constant.BTN_LOCAL_FAULTS);
+            case BTN_LOCAL_FAULTS:
+                openPresentActivity(BTN_LOCAL_FAULTS);
                 break;
-            case Constant.BTN_ALARMS:
-                openInfoActivity(Constant.EMERGENCY_LAYOUT);
+            case BTN_ALARMS:
+                openInfoActivity(EMERGENCY_LAYOUT);
                 break;
-            case Constant.BTN_ABOUT:
-                openInfoActivity(Constant.ABOUT_LAYOUT);
+            case BTN_ABOUT:
+                openInfoActivity(ABOUT_LAYOUT);
                 break;
-            case Constant.BTN_CONTACT:
-                openInfoActivity(Constant.CONTACT_LAYOUT);
+            case BTN_CONTACT:
+                openInfoActivity(CONTACT_LAYOUT);
                 break;
-            case Constant.BTN_LOGOUT:
+            case BTN_LOGOUT:
+                finish();
                 break;
         }
     }
 
     private void openPresentActivity(int layoutId) {
         Intent InfoIntent = new Intent(getApplicationContext(), PresentActivity.class);
-        InfoIntent.putExtra(Constant.LAYOUT, layoutId);
+        InfoIntent.putExtra(LAYOUT, layoutId);
         startActivity(InfoIntent);
     }
 
     private void openInfoActivity(int layoutId) {
         Intent InfoIntent = new Intent(getApplicationContext(), InfoActivity.class);
-        InfoIntent.putExtra(Constant.LAYOUT, layoutId);
+        InfoIntent.putExtra(LAYOUT, layoutId);
         startActivity(InfoIntent);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == Constant.REPORT_REQUEST_CODE) {
+        if (requestCode == REPORT_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                // adding to database
+                add();
             } else {
-                Toast.makeText(getApplicationContext(), Constant.DATA_ERROR,
-                        Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG);
             }
-        } else if(requestCode == Constant.EDIT_REQUEST_CODE){
+        } else if(requestCode == EDIT_REQUEST_CODE){
             if (resultCode == RESULT_OK) {
-                // editing database
+                edit();
             } else {
-                Toast.makeText(getApplicationContext(), Constant.DATA_ERROR,
-                        Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG);
             }
         }
     }
 
     private void initialize(){
-        btnAdd = (ImageButton) findViewById(Constant.BTN_REPORT_FAULT);
-        btnEdit = (ImageButton) findViewById(Constant.BTN_EDIT_FAULT);
-        btnMyFaults = (ImageButton) findViewById(Constant.BTN_SHOW_FAULTS);
-        btnShowAll = (ImageButton) findViewById(Constant.BTN_LOCAL_FAULTS);
-        btnEmergency = (ImageButton) findViewById(Constant.BTN_ALARMS);
-        btnAbout = (ImageButton) findViewById(Constant.BTN_ABOUT);
-        btnContact = (ImageButton) findViewById(Constant.BTN_CONTACT);
-        btnLogout = (ImageButton) findViewById(Constant.BTN_LOGOUT);
+        btnAdd = (ImageButton) findViewById(BTN_REPORT_FAULT);
+        btnEdit = (ImageButton) findViewById(BTN_EDIT_FAULT);
+        btnMyFaults = (ImageButton) findViewById(BTN_SHOW_FAULTS);
+        btnShowAll = (ImageButton) findViewById(BTN_LOCAL_FAULTS);
+        btnEmergency = (ImageButton) findViewById(BTN_ALARMS);
+        btnAbout = (ImageButton) findViewById(BTN_ABOUT);
+        btnContact = (ImageButton) findViewById(BTN_CONTACT);
+        btnLogout = (ImageButton) findViewById(BTN_LOGOUT);
         btnAdd.setOnClickListener(this);
         btnEdit.setOnClickListener(this);
         btnMyFaults.setOnClickListener(this);
@@ -107,5 +107,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btnAbout.setOnClickListener(this);
         btnContact.setOnClickListener(this);
         btnLogout.setOnClickListener(this);
+    }
+
+    private boolean add(){
+        boolean result = false;
+        return result;
+    }
+
+    private boolean edit() {
+        boolean result = false;
+        return result;
     }
 }

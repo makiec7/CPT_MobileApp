@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
+import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.LoginAsync;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
@@ -20,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     Button loginButton;
     EditText loginEdit;
     EditText passwordEdit;
@@ -27,38 +30,38 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        loginButton = (Button) findViewById(R.id.btn_login);
-        loginEdit = (EditText) findViewById(R.id.et_login);
-        passwordEdit = (EditText) findViewById(R.id.et_password);
+        setContentView(LOGIN_LAYOUT);
+        loginButton = (Button) findViewById(BTN_TO_LOG);
+        loginEdit = (EditText) findViewById(ET_LOGIN);
+        passwordEdit = (EditText) findViewById(ET_PASSWORD);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                     if (checkConnection()) {
                         String login = loginEdit.getText().toString();
                         String password = passwordEdit.getText().toString();
-
-                        if (login.equals("") || password.equals("")) {
-                            Toast.makeText(getApplicationContext(), "Wpisz dane logowania",
+                        if (login.equals(NULL_STRING) || password.equals(NULL_STRING)) {
+                            Toast.makeText(getApplicationContext(), INSERT_LOGIN_DATA,
                                     Toast.LENGTH_LONG).show();
-                            return;
                         }
                         try {
-                            LoginModel lr = new LoginAsync(getParent()).execute(login, password).get();
+                            LoginModel lr = new LoginAsync(getParent()).execute(login,
+                                    password).get();
                             if (lr != null) {
-                                if (lr.isLogged) {
-                                    Toast.makeText(getApplicationContext(), "Zalogowany jako: " + lr.index_no,
+                                if (lr.isLogged()) {
+                                    Toast.makeText(getApplicationContext(),
+                                            LOGGED_AS + lr.getIndex_no(),
                                             Toast.LENGTH_LONG).show();
                                     Intent toMain = new Intent(getApplicationContext(),
                                             MainActivity.class);
-                                    toMain.putExtra("userData", (Serializable) lr);
-                                    startActivityForResult(toMain, 10);
+                                    toMain.putExtra(USER_DATA, (Serializable) lr);
+                                    startActivityForResult(toMain, MAIN_ACTIVITY_REQ_CODE);
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Złe dane logowania",
+                                    Toast.makeText(getApplicationContext(), WRONG_LOGIN_DATA,
                                             Toast.LENGTH_LONG).show();
                                 }
                             } else {
-                                Toast.makeText(getApplicationContext(), "Błąd połączenia z serwerem",
+                                Toast.makeText(getApplicationContext(), SERVER_OUT_OF_CONNECTION,
                                         Toast.LENGTH_LONG).show();
                             }
                         } catch (InterruptedException e) {
@@ -67,14 +70,12 @@ public class LoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Brak połączenia z internetem",
+                        Toast.makeText(getApplicationContext(), NOT_CONNECTED_TO_INTERNET,
                                 Toast.LENGTH_LONG).show();
                     }
-
             }
         });
     }
-
 
     public boolean checkConnection(){
         ConnectivityManager cm =
@@ -82,8 +83,6 @@ public class LoginActivity extends AppCompatActivity {
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
-
-
 
 
     /**

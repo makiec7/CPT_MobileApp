@@ -4,11 +4,14 @@ public class Constant {
 
     // INTENT EXTRAS
     public static final String LAYOUT = "LAYOUT";
+    public static final String USER_DATA = "userData";
 
     // REQUEST CODES
     public static final int INFO_REQUEST_CODE = 6000;
 
     // LAYOUTS
+    public static final int MAIN_LAYOUT = R.layout.activity_main;
+    public static final int LOGIN_LAYOUT = R.layout.activity_login;
     public static final int CONTACT_LAYOUT = R.layout.activity_contact;
     public static final int ABOUT_LAYOUT = R.layout.activity_about;
     public static final int EMERGENCY_LAYOUT = R.layout.activity_emergency;
@@ -19,6 +22,11 @@ public class Constant {
 
     // ERRORS
     public static final String DATA_ERROR = "Nie można wczytać danych";
+    public static final String SERVER_OUT_OF_CONNECTION = "Błąd połączenia z serwerem";
+    public static final String NOT_CONNECTED_TO_INTERNET = "Brak połączenia z internetem";
+    public static final String INSERT_LOGIN_DATA = "Wpisz dane logowania";
+    public static final String LOGGED_AS = "Zalogowany jako: ";
+    public static final String WRONG_LOGIN_DATA = "Złe dane logowania";
 
     // BUTTONS
     public static final int BTN_LOGOUT = R.id.btn_logout;
@@ -28,7 +36,47 @@ public class Constant {
     public static final int BTN_LOCAL_FAULTS = R.id.btn_local_faults;
     public static final int BTN_SHOW_FAULTS = R.id.btn_show_faults;
     public static final int BTN_EDIT_FAULT = R.id.btn_edit_fault;
+    public static final int BTN_TO_LOG = R.id.btn_login;
     public static final int BTN_REPORT_FAULT = R.id.btn_report_fault;
+
+    // EDIT TEXT
+    public static final int ET_LOGIN = R.id.et_login;
+    public static final int ET_PASSWORD = R.id.et_password;
+
+    // CODES
     public static final int REPORT_REQUEST_CODE = 5000;
     public static final int EDIT_REQUEST_CODE = 6500;
+    public static final int MAIN_ACTIVITY_REQ_CODE = 10;
+
+    // LOGGERS
+    public static final String IS_LOGGED = "islogged";
+    public static final String JSON = "JSON";
+    public static final String URL = "URL";
+    public static final String LINK = "link";
+
+    // BOOLEAN STRING
+    public static final String TRUE = "true";
+    public static final String NULL_STRING = "";
+
+    // JSON
+    public static final String USER = "user";
+    public static final String LOGIN_STATUS = "login_status";
+
+    // TIMEOUT
+    public static final int TIMEOUT = 1000;
+
+    // API LINK
+    public static final String HTTP_LOGIN = "http://cpt4cti.000webhostapp.com/login.php";
+
+    // FOR API LINK
+    public static final String ASK = "?";
+    public static final String AND = "&";
+    public static final String PASSWORD_EQ = "password=";
+    public static final String INDEX_NO_EQ = "index_no=";
+
+    // OTHER
+    public static final String UTF_8 = "UTF-8";
+
+
+
 }
