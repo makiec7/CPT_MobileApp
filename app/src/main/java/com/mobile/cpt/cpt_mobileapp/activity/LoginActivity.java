@@ -1,6 +1,9 @@
 package com.mobile.cpt.cpt_mobileapp.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,41 +34,50 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                    if (checkConnection()) {
+                        String login = loginEdit.getText().toString();
+                        String password = passwordEdit.getText().toString();
 
-                String login = loginEdit.getText().toString();
-                String password = passwordEdit.getText().toString();
-
-                if(login.equals("") || password.equals("")){
-                    Toast.makeText(getApplicationContext(), "Wpisz dane logowania",
-                            Toast.LENGTH_LONG).show();
-                    return;
-                }
-                try {
-                   LoginModel lr = new LoginAsync(getParent()).execute(login, password).get();
-                   if (lr!=null) {
-                        if (lr.isLogged){
-                            Toast.makeText(getApplicationContext(), "Zalogowany jako: " + lr.index_no,
+                        if (login.equals("") || password.equals("")) {
+                            Toast.makeText(getApplicationContext(), "Wpisz dane logowania",
                                     Toast.LENGTH_LONG).show();
-                            Intent toMain = new Intent(getApplicationContext(),
-                                    MainActivity.class);
-                            toMain.putExtra("userData", (Serializable) lr);
-                            startActivityForResult(toMain, 10);
+                            return;
+                        }
+                        try {
+                            LoginModel lr = new LoginAsync(getParent()).execute(login, password).get();
+                            if (lr != null) {
+                                if (lr.isLogged) {
+                                    Toast.makeText(getApplicationContext(), "Zalogowany jako: " + lr.index_no,
+                                            Toast.LENGTH_LONG).show();
+                                    Intent toMain = new Intent(getApplicationContext(),
+                                            MainActivity.class);
+                                    toMain.putExtra("userData", (Serializable) lr);
+                                    startActivityForResult(toMain, 10);
+                                }
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Złe dane logowania",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), "Złe dane logowania",
+                        Toast.makeText(getApplicationContext(), "Brak połączenia z internetem",
                                 Toast.LENGTH_LONG).show();
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
 
             }
         });
+    }
 
 
-
+    public boolean checkConnection(){
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
 

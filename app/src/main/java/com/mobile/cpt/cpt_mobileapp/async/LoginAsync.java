@@ -1,6 +1,7 @@
 package com.mobile.cpt.cpt_mobileapp.async;
 
 import android.app.Activity;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -40,6 +41,7 @@ public class LoginAsync extends AsyncTask<String, String, LoginModel> {
             conn = (HttpURLConnection) url.openConnection();
             conn.setDoInput(true);
             conn.connect();
+
             bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String jsonStr = bufferedReader.readLine().toString();
             JSONObject jsonObj = new JSONObject(jsonStr);
@@ -62,6 +64,7 @@ public class LoginAsync extends AsyncTask<String, String, LoginModel> {
             return null;
         }
     }
+
 
 
 }
