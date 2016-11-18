@@ -16,18 +16,19 @@ import java.net.URLEncoder;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
-public class ReportAsync extends AsyncTask <FaultModel, String, Boolean>{
+public class ReportAsync extends AsyncTask<FaultModel, String, Boolean>{
 
     @Override
     protected Boolean doInBackground(FaultModel... faultModels) {
         // if (!InetAddress.getByName(HTTP_LOGIN).isReachable(TIMEOUT)) {
         if (true) {
             FaultModel fault = faultModels[0];
+            Log.i("fault in async", fault.toString());
             String link;
             HttpURLConnection conn;
             BufferedReader bufferedReader;
             try {
-                link = "https://cpt4cti.000webhostapp.com/add_fault.php";
+                link = HTTP_REPORT;
                 link += ASK + "issuer=" + URLEncoder.encode(Integer.toString(fault.getIssuer()), UTF_8);
                 link += AND + "phone_no=" + URLEncoder.encode(fault.getPhone_no(), UTF_8);
                 link += AND + "topic=" + URLEncoder.encode(fault.getTopic(), UTF_8);
@@ -39,9 +40,7 @@ public class ReportAsync extends AsyncTask <FaultModel, String, Boolean>{
                 link += AND + "status=" + URLEncoder.encode(Integer.toString(fault.getStatus()), UTF_8);
                 link += AND + "handler=" + URLEncoder.encode(fault.getHandler(), UTF_8);
                 link += AND + "priority=" + URLEncoder.encode(Integer.toString(fault.getPriority()), UTF_8);
-
-                Log.i(LINK, link);
-                java.net.URL url = new URL(link);
+                URL url = new URL(link);
                 Log.i(URL, url.toString());
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setConnectTimeout(TIMEOUT);
@@ -54,18 +53,18 @@ public class ReportAsync extends AsyncTask <FaultModel, String, Boolean>{
                 bufferedReader.close();
                 conn.disconnect();
                 if (jsonStr != null) {
-                    String query_status = (String) jsonObj.get("query_status");
+                    String query_status = (String) jsonObj.get(QUERY_STATUS);
                     if (query_status.equals(TRUE)) {
-                        Log.i("query_success", query_status);
+                        Log.i(QUERY_STATUS, query_status);
                         return true;
                     } else {
-                        Log.i("query_success", query_status);
+                        Log.i(QUERY_STATUS, query_status);
                         return false;
                     }
                 } else {
+                    Log.i(QUERY_STATUS, "false");
                     return false;
                 }
-
             } catch (Exception e) {
                 return false;
             }

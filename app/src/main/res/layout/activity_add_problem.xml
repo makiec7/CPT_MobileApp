@@ -208,6 +208,21 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/et_description" />
                 </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:id="@+id/add_bt_layout"
+            android:layout_margin="5dp">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
+                android:id="@+id/btn_add"
+                android:text="Dodaj zgłoszenie"/>
+            </LinearLayout>
 
 
 

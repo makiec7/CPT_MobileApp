@@ -3,6 +3,7 @@ package com.mobile.cpt.cpt_mobileapp.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -131,7 +132,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
 
     private boolean add(FaultModel faultModel) throws ExecutionException, InterruptedException {
-
+        Log.i("fault in main", faultModel.toString());
         return new ReportAsync().execute(faultModel).get();
     }
 

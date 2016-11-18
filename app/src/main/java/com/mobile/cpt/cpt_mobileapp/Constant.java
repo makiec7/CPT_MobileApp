@@ -16,7 +16,7 @@ public class Constant {
     public static final int ABOUT_LAYOUT = R.layout.activity_about;
     public static final int EMERGENCY_LAYOUT = R.layout.activity_emergency;
     public static final int ALL_PROBLEMS_LAYOUT = R.layout.activity_all_problems;
-    public static final int USER_PROBLEMS_LAYOUT = R.layout.activity_my_problems;
+    public static final int USER_PROBLEMS_LAYOUT = R.layout.activity_present_faults;
     public static final int EDIT_LAYOUT = R.layout.activity_edit_problem;
     public static final int ADD_LAYOUT = R.layout.activity_add_problem;
 
@@ -61,12 +61,16 @@ public class Constant {
     // JSON
     public static final String USER = "user";
     public static final String LOGIN_STATUS = "login_status";
+    public static final String QUERY_STATUS = "query_status";
 
     // TIMEOUT
     public static final int TIMEOUT = 1000;
 
     // API LINK
     public static final String HTTP_LOGIN = "http://cpt4cti.000webhostapp.com/login.php";
+    public static final String HTTP_REPORT = "https://cpt4cti.000webhostapp.com/add_fault.php";
+    public static final String HTTP_PRESENT_USER_FAULTS = "http://cpt4cti.000webhostapp.com/select_fault.php";
+    public static final String HTTP_PRESENT_ALL_FAULTS = "http://cpt4cti.000webhostapp.com/select_all_faults.php";
 
     // FOR API LINK
     public static final String ASK = "?";
@@ -76,7 +80,7 @@ public class Constant {
 
     // OTHER
     public static final String UTF_8 = "UTF-8";
-
-
     public static final String FAULT = "fault";
+
+
 }

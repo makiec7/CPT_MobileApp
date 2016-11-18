@@ -1,5 +1,7 @@
 package com.mobile.cpt.cpt_mobileapp.model;
 
+import org.json.JSONArray;
+
 import java.io.Serializable;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
@@ -32,6 +34,11 @@ public class FaultModel implements Serializable {
         this.status=status;
         this.handler=handler;
         this.priority=priority;
+    }
+
+    @Override
+    public String toString() {
+        return this.issuer+this.phone_no+this.topic+this.obj_name+this.description+this.obj_no+this.room_no+this.floor_no+this.status+this.handler+this.priority;
     }
 
     public void setDescription(String description) {
@@ -120,6 +127,10 @@ public class FaultModel implements Serializable {
 
     public String getTopic() {
         return topic;
+    }
+
+    public FaultModel fromJSON(JSONArray jsonArray){
+
     }
 
 }
