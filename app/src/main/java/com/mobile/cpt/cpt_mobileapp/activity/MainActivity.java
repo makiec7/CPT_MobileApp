@@ -9,13 +9,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
-import com.mobile.cpt.cpt_mobileapp.Constant;
-import com.mobile.cpt.cpt_mobileapp.R;
+
 import com.mobile.cpt.cpt_mobileapp.async.ReportAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
-import java.io.Serializable;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends Activity implements View.OnClickListener{
@@ -28,16 +26,19 @@ public class MainActivity extends Activity implements View.OnClickListener{
     ImageButton btnAbout;
     ImageButton btnContact;
     ImageButton btnLogout;
-    Intent forReportActivity;
+    LoginModel user;
+    Intent forReport;
+    Intent forUserPresent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(MAIN_LAYOUT);
-        forReportActivity = new Intent(getApplicationContext(), ReportActivity.class);
+        forUserPresent = new Intent(getApplicationContext(), PresentActivity.class);
+        forReport = new Intent(getApplicationContext(), ReportActivity.class);
         Intent userIntent = getIntent();
-        LoginModel user = (LoginModel) userIntent.getExtras().get(USER_DATA);
-        forReportActivity.putExtra(USER_DATA, user);
+        user = (LoginModel) userIntent.getExtras().get(USER_DATA);
+        forReport.putExtra(USER_DATA, user);
         initialize();
     }
 
@@ -45,17 +46,20 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()) {
             case BTN_REPORT_FAULT:
-                startActivityForResult(forReportActivity, REPORT_REQUEST_CODE);
+                startActivityForResult(forReport, REPORT_REQUEST_CODE);
                 break;
             case BTN_EDIT_FAULT:
                 startActivityForResult(new Intent(getApplicationContext(), ReportActivity.class),
                         EDIT_REQUEST_CODE);
                 break;
             case BTN_SHOW_FAULTS:
-                openPresentActivity(BTN_SHOW_FAULTS);
+
+                forUserPresent.putExtra(USER_DATA, user);
+                startActivity(forUserPresent);
                 break;
             case BTN_LOCAL_FAULTS:
-                openPresentActivity(BTN_LOCAL_FAULTS);
+                forUserPresent.putExtra(USER_DATA, new LoginModel(false, ""));
+                startActivity(forUserPresent);
                 break;
             case BTN_ALARMS:
                 openInfoActivity(EMERGENCY_LAYOUT);

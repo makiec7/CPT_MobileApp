@@ -23,11 +23,14 @@ public class PresentActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         List<FaultModel> faults = null;
-        Bundle b = getIntent().getExtras();
         Intent fromMain = getIntent();
         LoginModel user = (LoginModel) fromMain.getExtras().get(USER_DATA);
         try {
-            faults = new PresentAsync().execute().get();
+            if (user.isLogged()) {
+                faults = new PresentAsync().execute(user.getIndex_no()).get();
+            } else {
+                faults = new PresentAsync().execute().get();
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
             finish();
