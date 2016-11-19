@@ -1,13 +1,20 @@
 package com.mobile.cpt.cpt_mobileapp.model;
 
+import android.util.Log;
+
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class FaultModel implements Serializable {
 
+    private int id;
     private int issuer;
     private String phone_no;
     private String topic;
@@ -36,6 +43,23 @@ public class FaultModel implements Serializable {
         this.priority=priority;
     }
 
+    public FaultModel(int id,int issuer, String phone_no, String topic, String obj_name,
+                      String description, int obj_no, int room_no, int floor_no, int status,
+                      String handler, int priority){
+        this.id = id;
+        this.issuer=issuer;
+        this.phone_no=phone_no;
+        this.topic=topic;
+        this.obj_name=obj_name;
+        this.description=description;
+        this.obj_no=obj_no;
+        this.room_no=room_no;
+        this.floor_no=floor_no;
+        this.status=status;
+        this.handler=handler;
+        this.priority=priority;
+    }
+
     @Override
     public String toString() {
         return this.issuer+this.phone_no+this.topic+this.obj_name+this.description+this.obj_no+this.room_no+this.floor_no+this.status+this.handler+this.priority;
@@ -43,6 +67,14 @@ public class FaultModel implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setFloor_no(int floor_no) {
@@ -129,8 +161,31 @@ public class FaultModel implements Serializable {
         return topic;
     }
 
-    public FaultModel fromJSON(JSONArray jsonArray){
+    public static FaultModel fromJSONObj(JSONObject jObj){
 
+        try {
+            return new FaultModel(jObj.getInt("id"), jObj.getInt("issuer"), jObj.getString("phone_no"),
+                    jObj.getString("topic"), jObj.getString("obj_name"), jObj.getString("description"),
+                    jObj.getInt("obj_no"), jObj.getInt("room_no"), jObj.getInt("floor_no"),
+                    jObj.getInt("status"), jObj.getString("handler"),jObj.getInt("priority"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
+    public static List<FaultModel> fromJSONArray(JSONObject jObj){
+        List<FaultModel> faultModels = new ArrayList<FaultModel>();
+        try {
+            JSONArray jArray = jObj.getJSONArray("list");
+            for (int i=0; i<jArray.length(); i++){
+                FaultModel tmp = fromJSONObj((JSONObject) jArray.get(i));
+                faultModels.add(tmp);
+            }
+            return faultModels;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return faultModels;
+        }
+    }
 }

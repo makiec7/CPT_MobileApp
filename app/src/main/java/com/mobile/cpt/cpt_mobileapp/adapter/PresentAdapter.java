@@ -1,4 +1,4 @@
-package com.mobile.cpt.cpt_mobileapp;
+package com.mobile.cpt.cpt_mobileapp.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,13 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
 import java.util.List;
-
-/**
- * Created by Makiec on 18.11.2016.
- */
 
 public class PresentAdapter extends ArrayAdapter<FaultModel> {
     public PresentAdapter(Context context, int resource, List<FaultModel> objects) {
@@ -42,14 +39,15 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
         TextView tw_status = (TextView) convertView.findViewById(R.id.tw_status);
         TextView tw_topic = (TextView) convertView.findViewById(R.id.tw_topic);
 
+        tw_id.setText(Integer.toString(faultModel.getId()));
         tw_description.setText(faultModel.getDescription());
-        tw_floor_no.setText(faultModel.getFloor_no());
-        tw_issuer.setText(faultModel.getIssuer());
+        tw_floor_no.setText(Integer.toString(faultModel.getFloor_no()));
+        tw_issuer.setText(Integer.toString(faultModel.getIssuer()));
         tw_obj_name.setText(faultModel.getObj_name());
-        tw_obj_no.setText(faultModel.getObj_no());
-        tw_priority.setText(faultModel.getPriority());
-        tw_room_no.setText(faultModel.getRoom_no());
-        tw_status.setText(faultModel.getStatus());
+        tw_obj_no.setText(Integer.toString(faultModel.getObj_no()));
+        tw_priority.setText(Integer.toString(faultModel.getPriority()));
+        tw_room_no.setText(Integer.toString(faultModel.getRoom_no()));
+        tw_status.setText(Integer.toString(faultModel.getStatus()));
         tw_topic.setText(faultModel.getTopic());
 
         return convertView;

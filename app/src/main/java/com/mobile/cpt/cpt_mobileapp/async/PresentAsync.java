@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -24,11 +25,9 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
 
         if (strings.length > 0){
             List<FaultModel> list = selectUsersFaults(strings[0]);
-            Log.i("list user async", list.toString());
             return selectUsersFaults(strings[0]);
         } else {
             List<FaultModel> list =selectAllFaults();
-            Log.i("list user async", list.toString());
             return selectAllFaults();
         }
     }
@@ -50,15 +49,10 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
             JSONObject jsonObj = new JSONObject(jsonStr);
             Log.i(JSON, jsonObj.toString());
             bufferedReader.close();
-
-            Log.i("list", "1");
             conn.disconnect();
-
-            Log.i("list", "2");
             if (jsonObj != null) {
-                Log.i("list", "4");
 
-                List<FaultModel> faultsJSON = new ArrayList<FaultModel>();
+                List<FaultModel> faultsJSON = FaultModel.fromJSONArray(jsonObj);
                 
                 Log.i("faultJSON", faultsJSON.toString());
                 if (!faultsJSON.isEmpty()) {
@@ -69,11 +63,9 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
                     return new ArrayList<FaultModel>();
                 }
             } else {
-                Log.i(QUERY_STATUS, "false");
                 return new ArrayList<FaultModel>();
             }
         } catch (Exception e) {
-            Log.i("list", "3");
             return new ArrayList<FaultModel>();
         }
     }
@@ -108,7 +100,6 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
                         return new ArrayList<FaultModel>();
                     }
                 } else {
-                    Log.i(QUERY_STATUS, "false");
                     return new ArrayList<FaultModel>();
                 }
             } catch (Exception e) {

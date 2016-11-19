@@ -63,7 +63,7 @@
                     android:id="@+id/topic_id_layout"
                     android:layout_margin="5dp">
                     <TextView
-                        android:text="Topic:"
+                        android:text="Temat:"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
