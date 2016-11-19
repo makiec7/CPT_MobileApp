@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.mobile.cpt.cpt_mobileapp.adapter.PresentAdapter;
 import com.mobile.cpt.cpt_mobileapp.R;
+import com.mobile.cpt.cpt_mobileapp.adapter.ShortPresentAdapter;
 import com.mobile.cpt.cpt_mobileapp.async.PresentAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
@@ -36,8 +37,7 @@ public class PresentActivity extends Activity {
         }
         this.setContentView(R.layout.activity_present_faults);
         ListView listView = (ListView) findViewById(R.id.list_fault);
-        Log.i("presentactivity", faults.toString());
-        PresentAdapter presentAdapter = new PresentAdapter(this, R.layout.fault_present, faults);
+        ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, R.layout.short_fault_present, faults);
         listView.setAdapter(presentAdapter);
     }
 }
