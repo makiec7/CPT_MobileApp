@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.mobile.cpt.cpt_mobileapp.adapter.PresentAdapter;
 import com.mobile.cpt.cpt_mobileapp.R;
@@ -39,8 +42,21 @@ public class PresentActivity extends Activity {
             finish();
         }
         this.setContentView(R.layout.activity_present_faults);
-        ListView listView = (ListView) findViewById(R.id.list_fault);
+        final ListView listView = (ListView) findViewById(R.id.list_fault);
+        listView.setClickable(true);
         ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, R.layout.short_fault_present, faults);
         listView.setAdapter(presentAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                 Intent details = new Intent(getApplicationContext(), MoreInfoActivity.class);
+
+                 FaultModel fault = (FaultModel) listView.getItemAtPosition(i);
+                //Toast.makeText(getApplicationContext(), "id:".toString(), Toast.LENGTH_LONG);
+                details.putExtra("fault", fault);
+                startActivity(details);
+            }
+        });
     }
 }
