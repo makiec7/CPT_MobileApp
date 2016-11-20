@@ -137,6 +137,7 @@
                     <EditText
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
+                        android:inputType="number"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorWhite"
                         android:background="@color/colorAccent"
@@ -160,6 +161,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="number"
                         android:textColor="@color/colorWhite"
                         android:background="@color/colorAccent"
                         android:id="@+id/et_room_no" />
@@ -181,6 +183,7 @@
                     <EditText
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
+                        android:inputType="number"
                         android:textColor="@color/colorWhite"
                         android:background="@color/colorAccent"
                         android:layout_height="wrap_content"

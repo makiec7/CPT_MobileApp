@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
@@ -36,16 +37,28 @@ public class ReportActivity extends Activity {
                 EditText et_room_no = (EditText) findViewById(R.id.et_room_no);
                 EditText et_obj_no = (EditText) findViewById(R.id.et_obj_no);
                 EditText et_description = (EditText) findViewById(R.id.et_description);
-                FaultModel fault = new FaultModel(Integer.parseInt(tv_issuer_id.getText().toString()), "123",
-                        et_topic.getText().toString(), et_obj_name.getText().toString(),
-                        et_description.getText().toString(), Integer.parseInt(et_obj_no.getText().toString()),
-                        Integer.parseInt(et_room_no.getText().toString()),
-                        Integer.parseInt(et_floor_no.getText().toString()), 1, "", 1);
-                Log.i("fault in report", fault.toString());
-                Intent fromMain = getIntent();
-                fromMain.putExtra(FAULT, fault);
-                setResult(RESULT_OK, fromMain);
-                finish();
+                String issuer = tv_issuer_id.getText().toString();
+                String topic = et_topic.getText().toString();
+                String obj_name = et_obj_name.getText().toString();
+                String descr = et_description.getText().toString();
+                String obj_no = et_obj_no.getText().toString();
+                String room_no = et_room_no.getText().toString();
+                String floor_no = et_floor_no.getText().toString();
+                if (!topic.equals("") && !obj_name.equals("") && !obj_no.equals("") &&
+                        !descr.equals("") && !room_no.equals("") && !floor_no.equals("")) {
+                    FaultModel fault =
+                            new FaultModel(Integer.parseInt(issuer), "123", topic, obj_name,
+                                    descr, Integer.parseInt(obj_no), Integer.parseInt(room_no),
+                                    Integer.parseInt(floor_no), 1, "", 1);
+                    Log.i("fault in report", fault.toString());
+                    Intent fromMain = getIntent();
+                    fromMain.putExtra(FAULT, fault);
+                    setResult(RESULT_OK, fromMain);
+                    finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Uzupełnij wszystkie pola",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
