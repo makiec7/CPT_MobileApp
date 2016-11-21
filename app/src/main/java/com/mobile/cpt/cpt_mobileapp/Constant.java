@@ -5,6 +5,7 @@ public class Constant {
     // INTENT EXTRAS
     public static final String LAYOUT = "LAYOUT";
     public static final String USER_DATA = "userData";
+    public static final String FAULT = "fault";
 
     // LAYOUTS
     public static final int MAIN_LAYOUT = R.layout.activity_main;
@@ -107,7 +108,6 @@ public class Constant {
 
     // OTHER
     public static final String UTF_8 = "UTF-8";
-    public static final String FAULT = "fault";
     public static final int LIST_FAULT = R.id.list_fault;
     public static final String DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm:ss";
 
