@@ -2,33 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <LinearLayout
-        android:id="@+id/app_name_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:background="@color/colorAccent"
-            android:src="@drawable/logo_pl"/>
-        <TextView
-            android:text="Centrum Pomocy Technicznej"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:background="@color/colorAccent"
-            android:textColor="@color/colorWhite"
-            android:textSize="30dp"
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:layout_height="match_parent"
-            android:id="@+id/app_name" />
-    </LinearLayout>
+    <!-- HEADER -->
+    <include layout="@layout/header"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/app_name_layout"
         android:padding="10dp"
         android:orientation="vertical">
+        <!-- FAULT ID -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,6 +25,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/tw_id"/>
         </LinearLayout>
+        <!-- ISSUER ID -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/tw_issuer"/>
         </LinearLayout>
-
+        <!-- DATE AND TIME -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,13 +48,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Przedmiot:"
-                android:id="@+id/tw_obj_name_text"/>
+                android:text="Czas zgłoszenia:"
+                android:id="@+id/tw_datetime_text"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tw_obj_name"/>
+                android:id="@+id/tw_datetime"/>
         </LinearLayout>
+        <!-- OBJECT NUMBER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,34 +70,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/tw_obj_no"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Numer sali:"
-                android:id="@+id/tw_room_no_text"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/tw_room_no"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Piętro:"
-                android:id="@+id/tw_floor_no_text"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/tw_floor_no"/>
-        </LinearLayout>
+        <!-- TOPIC -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,6 +85,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/tw_topic"/>
         </LinearLayout>
+        <!-- DESCRIPTION -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -142,6 +100,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/tw_description"/>
         </LinearLayout>
+        <!-- STATUS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,19 +115,5 @@
                 android:layout_height="match_parent"
                 android:id="@+id/tw_status"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Priorytet:"
-                android:id="@+id/tw_priority_text"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/tw_priority"/>
-    </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

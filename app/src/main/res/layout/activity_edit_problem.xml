@@ -7,32 +7,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_menu">
-        <LinearLayout
-            android:id="@+id/app_name_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:background="@color/colorAccent"
-                android:src="@drawable/logo_pl"/>
-            <TextView
-                android:text="Centrum Pomocy Technicznej"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/colorAccent"
-                android:textColor="@color/colorWhite"
-                android:textSize="30dp"
-                android:layout_width="wrap_content"
-                android:gravity="center"
-                android:layout_height="match_parent"
-                android:id="@+id/app_name" />
-        </LinearLayout>
+        <!-- HEADER -->
+        <include layout="@layout/header"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_below="@+id/app_name_layout">
+            <!-- ISSUER ID -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -40,7 +22,7 @@
                 android:id="@+id/issuer_id_layout"
                 android:layout_margin="5dp">
                 <TextView
-                    android:text="Issuer:"
+                    android:text="Twój numer indeksu:"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -56,6 +38,7 @@
                     android:background="@color/colorAccent"
                     android:id="@+id/tv_issuer_id" />
             </LinearLayout>
+            <!-- TOPIC -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,7 +47,7 @@
                 android:id="@+id/topic_id_layout"
                 android:layout_margin="5dp">
                 <TextView
-                    android:text="Topic:"
+                    android:text="Temat:"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -78,93 +61,7 @@
                     android:background="@color/colorAccent"
                     android:id="@+id/et_topic" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="vertical"
-                android:id="@+id/obj_name_layout"
-                android:layout_margin="5dp">
-                <TextView
-                    android:text="Nazwa przedmiotu:"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:id="@+id/tv_obj_name" />
-                <EditText
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorAccent"
-                    android:id="@+id/et_obj_name" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="vertical"
-                android:id="@+id/photo_layout"
-                android:layout_margin="5dp">
-                <TextView
-                    android:text="Kod QR:"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:id="@+id/tv_qr_code" />
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorAccent"
-                    android:text="Zrób zdjęcie"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="vertical"
-                android:id="@+id/floor_no_layout"
-                android:layout_margin="5dp">
-                <TextView
-                    android:text="Numer piętra:"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:id="@+id/tv_floor_no" />
-                <EditText
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorAccent"
-                    android:id="@+id/et_floor_no" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="vertical"
-                android:id="@+id/room_no_layout"
-                android:layout_margin="5dp">
-                <TextView
-                    android:text="Numer sali:"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:id="@+id/tv_room_no" />
-                <EditText
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorAccent"
-                    android:id="@+id/et_room_no" />
-            </LinearLayout>
+            <!-- OBJECT NUMBER -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -182,11 +79,13 @@
                 <EditText
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="match_parent"
+                    android:inputType="number"
                     android:textColor="@color/colorWhite"
                     android:background="@color/colorAccent"
                     android:layout_height="wrap_content"
                     android:id="@+id/et_obj_no" />
             </LinearLayout>
+            <!-- DESCRIPTION -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -195,7 +94,7 @@
                 android:id="@+id/descriptiono_layout"
                 android:layout_margin="5dp">
                 <TextView
-                    android:text="Numer sali:"
+                    android:text="Opis problemu:"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -209,9 +108,22 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/et_description" />
             </LinearLayout>
-
-
-
+            <!--- ADDING BUTTON -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:id="@+id/add_bt_layout"
+                android:layout_margin="5dp">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:background="@color/colorAccent"
+                    android:id="@+id/btn_add"
+                    android:text="Dodaj zgłoszenie"/>
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>
