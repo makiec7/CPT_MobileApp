@@ -1,7 +1,5 @@
 package com.mobile.cpt.cpt_mobileapp.model;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -121,10 +119,10 @@ public class FaultModel implements Serializable {
     public static FaultModel fromJSONObj(JSONObject jObj){
 
         try {
-            return new FaultModel(jObj.getInt("id"), jObj.getInt("issuer"),
-                    jObj.getString("phone_number"), jObj.getString("topic"),
-                    jObj.getString("description"), jObj.getInt("object_number"),
-                    jObj.getString("date_time"), jObj.getInt("status"));
+            return new FaultModel(jObj.getInt(ID), jObj.getInt(ISSUER),
+                    jObj.getString(PHONE_NUMBER), jObj.getString(TOPIC),
+                    jObj.getString(DESCRIPTION), jObj.getInt(OBJECT_NUMBER),
+                    jObj.getString(DATE_TIME), jObj.getInt(STATUS));
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -147,7 +145,7 @@ public class FaultModel implements Serializable {
     }
 
     private String getDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss",
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_TIME_FORMAT,
                 Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);

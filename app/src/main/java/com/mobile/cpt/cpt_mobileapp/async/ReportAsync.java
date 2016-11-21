@@ -20,26 +20,21 @@ public class ReportAsync extends AsyncTask<FaultModel, String, Boolean>{
 
     @Override
     protected Boolean doInBackground(FaultModel... faultModels) {
-        // if (!InetAddress.getByName(HTTP_LOGIN).isReachable(TIMEOUT)) {
         if (true) {
             FaultModel fault = faultModels[0];
-            Log.i("fault in async", fault.toString());
             String link;
             HttpURLConnection conn;
             BufferedReader bufferedReader;
             try {
                 link = HTTP_REPORT;
-                link += ASK + "issuer=" + URLEncoder.encode(Integer.toString(fault.getIssuer()), UTF_8);
-                link += AND + "phone_no=" + URLEncoder.encode(fault.getPhone_no(), UTF_8);
-                link += AND + "topic=" + URLEncoder.encode(fault.getTopic(), UTF_8);
-                link += AND + "obj_name=" + URLEncoder.encode(fault.getObj_name(), UTF_8);
-                link += AND + "description=" + URLEncoder.encode(fault.getDescription(), UTF_8);
-                link += AND + "obj_no=" + URLEncoder.encode(Integer.toString(fault.getObj_no()), UTF_8);
-                link += AND + "room_no=" + URLEncoder.encode(Integer.toString(fault.getRoom_no()), UTF_8);
-                link += AND + "floor_no=" + URLEncoder.encode(Integer.toString(fault.getFloor_no()), UTF_8);
-                link += AND + "status=" + URLEncoder.encode(Integer.toString(fault.getStatus()), UTF_8);
-                link += AND + "handler=" + URLEncoder.encode(fault.getHandler(), UTF_8);
-                link += AND + "priority=" + URLEncoder.encode(Integer.toString(fault.getPriority()), UTF_8);
+                link += ASK + ISSUER_EQ + URLEncoder.encode(Integer.toString(fault.getIssuer()),
+                        UTF_8);
+                link += AND + TOPIC_EQ + URLEncoder.encode(fault.getTopic(), UTF_8);
+                link += AND + OBJECT_NUMBER_EQ +
+                        URLEncoder.encode(String.valueOf(fault.getObject_number()), UTF_8);
+                link += AND + PHONE_NUMBER_EQ + URLEncoder.encode(fault.getPhone_number(), UTF_8);
+                link += AND + DATE_TIME_EQ + URLEncoder.encode(fault.getDate_time(), UTF_8);
+                link += AND + DESCRIPTION_EQ + URLEncoder.encode(fault.getDescription(), UTF_8);
                 URL url = new URL(link);
                 Log.i(URL, url.toString());
                 conn = (HttpURLConnection) url.openConnection();
@@ -62,7 +57,7 @@ public class ReportAsync extends AsyncTask<FaultModel, String, Boolean>{
                         return false;
                     }
                 } else {
-                    Log.i(QUERY_STATUS, "false");
+                    Log.i(QUERY_STATUS, FALSE);
                     return false;
                 }
             } catch (Exception e) {
