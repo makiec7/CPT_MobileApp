@@ -32,28 +32,25 @@ public class ReportActivity extends Activity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView tv_issuer_id = (TextView) findViewById(R.id.tv_issuer_id);
-                EditText et_topic = (EditText) findViewById(R.id.et_topic);
-                EditText et_obj_name = (EditText) findViewById(R.id.et_obj_name);
-                EditText et_floor_no = (EditText) findViewById(R.id.et_floor_no);
-                EditText et_room_no = (EditText) findViewById(R.id.et_room_no);
-                EditText et_obj_no = (EditText) findViewById(R.id.et_obj_no);
-                EditText et_description = (EditText) findViewById(R.id.et_description);
-                TelephonyManager tm = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+                TextView tv_issuer_id = (TextView) findViewById(TV_ISSUER_ID);
+                EditText et_topic = (EditText) findViewById(ET_TOPIC);
+                EditText et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
+                EditText et_obj_no = (EditText) findViewById(ET_OBJ_NO);
+                EditText et_description = (EditText) findViewById(ET_DESCRIPTION);
                 String issuer = tv_issuer_id.getText().toString();
                 String topic = et_topic.getText().toString();
-                String obj_name = et_obj_name.getText().toString();
+                String phone_number = et_phone_number.getText().toString();
                 String descr = et_description.getText().toString();
                 String obj_no = et_obj_no.getText().toString();
-                String room_no = et_room_no.getText().toString();
-                String floor_no = et_floor_no.getText().toString();
-                if (!topic.equals("") && !obj_name.equals("") && !obj_no.equals("") &&
-                        !descr.equals("") && !room_no.equals("") && !floor_no.equals("")) {
-                    FaultModel fault =
-                            new FaultModel(Integer.parseInt(issuer), "123", topic, obj_name,
-                                    descr, Integer.parseInt(obj_no), Integer.parseInt(room_no),
-                                    Integer.parseInt(floor_no), 1, "", 1);
-                    Log.i("fault in report", fault.toString());
+                if (!topic.equals("") && !obj_no.equals("") && !descr.equals("")) {
+                    FaultModel fault;
+                    if (!phone_number.equals("")) {
+                        fault = new FaultModel(Integer.parseInt(issuer), phone_number, topic,
+                                descr, Integer.parseInt(obj_no));
+                    } else {
+                        fault = new FaultModel(Integer.parseInt(issuer), topic,
+                                descr, Integer.parseInt(obj_no));
+                    }
                     Intent fromMain = getIntent();
                     fromMain.putExtra(FAULT, fault);
                     setResult(RESULT_OK, fromMain);

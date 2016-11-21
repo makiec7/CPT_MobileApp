@@ -19,6 +19,10 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
     private Context context;
     private int resource;
     private List<FaultModel> objects;
+    private static class FaultModelHolder {
+        TextView tw_datetime;
+        TextView tw_topic;
+    }
 
     public ShortPresentAdapter(Context context, int resource, List<FaultModel> objects) {
         super(context, resource, objects);
@@ -46,10 +50,5 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
         holder.tw_datetime.setText(object.getDate_time());
         holder.tw_topic.setText(object.getTopic());
         return convertView;
-    }
-
-    private static class FaultModelHolder {
-        TextView tw_datetime;
-        TextView tw_topic;
     }
 }

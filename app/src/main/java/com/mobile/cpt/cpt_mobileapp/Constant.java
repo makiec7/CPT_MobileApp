@@ -44,6 +44,10 @@ public class Constant {
     // EDIT TEXT
     public static final int ET_LOGIN = R.id.et_login;
     public static final int ET_PASSWORD = R.id.et_password;
+    public static final int ET_TOPIC = R.id.et_topic;
+    public static final int ET_PHONE_NUMBER = R.id.et_phone_number;
+    public static final int ET_OBJ_NO = R.id.et_obj_no;
+    public static final int ET_DESCRIPTION = R.id.et_description;
 
     // TEXT VIEWS
     public static final int TW_ID = R.id.tw_id;
@@ -53,6 +57,7 @@ public class Constant {
     public static final int TW_STATUS = R.id.tw_status;
     public static final int TW_DATETIME = R.id.tw_datetime;
     public static final int TW_TOPIC = R.id.tw_topic;
+    public static final int TV_ISSUER_ID = R.id.tv_issuer_id;
 
     // CODES
     public static final int REPORT_REQUEST_CODE = 5000;

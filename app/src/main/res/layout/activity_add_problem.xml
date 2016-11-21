@@ -16,27 +16,51 @@
             android:layout_below="@+id/app_name_layout">
             <!-- ISSUER ID -->
             <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:id="@+id/issuer_id_layout"
+            android:layout_margin="5dp">
+            <TextView
+                android:text="Twój numer indeksu:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="5dp"
-                android:id="@+id/issuer_id_layout"
+                android:id="@+id/tv_issuer" />
+            <TextView
+                android:text="issuer id"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:padding="5dp"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
+                android:id="@+id/tv_issuer_id" />
+        </LinearLayout>
+            <!-- PHONE NUMBER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:id="@+id/phone_number_layout"
                 android:layout_margin="5dp">
                 <TextView
-                android:text="Twój numer indeksu:"
+                    android:text="Twój numer telefonu (opcjonalne):"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="5dp"
-                    android:id="@+id/tv_issuer" />
-                <TextView
-                    android:text="issuer id"
+                    android:id="@+id/tv_phone_number" />
+                <EditText
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="wrap_content"
-                    android:padding="5dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
                     android:textColor="@color/colorWhite"
                     android:background="@color/colorAccent"
-                    android:id="@+id/tv_issuer_id" />
+                    android:id="@+id/et_phone_number" />
             </LinearLayout>
             <!-- TOPIC -->
             <LinearLayout
@@ -47,7 +71,7 @@
                 android:id="@+id/topic_id_layout"
                 android:layout_margin="5dp">
                 <TextView
-                    android:text="Temat:"
+                    android:text="Temat zgłoszenia:"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -94,7 +118,7 @@
                 android:id="@+id/descriptiono_layout"
                 android:layout_margin="5dp">
                 <TextView
-                    android:text="Opis problemu:"
+                    android:text="Opis zgłoszenia:"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -108,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/et_description" />
             </LinearLayout>
-            <!--- ADDING BUTTON -->
+            <!--- CONFIRM BUTTON -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -32,6 +32,17 @@ public class FaultModel implements Serializable {
         this.description=description;
         this.object_number=object_number;
         this.date_time = getDateTime();
+        this.status = 0;
+    }
+
+    public FaultModel(int issuer, String topic, String description, int object_number){
+        this.issuer=issuer;
+        this.topic=topic;
+        this.description=description;
+        this.object_number=object_number;
+        this.date_time = getDateTime();
+        this.phone_number = "";
+        this.status = 0;
     }
 
     public FaultModel(int id, int issuer, String phone_number, String topic, String description,
@@ -114,7 +125,6 @@ public class FaultModel implements Serializable {
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
-
 
     public static FaultModel fromJSONObj(JSONObject jObj){
 

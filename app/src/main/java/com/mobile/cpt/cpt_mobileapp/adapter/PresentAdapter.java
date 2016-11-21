@@ -18,9 +18,18 @@ import java.util.List;
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class PresentAdapter extends ArrayAdapter<FaultModel> {
-    Context context;
-    int resource;
-    List<FaultModel> objects;
+    private Context context;
+    private int resource;
+    private List<FaultModel> objects;
+    private static class FaultModelHolder {
+        TextView tw_id;
+        TextView tw_datetime;
+        TextView tw_description;
+        TextView tw_issuer;
+        TextView tw_obj_no;
+        TextView tw_status;
+        TextView tw_topic;
+    }
 
     public PresentAdapter(Context context, int resource, List<FaultModel> objects) {
         super(context, resource, objects);
@@ -60,15 +69,5 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
         holder.tw_status.setText(Integer.toString(object.getStatus()));
         holder.tw_topic.setText(object.getTopic());
         return convertView;
-    }
-
-    static class FaultModelHolder {
-        TextView tw_id;
-        TextView tw_datetime;
-        TextView tw_description;
-        TextView tw_issuer;
-        TextView tw_obj_no;
-        TextView tw_status;
-        TextView tw_topic;
     }
 }
