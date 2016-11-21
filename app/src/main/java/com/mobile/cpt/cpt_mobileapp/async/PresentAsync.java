@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -24,10 +23,8 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
     protected List<FaultModel> doInBackground(String... strings) {
 
         if (strings.length > 0){
-            Log.i("strings[0]", strings[0]);
             return selectUsersFaults(strings[0]);
         } else {
-            Log.i("strings[0]", "null");
             return selectAllFaults();
         }
     }
@@ -51,15 +48,10 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
             bufferedReader.close();
             conn.disconnect();
             if (jsonObj != null) {
-
                 List<FaultModel> faultsJSON = FaultModel.fromJSONArray(jsonObj);
-                
-                Log.i("faultJSON", faultsJSON.toString());
                 if (!faultsJSON.isEmpty()) {
-                    Log.i("list", faultsJSON.toString());
                     return faultsJSON;
                 } else {
-                    Log.i("list", "empty");
                     return new ArrayList<FaultModel>();
                 }
             } else {
@@ -77,40 +69,23 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
             BufferedReader bufferedReader;
             try {
                 link = HTTP_PRESENT_USER_FAULTS;
-                link += ASK + "index_no=" + URLEncoder.encode(user, UTF_8);
+                link += ASK + INDEX_NO_EQ + URLEncoder.encode(user, UTF_8);
                 URL url = new URL(link);
-                Log.i(URL, url.toString());
                 conn = (HttpURLConnection) url.openConnection();
-
-                Log.i(URL, url.toString());
                 conn.setConnectTimeout(TIMEOUT);
-                Log.i(URL, url.toString());
                 conn.setDoInput(true);
-                Log.i(URL, url.toString());
                 conn.connect();
-                Log.i(URL, url.toString());
                 bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                Log.i(URL, url.toString());
                 String jsonStr = bufferedReader.readLine().toString();
-                Log.i(URL, url.toString());
                 JSONObject jsonObj = new JSONObject(jsonStr);
-
-                Log.i(URL, url.toString());
-                Log.i(JSON, jsonObj.toString());
-
-                Log.i(URL, url.toString());
                 bufferedReader.close();
                 conn.disconnect();
                 if (jsonObj != null) {
 
                     List<FaultModel> faultsJSON = FaultModel.fromJSONArray(jsonObj);
-
-                    Log.i("faultJSON", faultsJSON.toString());
                     if (!faultsJSON.isEmpty()) {
-                        Log.i("list", faultsJSON.toString());
                         return faultsJSON;
                     } else {
-                        Log.i("list", "empty");
                         return new ArrayList<FaultModel>();
                     }
                 } else {
