@@ -83,4 +83,7 @@ public class Constant {
     public static final String FAULT = "fault";
 
 
+    public static final int LIST_FAULT = R.id.list_fault;
+    public static final int SHORT_FAULT_LAYOUT = R.layout.short_fault_present;
+    public static final String FILL_ALL_FIELDS = "Uzupełnij wszystkie pola";
 }

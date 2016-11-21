@@ -22,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class PresentActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,20 +42,18 @@ public class PresentActivity extends Activity {
             e.printStackTrace();
             finish();
         }
-        this.setContentView(R.layout.activity_present_faults);
-        final ListView listView = (ListView) findViewById(R.id.list_fault);
+        this.setContentView(USER_PROBLEMS_LAYOUT);
+        final ListView listView = (ListView) findViewById(LIST_FAULT);
         listView.setClickable(true);
-        ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, R.layout.short_fault_present, faults);
+        ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
+                faults);
         listView.setAdapter(presentAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                  Intent details = new Intent(getApplicationContext(), MoreInfoActivity.class);
-
                  FaultModel fault = (FaultModel) listView.getItemAtPosition(i);
-                //Toast.makeText(getApplicationContext(), "id:".toString(), Toast.LENGTH_LONG);
-                details.putExtra("fault", fault);
+                details.putExtra(FAULT, fault);
                 startActivity(details);
             }
         });
