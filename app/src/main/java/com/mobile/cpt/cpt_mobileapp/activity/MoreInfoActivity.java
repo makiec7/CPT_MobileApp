@@ -20,7 +20,6 @@ public class MoreInfoActivity extends Activity {
         setContentView(R.layout.fault_present);
         Intent toPresent = getIntent();
         FaultModel fault = (FaultModel) toPresent.getExtras().get("fault");
-
         TextView tw_id = (TextView) findViewById(R.id.tw_id);
         TextView tw_description = (TextView) findViewById(R.id.tw_description);
         TextView tw_floor_no = (TextView) findViewById(R.id.tw_floor_no);

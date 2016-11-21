@@ -10,5 +10,6 @@ public class EditActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(Constant.EDIT_LAYOUT);
+        // NOT YET IMPLEMENTED
     }
 }

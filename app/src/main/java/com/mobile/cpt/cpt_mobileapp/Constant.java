@@ -6,16 +6,12 @@ public class Constant {
     public static final String LAYOUT = "LAYOUT";
     public static final String USER_DATA = "userData";
 
-    // REQUEST CODES
-    public static final int INFO_REQUEST_CODE = 6000;
-
     // LAYOUTS
     public static final int MAIN_LAYOUT = R.layout.activity_main;
     public static final int LOGIN_LAYOUT = R.layout.activity_login;
     public static final int CONTACT_LAYOUT = R.layout.activity_contact;
     public static final int ABOUT_LAYOUT = R.layout.activity_about;
     public static final int EMERGENCY_LAYOUT = R.layout.activity_emergency;
-    public static final int ALL_PROBLEMS_LAYOUT = R.layout.activity_all_problems;
     public static final int USER_PROBLEMS_LAYOUT = R.layout.activity_present_faults;
     public static final int EDIT_LAYOUT = R.layout.activity_edit_problem;
     public static final int SHORT_FAULT_LAYOUT = R.layout.short_fault_present;

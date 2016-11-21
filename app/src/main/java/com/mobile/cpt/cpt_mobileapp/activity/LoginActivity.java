@@ -12,17 +12,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
-import com.mobile.cpt.cpt_mobileapp.Constant;
-import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.LoginAsync;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
-import java.io.Serializable;
 import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
-
-
     Button loginButton;
     EditText loginEdit;
     EditText passwordEdit;
@@ -83,19 +78,4 @@ public class LoginActivity extends AppCompatActivity {
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
-
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-
-    /*
-    public native String stringFromJNI();
-
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
-    */
 }
