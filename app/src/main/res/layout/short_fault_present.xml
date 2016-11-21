@@ -4,6 +4,7 @@
     android:padding="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <!-- DATETIME -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,13 +13,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Numer sali:"
-            android:id="@+id/tw_room_no_text"/>
+            android:text="Czas zgłoszenia"
+            android:id="@+id/tw_datetime_text"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/tw_room_no"/>
+            android:id="@+id/tw_datetime"/>
     </LinearLayout>
+    <!-- TOPIC -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mobile.cpt.cpt_mobileapp.activity.LoginActivity">
+    <!-- HELLO SCREEN -->
         <LinearLayout
             android:id="@+id/app_name_layout"
             android:layout_width="match_parent"
@@ -33,6 +34,7 @@
         android:layout_margin="10dp"
         android:layout_below="@id/app_name_layout"
         android:orientation="vertical">
+        <!-- INDEX NUMBER -->
         <TextView
             android:text="Numer indeksu:"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -45,6 +47,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_login"
             android:textSize="20dp" />
+        <!-- PASSWORD -->
         <TextView
             android:text="Hasło:"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -60,6 +63,7 @@
             android:textSize="20dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
+        <!-- CONFIRM BUTTON -->
         <Button
             android:text="Zaloguj"
             android:layout_width="match_parent"
