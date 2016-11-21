@@ -40,7 +40,6 @@ public class ReportActivity extends Activity {
                 EditText et_obj_no = (EditText) findViewById(R.id.et_obj_no);
                 EditText et_description = (EditText) findViewById(R.id.et_description);
                 TelephonyManager tm = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
-                //String number = tm.getLine1Number();
                 String issuer = tv_issuer_id.getText().toString();
                 String topic = et_topic.getText().toString();
                 String obj_name = et_obj_name.getText().toString();
@@ -48,7 +47,6 @@ public class ReportActivity extends Activity {
                 String obj_no = et_obj_no.getText().toString();
                 String room_no = et_room_no.getText().toString();
                 String floor_no = et_floor_no.getText().toString();
-                Log.i("phone_no", tm.toString());
                 if (!topic.equals("") && !obj_name.equals("") && !obj_no.equals("") &&
                         !descr.equals("") && !room_no.equals("") && !floor_no.equals("")) {
                     FaultModel fault =
