@@ -16,7 +16,7 @@ public class Constant {
     public static final int USER_PROBLEMS_LAYOUT = R.layout.activity_present_faults;
     public static final int EDIT_LAYOUT = R.layout.activity_edit_problem;
     public static final int SHORT_FAULT_LAYOUT = R.layout.short_fault_present;
-    public static final int ADD_LAYOUT = R.layout.activity_add_problem;
+    public static final int ADD_LAYOUT = R.layout.activity_add_problem_manual;
 
     // ERRORS
     public static final String DATA_ERROR = "Nie można wczytać danych";
