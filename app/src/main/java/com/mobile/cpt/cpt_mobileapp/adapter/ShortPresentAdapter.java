@@ -16,9 +16,9 @@ import java.util.List;
 
 public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
 
-    Context context;
-    int resource;
-    List<FaultModel> objects;
+    private Context context;
+    private int resource;
+    private List<FaultModel> objects;
 
     public ShortPresentAdapter(Context context, int resource, List<FaultModel> objects) {
         super(context, resource, objects);
@@ -30,29 +30,26 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        FaultModelHolder holder = null;
+        FaultModelHolder holder;
 
         if (convertView == null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             convertView = inflater.inflate(resource, parent, false);
             holder = new FaultModelHolder();
-            holder.tw_room_no = (TextView) convertView.findViewById(R.id.tw_room_no);
+            holder.tw_datetime = (TextView) convertView.findViewById(R.id.tw_datetime);
             holder.tw_topic = (TextView) convertView.findViewById(R.id.tw_topic);
-
             convertView.setTag(holder);
         } else {
             holder = (FaultModelHolder) convertView.getTag();
         }
-
         FaultModel object = objects.get(position);
-        holder.tw_room_no.setText(Integer.toString(object.getRoom_no()));
+        holder.tw_datetime.setText(object.getDate_time());
         holder.tw_topic.setText(object.getTopic());
-
         return convertView;
     }
 
-    static class FaultModelHolder {
-        TextView tw_room_no;
+    private static class FaultModelHolder {
+        TextView tw_datetime;
         TextView tw_topic;
     }
 }
