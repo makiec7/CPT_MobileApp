@@ -58,9 +58,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
+                    android:digits="0123456789+"
                     android:textColor="@color/colorWhite"
                     android:background="@color/colorAccent"
-                    android:id="@+id/et_phone_number" />
+                    android:id="@+id/et_phone_number"
+                    android:maxEms="12"
+                    android:lines="1" />
             </LinearLayout>
             <!-- TOPIC -->
             <LinearLayout
