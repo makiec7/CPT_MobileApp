@@ -26,6 +26,7 @@ public class Constant {
     public static final String LOGGED_AS = "Zalogowany jako: ";
     public static final String FILL_ALL_FIELDS = "Uzupełnij wszystkie pola";
     public static final String WRONG_LOGIN_DATA = "Złe dane logowania";
+    public static final String CANNOT_DETECT_CAMERA = "Nie wykryto aparatu";
 
     // BUTTONS
     public static final int BTN_LOGOUT = R.id.btn_logout;
@@ -112,5 +113,5 @@ public class Constant {
     public static final String DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm:ss";
 
 
-
+    public static final int CAMERA_REQUEST_CODE = 1234;
 }
