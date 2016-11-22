@@ -38,6 +38,7 @@ public class FaultModel implements Serializable {
     public FaultModel(int issuer, String topic, String description, int object_number){
         this.issuer=issuer;
         this.topic=topic;
+        this.phone_number = "";
         this.description=description;
         this.object_number=object_number;
         this.date_time = getDateTime();
