@@ -23,7 +23,7 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
     protected List<FaultModel> doInBackground(String... strings) {
         try {
             String link;
-            if (strings.length > 0){
+            if (strings.length == 0){
                 link = HTTP_PRESENT_ALL_FAULTS;
             } else {
                 String user = strings[0];
