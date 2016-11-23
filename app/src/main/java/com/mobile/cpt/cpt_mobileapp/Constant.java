@@ -52,7 +52,6 @@ public class Constant {
     public static final int TW_DESCRIPTION = R.id.tw_description;
     public static final int TW_ISSUER = R.id.tw_issuer;
     public static final int TW_OBJ_NO = R.id.tw_obj_no;
-    public static final int TW_STATUS = R.id.tw_status;
     public static final int TW_DATETIME = R.id.tw_datetime;
     public static final int TW_TOPIC = R.id.tw_topic;
     public static final int TV_ISSUER_ID = R.id.tv_issuer_id;

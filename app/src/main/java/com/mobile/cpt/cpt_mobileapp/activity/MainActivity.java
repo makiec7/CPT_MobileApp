@@ -49,8 +49,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivityForResult(forReport, REPORT_REQUEST_CODE);
                 break;
             case BTN_EDIT_FAULT:
-                startActivityForResult(new Intent(getApplicationContext(), ReportActivity.class),
-                        EDIT_REQUEST_CODE);
+                Intent editIntent = new Intent(getApplicationContext(), EditActivity.class);
+                editIntent.putExtra(USER_DATA, user);
+                startActivityForResult(editIntent, EDIT_REQUEST_CODE);
                 break;
             case BTN_SHOW_FAULTS:
                 forUserPresent.putExtra(USER_DATA, user);
