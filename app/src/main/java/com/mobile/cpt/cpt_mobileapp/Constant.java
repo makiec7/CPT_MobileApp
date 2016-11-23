@@ -114,4 +114,5 @@ public class Constant {
 
 
     public static final int CAMERA_REQUEST_CODE = 1234;
+    public static final int REPORT_TYPE_REQUEST_CODE = 4321;
 }

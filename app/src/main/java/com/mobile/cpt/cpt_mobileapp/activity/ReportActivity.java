@@ -30,18 +30,15 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ReportActivity extends Activity implements View.OnClickListener {
+public class ReportActivity extends Activity {
 
     Image image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_set_report_type);
-        ImageButton btn_manual = (ImageButton) findViewById(R.id.btn_manual);
-        ImageButton btn_auto = (ImageButton) findViewById(R.id.btn_auto);
-        btn_auto.setOnClickListener(this);
-        btn_manual.setOnClickListener(this);
+        Intent reportTypeIntent = new Intent(getApplicationContext(), ReportTypeActivity.class);
+        startActivityForResult(reportTypeIntent, REPORT_TYPE_REQUEST_CODE);
     }
 
     private void autoType(){
@@ -144,30 +141,58 @@ public class ReportActivity extends Activity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_auto:
-                PackageManager pm = this.getPackageManager();
-                if (pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-                    setContentView(R.layout.activity_add_problem_auto);
-                    autoType();
-                    break;
-                } else {
-                    Toast.makeText(getApplicationContext(), CANNOT_DETECT_CAMERA,
-                            Toast.LENGTH_LONG).show();
-                }
-            case R.id.btn_manual:
-                setContentView(R.layout.activity_add_problem_manual);
-                manualType();
-                break;
-        }
-    }
-
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
+        } else if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            if (extras.get("type").equals("AUTO")){
+                PackageManager pm = this.getPackageManager();
+                if (pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+                    setContentView(R.layout.activity_add_problem_auto);
+                    autoType();
+                } else {
+                    Toast.makeText(getApplicationContext(), CANNOT_DETECT_CAMERA,
+                            Toast.LENGTH_LONG).show();
+                }
+            } else {
+                setContentView(R.layout.activity_add_problem_manual);
+                manualType();
+            }
+        }
+    }
+
+    public static class ReportTypeActivity extends Activity implements View.OnClickListener {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_set_report_type);
+            ImageButton btn_manual = (ImageButton) findViewById(R.id.btn_manual);
+            ImageButton btn_auto = (ImageButton) findViewById(R.id.btn_auto);
+            btn_auto.setOnClickListener(this);
+            btn_manual.setOnClickListener(this);
+        }
+
+
+        @Override
+        public void onClick(View view) {
+            Intent typeIntent;
+            switch (view.getId()) {
+                case R.id.btn_auto:
+                    typeIntent = getIntent();
+                    typeIntent.putExtra("type", "AUTO");
+                    setResult(RESULT_OK, typeIntent);
+                    finish();
+                    break;
+                case R.id.btn_manual:
+                    typeIntent = getIntent();
+                    typeIntent.putExtra("type", "MANUAL");
+                    setResult(RESULT_OK, typeIntent);
+                    finish();
+                    break;
+            }
         }
     }
 
