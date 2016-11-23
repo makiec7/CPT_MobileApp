@@ -61,6 +61,8 @@ public class Constant {
     public static final int REPORT_REQUEST_CODE = 5000;
     public static final int EDIT_REQUEST_CODE = 6500;
     public static final int MAIN_ACTIVITY_REQ_CODE = 10;
+    public static final int CAMERA_REQUEST_CODE = 1234;
+    public static final int REPORT_TYPE_REQUEST_CODE = 4321;
 
     // LOGGERS
     public static final String IS_LOGGED = "islogged";
@@ -110,9 +112,8 @@ public class Constant {
     // OTHER
     public static final String UTF_8 = "UTF-8";
     public static final int LIST_FAULT = R.id.list_fault;
-    public static final String DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm:ss";
+    public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 
-    public static final int CAMERA_REQUEST_CODE = 1234;
-    public static final int REPORT_TYPE_REQUEST_CODE = 4321;
+
 }

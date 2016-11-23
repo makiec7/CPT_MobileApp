@@ -27,7 +27,6 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
         TextView tw_description;
         TextView tw_issuer;
         TextView tw_obj_no;
-        TextView tw_status;
         TextView tw_topic;
     }
 
@@ -51,7 +50,6 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
             holder.tw_description = (TextView) convertView.findViewById(TW_DESCRIPTION);
             holder.tw_issuer = (TextView) convertView.findViewById(TW_ISSUER);
             holder.tw_obj_no = (TextView) convertView.findViewById(TW_OBJ_NO);
-            holder.tw_status = (TextView) convertView.findViewById(TW_STATUS);
             holder.tw_datetime = (TextView) convertView.findViewById(TW_DATETIME);
             holder.tw_topic = (TextView) convertView.findViewById(TW_TOPIC);
 
@@ -66,7 +64,6 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
         holder.tw_datetime.setText(object.getDate_time());
         holder.tw_issuer.setText(Integer.toString(object.getIssuer()));
         holder.tw_obj_no.setText(Integer.toString(object.getObject_number()));
-        holder.tw_status.setText(Integer.toString(object.getStatus()));
         holder.tw_topic.setText(object.getTopic());
         return convertView;
     }
