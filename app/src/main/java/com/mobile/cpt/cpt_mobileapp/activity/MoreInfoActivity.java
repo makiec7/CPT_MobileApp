@@ -13,6 +13,12 @@ import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import java.util.List;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.FAULT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DESCRIPTION;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ID;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_OBJ_NO;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_TOPIC;
 
 
 public class MoreInfoActivity extends Activity {
@@ -23,12 +29,12 @@ public class MoreInfoActivity extends Activity {
         setContentView(R.layout.fault_present);
         Intent toPresent = getIntent();
         FaultModel fault = (FaultModel) toPresent.getExtras().get(FAULT);
-        TextView tv_id = (TextView) findViewById(R.id.tv_id);
-        TextView tv_description = (TextView) findViewById(R.id.tv_description);
-        TextView tv_datetime = (TextView) findViewById(R.id.tv_datetime);
-        TextView tv_issuer = (TextView) findViewById(R.id.tv_issuer);
-        TextView tv_obj_no = (TextView) findViewById(R.id.tv_obj_no);
-        TextView tv_topic = (TextView) findViewById(R.id.tv_topic);
+        TextView tv_id = (TextView) findViewById(TV_ID);
+        TextView tv_description = (TextView) findViewById(TV_DESCRIPTION);
+        TextView tv_datetime = (TextView) findViewById(TV_DATETIME);
+        TextView tv_issuer = (TextView) findViewById(TV_ISSUER);
+        TextView tv_obj_no = (TextView) findViewById(TV_OBJ_NO);
+        TextView tv_topic = (TextView) findViewById(TV_TOPIC);
         tv_id.setText(Integer.toString(fault.getId()));
         tv_datetime.setText(fault.getDate_time());
         tv_description.setText(fault.getDescription());

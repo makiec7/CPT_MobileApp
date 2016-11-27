@@ -20,6 +20,7 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.DATE_TIME_EQ;
 import static com.mobile.cpt.cpt_mobileapp.Constant.DESCRIPTION_EQ;
 import static com.mobile.cpt.cpt_mobileapp.Constant.FALSE;
 import static com.mobile.cpt.cpt_mobileapp.Constant.HTTP_REPORT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ID_EQ;
 import static com.mobile.cpt.cpt_mobileapp.Constant.ISSUER_EQ;
 import static com.mobile.cpt.cpt_mobileapp.Constant.JSON;
 import static com.mobile.cpt.cpt_mobileapp.Constant.OBJECT_NUMBER_EQ;
@@ -31,6 +32,7 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.TRUE;
 import static com.mobile.cpt.cpt_mobileapp.Constant.UTF_8;
 
 public class EditAsync extends AsyncTask<FaultModel, String, Boolean> {
+
     @Override
     protected Boolean doInBackground(FaultModel... faultModels) {
         FaultModel fault = faultModels[0];
@@ -39,11 +41,12 @@ public class EditAsync extends AsyncTask<FaultModel, String, Boolean> {
         BufferedReader bufferedReader;
         try {
             link = "https://cpt4cti.000webhostapp.com/edit_fault.php";
-            link += ASK + "id=" + URLEncoder.encode(Integer.toString(fault.getIssuer()),
+            link += ASK + ID_EQ + URLEncoder.encode(Integer.toString(fault.getId()),
                     UTF_8);
             link += AND + TOPIC_EQ + URLEncoder.encode(fault.getTopic(), UTF_8);
             link += AND + PHONE_NUMBER_EQ + URLEncoder.encode(fault.getPhone_number(), UTF_8);
             link += AND + DESCRIPTION_EQ + URLEncoder.encode(fault.getDescription(), UTF_8);
+            Log.i("descr", fault.getDescription());
             URL url = new URL(link);
             Log.i(Constant.URL, url.toString());
             conn = (HttpURLConnection) url.openConnection();

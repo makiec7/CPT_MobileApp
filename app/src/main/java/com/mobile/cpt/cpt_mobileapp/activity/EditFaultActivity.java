@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.EditAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
@@ -18,12 +19,14 @@ import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import java.util.concurrent.ExecutionException;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.DATA_ERROR;
+import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_SUCCESS;
 import static com.mobile.cpt.cpt_mobileapp.Constant.FAULT;
 import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;
 import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER;
 import static com.mobile.cpt.cpt_mobileapp.Constant.TV_OBJ_NO;
 
 public class EditFaultActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +53,12 @@ public class EditFaultActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                fault.setDescription(String.valueOf(et_description.getText()));
-                fault.setTopic(String.valueOf(et_topic));
-                fault.setPhone_number(String.valueOf(et_phone_number));
+                fault.setDescription(String.valueOf(et_description.getText().toString()));
+                fault.setTopic(String.valueOf(et_topic.getText().toString()));
+                fault.setPhone_number(String.valueOf(et_phone_number.getText().toString()));
                 try {
                     new EditAsync().execute(fault).get();
+                    Toast.makeText(getApplicationContext(), EDIT_SUCCESS, Toast.LENGTH_LONG).show();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
@@ -62,6 +66,7 @@ public class EditFaultActivity extends Activity {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
                 }
+                finish();
             }
         });
     }
