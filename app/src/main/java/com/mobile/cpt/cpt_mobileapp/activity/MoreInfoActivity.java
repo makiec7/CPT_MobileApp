@@ -23,17 +23,17 @@ public class MoreInfoActivity extends Activity {
         setContentView(R.layout.fault_present);
         Intent toPresent = getIntent();
         FaultModel fault = (FaultModel) toPresent.getExtras().get(FAULT);
-        TextView tw_id = (TextView) findViewById(R.id.tw_id);
-        TextView tw_description = (TextView) findViewById(R.id.tw_description);
-        TextView tw_datetime = (TextView) findViewById(R.id.tw_datetime);
-        TextView tw_issuer = (TextView) findViewById(R.id.tw_issuer);
-        TextView tw_obj_no = (TextView) findViewById(R.id.tw_obj_no);
-        TextView tw_topic = (TextView) findViewById(R.id.tw_topic);
-        tw_id.setText(Integer.toString(fault.getId()));
-        tw_datetime.setText(fault.getDate_time());
-        tw_description.setText(fault.getDescription());
-        tw_issuer.setText(Integer.toString(fault.getIssuer()));
-        tw_obj_no.setText(Integer.toString(fault.getObject_number()));
-        tw_topic.setText(fault.getTopic());
+        TextView tv_id = (TextView) findViewById(R.id.tv_id);
+        TextView tv_description = (TextView) findViewById(R.id.tv_description);
+        TextView tv_datetime = (TextView) findViewById(R.id.tv_datetime);
+        TextView tv_issuer = (TextView) findViewById(R.id.tv_issuer);
+        TextView tv_obj_no = (TextView) findViewById(R.id.tv_obj_no);
+        TextView tv_topic = (TextView) findViewById(R.id.tv_topic);
+        tv_id.setText(Integer.toString(fault.getId()));
+        tv_datetime.setText(fault.getDate_time());
+        tv_description.setText(fault.getDescription());
+        tv_issuer.setText(Integer.toString(fault.getIssuer()));
+        tv_obj_no.setText(Integer.toString(fault.getObject_number()));
+        tv_topic.setText(fault.getTopic());
     }
 }

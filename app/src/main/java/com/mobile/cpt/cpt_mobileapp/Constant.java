@@ -48,12 +48,12 @@ public class Constant {
     public static final int ET_DESCRIPTION = R.id.et_description;
 
     // TEXT VIEWS
-    public static final int TW_ID = R.id.tw_id;
-    public static final int TW_DESCRIPTION = R.id.tw_description;
-    public static final int TW_ISSUER = R.id.tw_issuer;
-    public static final int TW_OBJ_NO = R.id.tw_obj_no;
-    public static final int TW_DATETIME = R.id.tw_datetime;
-    public static final int TW_TOPIC = R.id.tw_topic;
+    public static final int TV_ID = R.id.tv_id;
+    public static final int TV_DESCRIPTION = R.id.tv_description;
+    public static final int TV_ISSUER = R.id.tv_issuer;
+    public static final int TV_OBJ_NO = R.id.tv_object_number;
+    public static final int TV_DATETIME = R.id.tv_datetime;
+    public static final int TV_TOPIC = R.id.tv_topic;
     public static final int TV_ISSUER_ID = R.id.tv_issuer_id;
 
     // CODES

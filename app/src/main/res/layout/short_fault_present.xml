@@ -14,11 +14,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Czas zgłoszenia"
-            android:id="@+id/tw_datetime_text"/>
+            android:id="@+id/tv_datetime_text"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/tw_datetime"/>
+            android:id="@+id/tv_datetime"/>
     </LinearLayout>
     <!-- TOPIC -->
     <LinearLayout
@@ -30,10 +30,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Temat:"
-            android:id="@+id/tw_topic_text"/>
+            android:id="@+id/tv_topic_text"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/tw_topic"/>
+            android:id="@+id/tv_topic"/>
     </LinearLayout>
 </LinearLayout>

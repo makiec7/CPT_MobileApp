@@ -24,6 +24,11 @@ public class LoginAsync extends AsyncTask<String, String, LoginModel> {
     }
 
     @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
     protected LoginModel doInBackground(String... arg0) {
         String indexNo = arg0[0];
         String password = arg0[1];
@@ -70,5 +75,10 @@ public class LoginAsync extends AsyncTask<String, String, LoginModel> {
 
     public void setActivity(Activity activity) {
         this.activity = activity;
+    }
+
+    @Override
+    protected void onPostExecute(LoginModel loginModel) {
+        super.onPostExecute(loginModel);
     }
 }

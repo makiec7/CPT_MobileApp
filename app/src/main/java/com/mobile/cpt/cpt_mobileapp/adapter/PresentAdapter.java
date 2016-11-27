@@ -22,12 +22,12 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
     private int resource;
     private List<FaultModel> objects;
     private static class FaultModelHolder {
-        TextView tw_id;
-        TextView tw_datetime;
-        TextView tw_description;
-        TextView tw_issuer;
-        TextView tw_obj_no;
-        TextView tw_topic;
+        TextView tv_id;
+        TextView tv_datetime;
+        TextView tv_description;
+        TextView tv_issuer;
+        TextView tv_obj_no;
+        TextView tv_topic;
     }
 
     public PresentAdapter(Context context, int resource, List<FaultModel> objects) {
@@ -46,12 +46,12 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             convertView = inflater.inflate(resource, parent, false);
             holder = new FaultModelHolder();
-            holder.tw_id = (TextView) convertView.findViewById(TW_ID);
-            holder.tw_description = (TextView) convertView.findViewById(TW_DESCRIPTION);
-            holder.tw_issuer = (TextView) convertView.findViewById(TW_ISSUER);
-            holder.tw_obj_no = (TextView) convertView.findViewById(TW_OBJ_NO);
-            holder.tw_datetime = (TextView) convertView.findViewById(TW_DATETIME);
-            holder.tw_topic = (TextView) convertView.findViewById(TW_TOPIC);
+            holder.tv_id = (TextView) convertView.findViewById(TV_ID);
+            holder.tv_description = (TextView) convertView.findViewById(TV_DESCRIPTION);
+            holder.tv_issuer = (TextView) convertView.findViewById(TV_ISSUER);
+            holder.tv_obj_no = (TextView) convertView.findViewById(TV_OBJ_NO);
+            holder.tv_datetime = (TextView) convertView.findViewById(TV_DATETIME);
+            holder.tv_topic = (TextView) convertView.findViewById(TV_TOPIC);
 
             convertView.setTag(holder);
         } else {
@@ -59,12 +59,12 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
         }
 
         FaultModel object = objects.get(position);
-        holder.tw_id.setText(Integer.toString(object.getId()));
-        holder.tw_description.setText(object.getDescription());
-        holder.tw_datetime.setText(object.getDate_time());
-        holder.tw_issuer.setText(Integer.toString(object.getIssuer()));
-        holder.tw_obj_no.setText(Integer.toString(object.getObject_number()));
-        holder.tw_topic.setText(object.getTopic());
+        holder.tv_id.setText(Integer.toString(object.getId()));
+        holder.tv_description.setText(object.getDescription());
+        holder.tv_datetime.setText(object.getDate_time());
+        holder.tv_issuer.setText(Integer.toString(object.getIssuer()));
+        holder.tv_obj_no.setText(Integer.toString(object.getObject_number()));
+        holder.tv_topic.setText(object.getTopic());
         return convertView;
     }
 }

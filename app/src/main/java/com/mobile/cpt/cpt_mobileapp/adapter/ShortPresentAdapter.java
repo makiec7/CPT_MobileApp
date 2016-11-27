@@ -20,8 +20,8 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
     private int resource;
     private List<FaultModel> objects;
     private static class FaultModelHolder {
-        TextView tw_datetime;
-        TextView tw_topic;
+        TextView tv_datetime;
+        TextView tv_topic;
     }
 
     public ShortPresentAdapter(Context context, int resource, List<FaultModel> objects) {
@@ -40,15 +40,15 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             convertView = inflater.inflate(resource, parent, false);
             holder = new FaultModelHolder();
-            holder.tw_datetime = (TextView) convertView.findViewById(R.id.tw_datetime);
-            holder.tw_topic = (TextView) convertView.findViewById(R.id.tw_topic);
+            holder.tv_datetime = (TextView) convertView.findViewById(R.id.tv_datetime);
+            holder.tv_topic = (TextView) convertView.findViewById(R.id.tv_topic);
             convertView.setTag(holder);
         } else {
             holder = (FaultModelHolder) convertView.getTag();
         }
         FaultModel object = objects.get(position);
-        holder.tw_datetime.setText(object.getDate_time());
-        holder.tw_topic.setText(object.getTopic());
+        holder.tv_datetime.setText(object.getDate_time());
+        holder.tv_topic.setText(object.getTopic());
         return convertView;
     }
 }

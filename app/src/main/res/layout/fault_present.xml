@@ -19,11 +19,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="ID zgłoszenia:"
-                android:id="@+id/tw_id_text"/>
+                android:id="@+id/tv_id_text"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tw_id"/>
+                android:id="@+id/tv_id"/>
         </LinearLayout>
         <!-- ISSUER ID -->
         <LinearLayout
@@ -34,11 +34,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Zgłaszający:"
-                android:id="@+id/tw_issuer_text"/>
+                android:id="@+id/tv_issuer_text"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tw_issuer"/>
+                android:id="@+id/tv_issuer"/>
         </LinearLayout>
         <!-- DATE AND TIME -->
         <LinearLayout
@@ -49,11 +49,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Czas zgłoszenia:"
-                android:id="@+id/tw_datetime_text"/>
+                android:id="@+id/tv_datetime_text"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tw_datetime"/>
+                android:id="@+id/tv_datetime"/>
         </LinearLayout>
         <!-- OBJECT NUMBER -->
         <LinearLayout
@@ -64,11 +64,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Numer przedmiotu:"
-                android:id="@+id/tw_obj_no_text"/>
+                android:id="@+id/tv_obj_no_text"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tw_obj_no"/>
+                android:id="@+id/tv_object_number"/>
         </LinearLayout>
         <!-- TOPIC -->
         <LinearLayout
@@ -79,11 +79,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Temat:"
-                android:id="@+id/tw_topic_text"/>
+                android:id="@+id/tv_topic_text"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tw_topic"/>
+                android:id="@+id/tv_topic"/>
         </LinearLayout>
         <!-- DESCRIPTION -->
         <LinearLayout
@@ -94,11 +94,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Opis:"
-                android:id="@+id/tw_description_text"/>
+                android:id="@+id/tv_description_text"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tw_description"/>
+                android:id="@+id/tv_description"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

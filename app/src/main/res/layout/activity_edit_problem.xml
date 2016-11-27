@@ -51,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="5dp"
-                    android:id="@+id/tv_issuer" />
+                    android:id="@+id/tv_issuer_text" />
                 <TextView
                     android:text="issuer id"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -60,7 +60,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/colorWhite"
                     android:background="@color/colorAccent"
-                    android:id="@+id/tv_issuer_id" />
+                    android:id="@+id/tv_issuer" />
             </LinearLayout>
             <!-- DATETIME -->
             <LinearLayout
@@ -94,7 +94,7 @@
                 android:id="@+id/object_number_layout"
                 android:layout_margin="5dp">
                 <TextView
-                    android:text="Numer przedmioty:"
+                    android:text="Numer przedmiotu:"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
