@@ -27,6 +27,9 @@ public class Constant {
     public static final String FILL_ALL_FIELDS = "Uzupełnij wszystkie pola";
     public static final String WRONG_LOGIN_DATA = "Złe dane logowania";
     public static final String CANNOT_DETECT_CAMERA = "Nie wykryto aparatu";
+    public static final String REPORT_ERROR = "Błąd dodawania";
+    public static final String REPORT_SUCCESS = "Zgłoszenie dodane";
+    public static final String EDIT_SUCCESS = "Edytowano poprawnie";
 
     // BUTTONS
     public static final int BTN_LOGOUT = R.id.btn_logout;
@@ -99,6 +102,7 @@ public class Constant {
     // FOR API LINK
     public static final String ASK = "?";
     public static final String AND = "&";
+    public static final String ID_EQ = "id=";
     public static final String PASSWORD_EQ = "password=";
     public static final String INDEX_NO_EQ = "index_no=";
     public static final String ISSUER_EQ = "issuer=";
@@ -114,6 +118,5 @@ public class Constant {
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 
-    public static final String EDIT_SUCCESS = "Edytowano poprawnie";
-    public static final String ID_EQ = "id=";
+    public static final String EDIT_HTTP = "https://cpt4cti.000webhostapp.com/edit_fault.php";
 }

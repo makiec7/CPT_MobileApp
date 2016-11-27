@@ -76,12 +76,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private void openPresentActivity(int layoutId) {
-        Intent InfoIntent = new Intent(getApplicationContext(), PresentActivity.class);
-        InfoIntent.putExtra(LAYOUT, layoutId);
-        startActivity(InfoIntent);
-    }
-
     private void openInfoActivity(int layoutId) {
         Intent InfoIntent = new Intent(getApplicationContext(), InfoActivity.class);
         InfoIntent.putExtra(LAYOUT, layoutId);
@@ -95,23 +89,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 try {
                     if (add((FaultModel) data.getExtras().get(FAULT))) {
-                        Toast.makeText(getApplicationContext(), "Zgłoszenie dodane", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), REPORT_SUCCESS, Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Błąd dodawania", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), REPORT_ERROR, Toast.LENGTH_LONG).show();
                     }
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            } else {
-                Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
-            }
-        } else if (requestCode == EDIT_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                edit();
-            } else {
-                Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -138,10 +124,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private boolean add(FaultModel faultModel) throws ExecutionException, InterruptedException {
         Log.i("fault in main", faultModel.toString());
         return new ReportAsync().execute(faultModel).get();
-    }
-
-    private boolean edit() {
-        boolean result = false;
-        return result;
     }
 }

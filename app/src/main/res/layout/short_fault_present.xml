@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="5dp"
+    android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <!-- DATETIME -->
@@ -9,11 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:layout_margin="5dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Czas zgłoszenia"
+            android:text="Czas zgłoszenia:"
             android:id="@+id/tv_datetime_text"/>
         <TextView
             android:layout_width="wrap_content"
@@ -25,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:layout_margin="5dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
