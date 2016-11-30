@@ -1,6 +1,5 @@
 package com.mobile.cpt.cpt_mobileapp.activity;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -10,14 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
-import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.LoginAsync;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
+import java.io.Serializable;
 import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,14 +37,8 @@ public class LoginActivity extends AppCompatActivity {
                         String login = loginEdit.getText().toString();
                         String password = passwordEdit.getText().toString();
                         if (login.equals(NULL_STRING) || password.equals(NULL_STRING)) {
-                            ProgressDialog progress = new ProgressDialog(getApplicationContext());
-                            progress.setTitle("Loading");
-                            progress.setMessage("Wait while loading...");
-                            progress.setCancelable(true); // disable dismiss by tapping outside of the dialog
-                            progress.show();
                             Toast.makeText(getApplicationContext(), INSERT_LOGIN_DATA,
                                     Toast.LENGTH_LONG).show();
-                            progress.dismiss();
                         }
                         try {
                             LoginModel lr = new LoginAsync(getParent()).execute(login,

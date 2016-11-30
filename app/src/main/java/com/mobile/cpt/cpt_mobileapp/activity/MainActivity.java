@@ -87,17 +87,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (requestCode == REPORT_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
 
-                try {
-                    if (add((FaultModel) data.getExtras().get(FAULT))) {
+                    if ((Boolean) data.getExtras().get("status")) {
                         Toast.makeText(getApplicationContext(), REPORT_SUCCESS, Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getApplicationContext(), REPORT_ERROR, Toast.LENGTH_LONG).show();
                     }
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
@@ -121,8 +115,4 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnLogout.setOnClickListener(this);
     }
 
-    private boolean add(FaultModel faultModel) throws ExecutionException, InterruptedException {
-        Log.i("fault in main", faultModel.toString());
-        return new ReportAsync().execute(faultModel).get();
-    }
 }

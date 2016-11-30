@@ -2,6 +2,7 @@ package com.mobile.cpt.cpt_mobileapp.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -9,6 +10,7 @@ import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 import com.mobile.cpt.cpt_mobileapp.R;
+import com.mobile.cpt.cpt_mobileapp.async.ReportAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
@@ -29,16 +32,26 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 public class ReportActivity extends Activity {
 
     Image image;
+    ProgressDialog loading = null;
+    int progress;
+    private Handler handler = new Handler();
+    Boolean isAdded;
+    int status = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent reportTypeIntent = new Intent(getApplicationContext(), ReportTypeActivity.class);
         startActivityForResult(reportTypeIntent, REPORT_TYPE_REQUEST_CODE);
+        loading = new ProgressDialog(ReportActivity.this);
+        loading.setCancelable(true);
+        loading.setMessage("Wczytywanie");
+        loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     }
 
     private void autoType(){
@@ -66,6 +79,9 @@ public class ReportActivity extends Activity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loading.show();
+                progress = 0;
+                spinningThread.start();
                 TextView tv_issuer_id = (TextView) findViewById(TV_ISSUER_ID);
                 EditText et_topic = (EditText) findViewById(ET_TOPIC);
                 EditText et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
@@ -85,8 +101,20 @@ public class ReportActivity extends Activity {
                         fault = new FaultModel(Integer.parseInt(issuer), topic,
                                 descr, Integer.parseInt(obj_no));
                     }
+                    try {
+                        isAdded = add(fault);
+                        status = 1;
+                    } catch (ExecutionException e) {
+                        status = 2;
+                        isAdded = false;
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        status = 2;
+                        isAdded = false;
+                        e.printStackTrace();
+                    }
                     Intent fromMain = getIntent();
-                    fromMain.putExtra(FAULT, fault);
+                    fromMain.putExtra("status", status);
                     setResult(RESULT_OK, fromMain);
                     finish();
                 } else {
@@ -108,6 +136,8 @@ public class ReportActivity extends Activity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loading.show();
+                spinningThread.start();
                 TextView tv_issuer_id = (TextView) findViewById(TV_ISSUER_ID);
                 EditText et_topic = (EditText) findViewById(ET_TOPIC);
                 EditText et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
@@ -127,8 +157,19 @@ public class ReportActivity extends Activity {
                         fault = new FaultModel(Integer.parseInt(issuer), topic,
                                 descr, Integer.parseInt(obj_no));
                     }
+                    try {
+                        isAdded = add(fault);
+                    } catch (ExecutionException e) {
+                        isAdded = false;
+                        status = 2;
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        isAdded = false;
+                        status = 2;
+                        e.printStackTrace();
+                    }
                     Intent fromMain = getIntent();
-                    fromMain.putExtra(FAULT, fault);
+                    fromMain.putExtra("status", isAdded);
                     setResult(RESULT_OK, fromMain);
                     finish();
                 } else {
@@ -160,6 +201,7 @@ public class ReportActivity extends Activity {
                 setContentView(R.layout.activity_add_problem_manual);
                 manualType();
             }
+
         }
     }
 
@@ -196,4 +238,29 @@ public class ReportActivity extends Activity {
         }
     }
 
+    Thread spinningThread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while(status == 0){
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        loading.setProgress(progress);
+                        if (status != 0){
+                            loading.dismiss();
+                        }
+                    }
+                });
+                try{
+                    Thread.sleep(20);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    });
+
+    private boolean add(FaultModel faultModel) throws ExecutionException, InterruptedException {
+        return new ReportAsync().execute(faultModel).get();
+    }
 }
