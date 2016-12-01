@@ -30,6 +30,8 @@ public class Constant {
     public static final String REPORT_ERROR = "Błąd dodawania";
     public static final String REPORT_SUCCESS = "Zgłoszenie dodane";
     public static final String EDIT_SUCCESS = "Edytowano poprawnie";
+    public static final String DELETE_SUCCESS = "Usunięto poprawnie";
+
 
     // BUTTONS
     public static final int BTN_LOGOUT = R.id.btn_logout;
@@ -96,6 +98,7 @@ public class Constant {
     // API LINK
     public static final String HTTP_LOGIN = "http://cpt4cti.24tm.pl/login.php";
     public static final String HTTP_REPORT = "http://cpt4cti.24tm.pl/add_fault.php";
+    public static final String EDIT_HTTP = "http://cpt4cti.24tm.pl/edit_fault.php";
     public static final String HTTP_PRESENT_USER_FAULTS = "http://cpt4cti.24tm.pl/select_fault.php";
     public static final String HTTP_PRESENT_ALL_FAULTS = "http://cpt4cti.24tm.pl/select_all_faults.php";
 
@@ -118,5 +121,5 @@ public class Constant {
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 
-    public static final String EDIT_HTTP = "http://cpt4cti.24tm.pl/edit_fault.php";
+
 }

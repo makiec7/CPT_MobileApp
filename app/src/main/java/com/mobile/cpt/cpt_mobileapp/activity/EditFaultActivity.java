@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobile.cpt.cpt_mobileapp.R;
+import com.mobile.cpt.cpt_mobileapp.async.DeleteAsync;
 import com.mobile.cpt.cpt_mobileapp.async.EditAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
@@ -34,6 +35,7 @@ public class EditFaultActivity extends Activity {
         final EditText et_topic = (EditText) findViewById(ET_TOPIC);
         final EditText et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
         Button btn_edit_fault = (Button) findViewById(R.id.btn_edit);
+        Button btn_delete = (Button) findViewById(R.id.btn_delete);
         tv_id.setText(Integer.toString(fault.getId()));
         et_description.setText(fault.getDescription());
         tv_datetime.setText(fault.getDate_time());
@@ -51,6 +53,25 @@ public class EditFaultActivity extends Activity {
                 try {
                     new EditAsync().execute(fault).get();
                     Toast.makeText(getApplicationContext(), EDIT_SUCCESS, Toast.LENGTH_LONG).show();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+                }
+                Intent result = getIntent();
+                result.putExtra("finnish", true);
+                setResult(EDIT_REQUEST_CODE, result);
+                finish();
+            }
+        });
+        btn_delete.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    new DeleteAsync().execute(fault).get();
+                    Toast.makeText(getApplicationContext(), DELETE_SUCCESS, Toast.LENGTH_LONG).show();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
