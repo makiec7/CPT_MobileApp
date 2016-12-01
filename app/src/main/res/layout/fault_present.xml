@@ -8,24 +8,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/app_name_layout"
-        android:padding="10dp"
         android:layout_margin="5dp"
         android:orientation="vertical">
         <!-- FAULT ID -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_margin="5dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/fault_id_layout"
+            android:layout_margin="5dp">
             <TextView
+                android:text="Numer zgłoszenia:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="ID zgłoszenia:"
-                android:id="@+id/tv_id_text"/>
+                android:padding="5dp"
+                android:id="@+id/tv_fault_id_text" />
             <TextView
+                android:text="id"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tv_id"/>
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
+                android:id="@+id/tv_id" />
         </LinearLayout>
         <!-- ISSUER ID -->
         <LinearLayout
@@ -34,13 +40,19 @@
             android:layout_margin="5dp"
             android:orientation="horizontal">
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Zgłaszający:"
+                android:padding="5dp"
                 android:id="@+id/tv_issuer_text"/>
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
                 android:id="@+id/tv_issuer"/>
         </LinearLayout>
         <!-- DATE AND TIME -->
@@ -50,13 +62,19 @@
             android:layout_margin="5dp"
             android:orientation="horizontal">
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Czas zgłoszenia:"
+                android:padding="5dp"
                 android:id="@+id/tv_datetime_text"/>
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
                 android:id="@+id/tv_datetime"/>
         </LinearLayout>
         <!-- OBJECT NUMBER -->
@@ -66,13 +84,19 @@
             android:layout_margin="5dp"
             android:orientation="horizontal">
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Numer przedmiotu:"
+                android:padding="5dp"
                 android:id="@+id/tv_obj_no_text"/>
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
                 android:id="@+id/tv_object_number"/>
         </LinearLayout>
         <!-- TOPIC -->
@@ -82,13 +106,19 @@
             android:layout_margin="5dp"
             android:orientation="horizontal">
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:padding="5dp"
                 android:text="Temat:"
                 android:id="@+id/tv_topic_text"/>
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
                 android:id="@+id/tv_topic"/>
         </LinearLayout>
         <!-- DESCRIPTION -->
@@ -98,13 +128,19 @@
             android:layout_margin="5dp"
             android:orientation="horizontal">
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:padding="5dp"
                 android:text="Opis:"
                 android:id="@+id/tv_description_text"/>
             <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
                 android:id="@+id/tv_description"/>
         </LinearLayout>
     </LinearLayout>

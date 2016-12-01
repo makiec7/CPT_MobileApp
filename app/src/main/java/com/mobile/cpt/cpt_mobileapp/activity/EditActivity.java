@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import com.mobile.cpt.cpt_mobileapp.adapter.ShortPresentAdapter;
 import com.mobile.cpt.cpt_mobileapp.async.PresentAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
@@ -49,10 +51,17 @@ public class EditActivity extends Activity {
                 Intent edition = new Intent(getApplicationContext(), EditFaultActivity.class);
                 FaultModel fault = (FaultModel) listView.getItemAtPosition(i);
                 edition.putExtra(FAULT, fault);
-                startActivity(edition);
+                startActivityForResult(edition, EDIT_REQUEST_CODE);
             }
         });
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == EDIT_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                finish();
+            }
+        }
+    }
 }

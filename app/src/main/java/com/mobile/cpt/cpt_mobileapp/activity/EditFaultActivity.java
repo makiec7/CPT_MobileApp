@@ -58,6 +58,9 @@ public class EditFaultActivity extends Activity {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
                 }
+                Intent result = getIntent();
+                result.putExtra("finnish", true);
+                setResult(EDIT_REQUEST_CODE, result);
                 finish();
             }
         });
