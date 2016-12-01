@@ -2,6 +2,7 @@ package com.mobile.cpt.cpt_mobileapp.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,6 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         FaultModelHolder holder;
-
         if (convertView == null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             convertView = inflater.inflate(resource, parent, false);
@@ -49,6 +49,7 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
         FaultModel object = objects.get(position);
         holder.tv_datetime.setText(object.getDate_time());
         holder.tv_topic.setText(object.getTopic());
+        convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.rgb(179, 179, 179));
         return convertView;
     }
 }

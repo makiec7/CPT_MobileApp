@@ -62,7 +62,7 @@ public class EditFaultActivity extends Activity {
                 }
                 Intent result = getIntent();
                 result.putExtra("finnish", true);
-                setResult(EDIT_REQUEST_CODE, result);
+                setResult(RESULT_OK, result);
                 finish();
             }
         });
@@ -81,7 +81,7 @@ public class EditFaultActivity extends Activity {
                 }
                 Intent result = getIntent();
                 result.putExtra("finnish", true);
-                setResult(EDIT_REQUEST_CODE, result);
+                setResult(RESULT_OK, result);
                 finish();
             }
         });

@@ -2,6 +2,7 @@ package com.mobile.cpt.cpt_mobileapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,9 +49,11 @@ public class PresentActivity extends Activity {
         ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
                 faults);
         listView.setAdapter(presentAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
                  Intent details = new Intent(getApplicationContext(), MoreInfoActivity.class);
                  FaultModel fault = (FaultModel) listView.getItemAtPosition(i);
                 details.putExtra(FAULT, fault);
