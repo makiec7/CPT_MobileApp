@@ -9,11 +9,11 @@ import android.graphics.Bitmap;
 import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,18 +21,24 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
-
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.ReportAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
+
+import static com.mobile.cpt.cpt_mobileapp.Constant.ADD_LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.CAMERA_REQUEST_CODE;
+import static com.mobile.cpt.cpt_mobileapp.Constant.CANNOT_DETECT_CAMERA;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_DESCRIPTION;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_OBJ_NO;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_PHONE_NUMBER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_TOPIC;
+import static com.mobile.cpt.cpt_mobileapp.Constant.FILL_ALL_FIELDS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.REPORT_TYPE_REQUEST_CODE;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER_ID;
+import static com.mobile.cpt.cpt_mobileapp.Constant.USER_DATA;
 
 public class ReportActivity extends Activity {
 
@@ -186,6 +192,7 @@ public class ReportActivity extends Activity {
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
+            Log.i("image data", imageBitmap.toString());
         } else if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
             if (extras.get("type").equals("AUTO")){

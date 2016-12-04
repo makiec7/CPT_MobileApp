@@ -9,13 +9,16 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.mobile.cpt.cpt_mobileapp.Constant;
-import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
 import java.util.List;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DESCRIPTION;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ID;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_OBJ_NO;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_TOPIC;
 
 public class PresentAdapter extends ArrayAdapter<FaultModel> {
     private Context context;

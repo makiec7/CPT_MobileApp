@@ -3,18 +3,30 @@ package com.mobile.cpt.cpt_mobileapp.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
-
-import com.mobile.cpt.cpt_mobileapp.async.ReportAsync;
-import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
-import java.util.concurrent.ExecutionException;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ABOUT_LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_ABOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_ALARMS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_CONTACT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_EDIT_FAULT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_LOCAL_FAULTS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_LOGOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_REPORT_FAULT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_SHOW_FAULTS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.CONTACT_LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_REQUEST_CODE;
+import static com.mobile.cpt.cpt_mobileapp.Constant.EMERGENCY_LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.MAIN_LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.REPORT_ERROR;
+import static com.mobile.cpt.cpt_mobileapp.Constant.REPORT_REQUEST_CODE;
+import static com.mobile.cpt.cpt_mobileapp.Constant.REPORT_SUCCESS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.USER_DATA;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 

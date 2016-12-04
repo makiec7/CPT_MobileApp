@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.*;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,7 +17,18 @@ import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
 import java.util.concurrent.ExecutionException;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
+import static com.mobile.cpt.cpt_mobileapp.Constant.DATA_ERROR;
+import static com.mobile.cpt.cpt_mobileapp.Constant.DELETE_SUCCESS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_SUCCESS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_DESCRIPTION;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_PHONE_NUMBER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_TOPIC;
+import static com.mobile.cpt.cpt_mobileapp.Constant.FAULT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ID;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TV_OBJ_NO;
 
 public class EditFaultActivity extends Activity {
 

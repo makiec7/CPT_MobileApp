@@ -11,7 +11,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
+import static com.mobile.cpt.cpt_mobileapp.Constant.DATE_TIME;
+import static com.mobile.cpt.cpt_mobileapp.Constant.DATE_TIME_FORMAT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.DESCRIPTION;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ID;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ISSUER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.OBJECT_NUMBER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.PHONE_NUMBER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.STATUS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TOPIC;
 
 public class FaultModel implements Serializable {
 

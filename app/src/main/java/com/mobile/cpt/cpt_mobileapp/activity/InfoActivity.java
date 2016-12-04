@@ -3,9 +3,10 @@ package com.mobile.cpt.cpt_mobileapp.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 import com.mobile.cpt.cpt_mobileapp.Constant;
+
+import static com.mobile.cpt.cpt_mobileapp.Constant.LAYOUT;
 
 public class InfoActivity extends Activity {
 

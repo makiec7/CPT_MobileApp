@@ -5,12 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.mobile.cpt.cpt_mobileapp.Constant;
-import com.mobile.cpt.cpt_mobileapp.Constant.*;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
-
-import java.util.List;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.FAULT;
 import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;

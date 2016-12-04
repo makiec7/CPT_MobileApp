@@ -4,19 +4,30 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 import com.mobile.cpt.cpt_mobileapp.async.LoginAsync;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
-import java.io.Serializable;
 import java.util.concurrent.ExecutionException;
+
+import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_TO_LOG;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_LOGIN;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ET_PASSWORD;
+import static com.mobile.cpt.cpt_mobileapp.Constant.INSERT_LOGIN_DATA;
+import static com.mobile.cpt.cpt_mobileapp.Constant.LOGGED_AS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.LOGIN_LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.MAIN_ACTIVITY_REQ_CODE;
+import static com.mobile.cpt.cpt_mobileapp.Constant.NOT_CONNECTED_TO_INTERNET;
+import static com.mobile.cpt.cpt_mobileapp.Constant.NULL_STRING;
+import static com.mobile.cpt.cpt_mobileapp.Constant.SERVER_OUT_OF_CONNECTION;
+import static com.mobile.cpt.cpt_mobileapp.Constant.USER_DATA;
+import static com.mobile.cpt.cpt_mobileapp.Constant.WRONG_LOGIN_DATA;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginButton;

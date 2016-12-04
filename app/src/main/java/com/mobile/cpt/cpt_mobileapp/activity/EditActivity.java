@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.mobile.cpt.cpt_mobileapp.adapter.ShortPresentAdapter;
 import com.mobile.cpt.cpt_mobileapp.async.PresentAsync;
@@ -16,7 +15,12 @@ import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
+import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_REQUEST_CODE;
+import static com.mobile.cpt.cpt_mobileapp.Constant.FAULT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.LIST_FAULT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.SHORT_FAULT_LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.USER_DATA;
+import static com.mobile.cpt.cpt_mobileapp.Constant.USER_PROBLEMS_LAYOUT;
 
 public class EditActivity extends Activity {
 

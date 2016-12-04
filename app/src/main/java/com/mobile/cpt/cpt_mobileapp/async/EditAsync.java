@@ -14,7 +14,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
+import static com.mobile.cpt.cpt_mobileapp.Constant.AND;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ASK;
+import static com.mobile.cpt.cpt_mobileapp.Constant.DESCRIPTION_EQ;
+import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_HTTP;
+import static com.mobile.cpt.cpt_mobileapp.Constant.FALSE;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ID_EQ;
+import static com.mobile.cpt.cpt_mobileapp.Constant.JSON;
+import static com.mobile.cpt.cpt_mobileapp.Constant.PHONE_NUMBER_EQ;
+import static com.mobile.cpt.cpt_mobileapp.Constant.QUERY_STATUS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TIMEOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TOPIC_EQ;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TRUE;
+import static com.mobile.cpt.cpt_mobileapp.Constant.UTF_8;
 
 public class EditAsync extends AsyncTask<FaultModel, String, Boolean> {
 

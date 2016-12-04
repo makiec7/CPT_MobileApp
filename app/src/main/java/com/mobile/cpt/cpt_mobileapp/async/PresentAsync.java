@@ -15,7 +15,14 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.*;
+import static com.mobile.cpt.cpt_mobileapp.Constant.ASK;
+import static com.mobile.cpt.cpt_mobileapp.Constant.HTTP_PRESENT_ALL_FAULTS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.HTTP_PRESENT_USER_FAULTS;
+import static com.mobile.cpt.cpt_mobileapp.Constant.INDEX_NO_EQ;
+import static com.mobile.cpt.cpt_mobileapp.Constant.JSON;
+import static com.mobile.cpt.cpt_mobileapp.Constant.TIMEOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.URL;
+import static com.mobile.cpt.cpt_mobileapp.Constant.UTF_8;
 
 public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
 
