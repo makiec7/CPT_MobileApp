@@ -100,7 +100,9 @@ public class Constant {
     public static final String HTTP_REPORT = "http://cpt4cti.24tm.pl/add_fault.php";
     public static final String EDIT_HTTP = "http://cpt4cti.24tm.pl/edit_fault.php";
     public static final String HTTP_PRESENT_USER_FAULTS = "http://cpt4cti.24tm.pl/select_fault.php";
-    public static final String HTTP_PRESENT_ALL_FAULTS = "http://cpt4cti.24tm.pl/select_all_faults.php";
+    public static final String HTTP_PRESENT_ALL_FAULTS =
+            "http://cpt4cti.24tm.pl/select_all_faults.php";
+    public static final String HTTP_DELETE = "http://cpt4cti.24tm.pl/delete_fault.php";
 
     // FOR API LINK
     public static final String ASK = "?";
@@ -121,5 +123,5 @@ public class Constant {
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 
-    public static final String HTTP_DELETE = "http://cpt4cti.24tm.pl/delete_fault.php";
+
 }
