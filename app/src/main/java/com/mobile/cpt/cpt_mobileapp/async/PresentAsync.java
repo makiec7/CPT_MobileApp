@@ -35,14 +35,10 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
                 List<FaultModel> faultsJSON = FaultModel.fromJSONArray(jsonObj);
                 if (!faultsJSON.isEmpty()) {
                     return faultsJSON;
-                } else {
-                    return new ArrayList<>();
                 }
-            } else {
-                return new ArrayList<>();
             }
         } catch (Exception e) {
-            return new ArrayList<>();
         }
+        return new ArrayList<>();
     }
 }
