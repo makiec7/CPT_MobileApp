@@ -43,16 +43,9 @@ public class EditAsync extends AsyncTask<FaultModel, String, Boolean> {
                 if (query_status.equals(TRUE)) {
                     Log.i(QUERY_STATUS, query_status);
                     return true;
-                } else {
-                    Log.i(QUERY_STATUS, query_status);
-                    return false;
                 }
-            } else {
-                Log.i(QUERY_STATUS, FALSE);
-                return false;
             }
-        } catch (Exception e) {
-            return false;
-        }
+        } catch (Exception e) {}
+        return false;
     }
 }
