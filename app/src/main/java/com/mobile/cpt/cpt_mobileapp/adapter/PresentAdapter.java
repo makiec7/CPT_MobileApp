@@ -44,7 +44,6 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         FaultModelHolder holder;
-
         if (convertView == null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             convertView = inflater.inflate(resource, parent, false);
@@ -55,12 +54,10 @@ public class PresentAdapter extends ArrayAdapter<FaultModel> {
             holder.tv_obj_no = (TextView) convertView.findViewById(TV_OBJ_NO);
             holder.tv_datetime = (TextView) convertView.findViewById(TV_DATETIME);
             holder.tv_topic = (TextView) convertView.findViewById(TV_TOPIC);
-
             convertView.setTag(holder);
         } else {
             holder = (FaultModelHolder) convertView.getTag();
         }
-
         FaultModel object = objects.get(position);
         holder.tv_id.setText(Integer.toString(object.getId()));
         holder.tv_description.setText(object.getDescription());
