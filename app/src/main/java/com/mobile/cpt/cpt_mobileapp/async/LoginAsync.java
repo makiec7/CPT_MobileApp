@@ -38,7 +38,6 @@ public class LoginAsync extends AsyncTask<String, String, LoginModel> {
             if (jsonObj != null) {
                 String login_status = (String) jsonObj.get(LOGIN_STATUS);
                 if (login_status.equals(TRUE)) {
-                    Log.i(IS_LOGGED, login_status);
                     return new LoginModel(true, (String) jsonObj.get(USER));
                 }
             }

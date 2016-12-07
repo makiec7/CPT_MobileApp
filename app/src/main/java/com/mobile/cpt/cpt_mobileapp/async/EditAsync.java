@@ -41,7 +41,6 @@ public class EditAsync extends AsyncTask<FaultModel, String, Boolean> {
             if (jsonObj != null) {
                 String query_status = (String) jsonObj.get(QUERY_STATUS);
                 if (query_status.equals(TRUE)) {
-                    Log.i(QUERY_STATUS, query_status);
                     return true;
                 }
             }
