@@ -25,17 +25,6 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.UTF_8;
 
 public class LoginAsync extends AsyncTask<String, String, LoginModel> {
 
-    private Activity activity;
-
-    public LoginAsync(Activity activity) {
-        this.activity = activity;
-    }
-
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
-
     @Override
     protected LoginModel doInBackground(String... arg0) {
         String indexNo = arg0[0];
@@ -51,28 +40,9 @@ public class LoginAsync extends AsyncTask<String, String, LoginModel> {
                 if (login_status.equals(TRUE)) {
                     Log.i(IS_LOGGED, login_status);
                     return new LoginModel(true, (String) jsonObj.get(USER));
-                } else {
-                    Log.i(IS_LOGGED, login_status);
-                    return new LoginModel(false, NULL_STRING);
                 }
-            } else {
-                return new LoginModel(false, NULL_STRING);
             }
-        } catch (Exception e) {
-            return new LoginModel(false, NULL_STRING);
-        }
-    }
-
-    public Activity getActivity() {
-        return activity;
-    }
-
-    public void setActivity(Activity activity) {
-        this.activity = activity;
-    }
-
-    @Override
-    protected void onPostExecute(LoginModel loginModel) {
-        super.onPostExecute(loginModel);
+        } catch (Exception e) {}
+        return new LoginModel(false, NULL_STRING);
     }
 }
