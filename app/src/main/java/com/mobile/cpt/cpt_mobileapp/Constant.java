@@ -129,4 +129,5 @@ public class Constant {
     public static final String AUTO = "AUTO";
     public static final String DATA = "data";
     public static final String STATUS = "status";
+    public static final String FINNISH = "finnish";
 }

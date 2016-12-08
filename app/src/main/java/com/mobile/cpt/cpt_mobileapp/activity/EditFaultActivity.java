@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.DeleteAsync;
 import com.mobile.cpt.cpt_mobileapp.async.EditAsync;
@@ -25,6 +26,7 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.ET_DESCRIPTION;
 import static com.mobile.cpt.cpt_mobileapp.Constant.ET_PHONE_NUMBER;
 import static com.mobile.cpt.cpt_mobileapp.Constant.ET_TOPIC;
 import static com.mobile.cpt.cpt_mobileapp.Constant.FAULT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.FINNISH;
 import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;
 import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ID;
 import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER;
@@ -32,21 +34,33 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.TV_OBJ_NO;
 
 public class EditFaultActivity extends Activity {
 
+    private Intent toEdit;
+    private FaultModel fault;
+    private TextView tv_id;
+    private EditText et_description;
+    private TextView tv_issuer;
+    private TextView tv_obj_no;
+    private TextView tv_datetime;
+    private EditText et_topic;
+    private EditText et_phone_number;
+    private Button btn_edit_fault;
+    private Button btn_delete;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(EDIT_LAYOUT);
-        Intent toEdit = getIntent();
-        final FaultModel fault = (FaultModel) toEdit.getExtras().get(FAULT);
-        TextView tv_id = (TextView) findViewById(TV_ID);
-        final EditText et_description = (EditText) findViewById(ET_DESCRIPTION);
-        TextView tv_issuer = (TextView) findViewById(TV_ISSUER);
-        TextView tv_obj_no = (TextView) findViewById(TV_OBJ_NO);
-        TextView tv_datetime = (TextView) findViewById(TV_DATETIME);
-        final EditText et_topic = (EditText) findViewById(ET_TOPIC);
-        final EditText et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
-        Button btn_edit_fault = (Button) findViewById(R.id.btn_edit);
-        Button btn_delete = (Button) findViewById(R.id.btn_delete);
+        toEdit = getIntent();
+        fault = (FaultModel) toEdit.getExtras().get(FAULT);
+        tv_id = (TextView) findViewById(TV_ID);
+        et_description = (EditText) findViewById(ET_DESCRIPTION);
+        tv_issuer = (TextView) findViewById(TV_ISSUER);
+        tv_obj_no = (TextView) findViewById(TV_OBJ_NO);
+        tv_datetime = (TextView) findViewById(TV_DATETIME);
+        et_topic = (EditText) findViewById(ET_TOPIC);
+        et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
+        btn_edit_fault = (Button) findViewById(R.id.btn_edit);
+        btn_delete = (Button) findViewById(R.id.btn_delete);
         tv_id.setText(Integer.toString(fault.getId()));
         et_description.setText(fault.getDescription());
         tv_datetime.setText(fault.getDate_time());
@@ -57,44 +71,49 @@ public class EditFaultActivity extends Activity {
         btn_edit_fault.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 fault.setDescription(String.valueOf(et_description.getText().toString()));
                 fault.setTopic(String.valueOf(et_topic.getText().toString()));
                 fault.setPhone_number(String.valueOf(et_phone_number.getText().toString()));
-                try {
-                    new EditAsync().execute(fault).get();
-                    Toast.makeText(getApplicationContext(), EDIT_SUCCESS, Toast.LENGTH_LONG).show();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
-                }
-                Intent result = getIntent();
-                result.putExtra("finnish", true);
-                setResult(RESULT_OK, result);
+                edit(fault);
+                Toast.makeText(getApplicationContext(), EDIT_SUCCESS, Toast.LENGTH_LONG).show();
+                toEdit.putExtra(FINNISH, true);
+                setResult(RESULT_OK, toEdit);
                 finish();
             }
         });
         btn_delete.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    new DeleteAsync().execute(fault).get();
-                    Toast.makeText(getApplicationContext(), DELETE_SUCCESS, Toast.LENGTH_LONG).show();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
-                }
-                Intent result = getIntent();
-                result.putExtra("finnish", true);
-                setResult(RESULT_OK, result);
+                delete(fault);
+                Toast.makeText(getApplicationContext(), DELETE_SUCCESS, Toast.LENGTH_LONG).show();
+                toEdit.putExtra(FINNISH, true);
+                setResult(RESULT_OK, toEdit);
                 finish();
             }
         });
+    }
+
+    private void delete(FaultModel fault){
+        try {
+            new DeleteAsync().execute(fault).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void edit(FaultModel fault){
+        try {
+            new EditAsync().execute(fault).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+        }
     }
 }
