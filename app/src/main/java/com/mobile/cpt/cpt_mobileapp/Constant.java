@@ -123,5 +123,10 @@ public class Constant {
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 
-
+    public static final String LOADING = "Wczytywanie";
+    public static final String TYPE = "type";
+    public static final String MANUAL = "MANUAL";
+    public static final String AUTO = "AUTO";
+    public static final String DATA = "data";
+    public static final String STATUS = "status";
 }
