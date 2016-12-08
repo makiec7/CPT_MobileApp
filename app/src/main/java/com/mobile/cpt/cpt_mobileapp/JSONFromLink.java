@@ -18,20 +18,21 @@ public class JSONFromLink {
     private HttpURLConnection conn;
     private BufferedReader bufferedReader;
     private final String link;
+    private String jsonStr;
+    private URL url;
 
     public JSONFromLink(String link){
         this.link = link;
     }
 
     public JSONObject getFromLink() throws IOException, JSONException {
-        URL url = new URL(link);
-        Log.i(Constant.URL, url.toString());
+        url = new URL(link);
         conn = (HttpURLConnection) url.openConnection();
         conn.setConnectTimeout(TIMEOUT);
         conn.setDoInput(true);
         conn.connect();
         bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        String jsonStr = bufferedReader.readLine().toString();
+        jsonStr = bufferedReader.readLine().toString();
         bufferedReader.close();
         conn.disconnect();
         return new JSONObject(jsonStr);

@@ -6,6 +6,11 @@ public class Constant {
     public static final String LAYOUT = "LAYOUT";
     public static final String USER_DATA = "userData";
     public static final String FAULT = "fault";
+    public static final String TYPE = "type";
+    public static final String MANUAL = "MANUAL";
+    public static final String AUTO = "AUTO";
+    public static final String DATA = "data";
+    public static final String FINNISH = "finnish";
 
     // LAYOUTS
     public static final int MAIN_LAYOUT = R.layout.activity_main;
@@ -18,7 +23,7 @@ public class Constant {
     public static final int SHORT_FAULT_LAYOUT = R.layout.short_fault_present;
     public static final int ADD_LAYOUT = R.layout.activity_add_problem_manual;
 
-    // ERRORS
+    // STATEMENTS
     public static final String DATA_ERROR = "Nie można wczytać danych";
     public static final String SERVER_OUT_OF_CONNECTION = "Błąd połączenia z serwerem";
     public static final String NOT_CONNECTED_TO_INTERNET = "Brak połączenia z internetem";
@@ -31,6 +36,7 @@ public class Constant {
     public static final String REPORT_SUCCESS = "Zgłoszenie dodane";
     public static final String EDIT_SUCCESS = "Edytowano poprawnie";
     public static final String DELETE_SUCCESS = "Usunięto poprawnie";
+    public static final String LOADING = "Wczytywanie";
 
 
     // BUTTONS
@@ -123,11 +129,6 @@ public class Constant {
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 
-    public static final String LOADING = "Wczytywanie";
-    public static final String TYPE = "type";
-    public static final String MANUAL = "MANUAL";
-    public static final String AUTO = "AUTO";
-    public static final String DATA = "data";
-    public static final String STATUS = "status";
-    public static final String FINNISH = "finnish";
+
+
 }
