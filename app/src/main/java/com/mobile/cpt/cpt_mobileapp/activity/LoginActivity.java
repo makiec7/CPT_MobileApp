@@ -30,9 +30,9 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.USER_DATA;
 import static com.mobile.cpt.cpt_mobileapp.Constant.WRONG_LOGIN_DATA;
 
 public class LoginActivity extends AppCompatActivity {
-    Button loginButton;
-    EditText loginEdit;
-    EditText passwordEdit;
+    private Button loginButton;
+    private EditText loginEdit;
+    private EditText passwordEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.LENGTH_LONG).show();
                         }
                         try {
-                            LoginModel lr = new LoginAsync(getParent()).execute(login,
+                            LoginModel lr = new LoginAsync().execute(login,
                                     password).get();
                             if (lr != null) {
                                 if (lr.isLogged()) {
