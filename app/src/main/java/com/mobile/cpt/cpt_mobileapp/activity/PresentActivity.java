@@ -23,41 +23,65 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.USER_PROBLEMS_LAYOUT;
 
 public class PresentActivity extends Activity {
 
+    private ListView listView;
+    private Intent details;
+    private List<FaultModel> faults;
+    private Intent fromMain;
+    private LoginModel user;
+    private FaultModel fault;
+    private ShortPresentAdapter presentAdapter;
+
+    public PresentActivity() {
+        listView = null;
+        faults = null;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        List<FaultModel> faults = null;
-        Intent fromMain = getIntent();
-        LoginModel user = (LoginModel) fromMain.getExtras().get(USER_DATA);
-        try {
-            if (user.isLogged()) {
-                faults = new PresentAsync().execute(user.getIndex_no()).get();
-            } else {
-                faults = new PresentAsync().execute().get();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            finish();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            finish();
+        fromMain = getIntent();
+        user = (LoginModel) fromMain.getExtras().get(USER_DATA);
+        if (user.isLogged()) {
+            faults = presentWithParameters(user.getIndex_no());
+        } else {
+            faults = presentWithoutParameters();
         }
         this.setContentView(USER_PROBLEMS_LAYOUT);
-        final ListView listView = (ListView) findViewById(LIST_FAULT);
+        listView = (ListView) findViewById(LIST_FAULT);
         listView.setClickable(true);
-        ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
+        presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
                 faults);
         listView.setAdapter(presentAdapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                 Intent details = new Intent(getApplicationContext(), MoreInfoActivity.class);
-                 FaultModel fault = (FaultModel) listView.getItemAtPosition(i);
+                details = new Intent(getApplicationContext(), MoreInfoActivity.class);
+                fault = (FaultModel) listView.getItemAtPosition(i);
                 details.putExtra(FAULT, fault);
                 startActivity(details);
             }
         });
+    }
+
+    private List<FaultModel> presentWithoutParameters(){
+        try {
+            return new PresentAsync().execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private List<FaultModel> presentWithParameters(String index_no){
+        try {
+            return new PresentAsync().execute(index_no).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
