@@ -11,6 +11,7 @@
         android:orientation="horizontal">
         <TextView
             android:text="Centrum Pomocy Technicznej"
+            android:fontFamily=""
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:background="@color/colorAccent"
             android:textColor="@color/colorWhite"
@@ -51,7 +52,7 @@
             android:gravity="fill"
             android:id="@+id/et_password"
             android:hint="Hasło"
-            android:inputType="number"
+            android:inputType="textPassword"
             android:paddingLeft="15dp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,12 +74,27 @@
                 android:text="Zaloguj" />
         </LinearLayout>
     </LinearLayout>
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:padding="10dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/logo_pl"
-        android:id="@+id/image" />
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/logo_pl"
+            android:id="@+id/image" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/logo_cti" />
+
+    </LinearLayout>
+
 </FrameLayout>

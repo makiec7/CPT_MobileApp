@@ -34,8 +34,6 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 public class ReportActivity extends Activity {
 
     private Image image;
-    private ProgressDialog loading = null;
-    private int progress;
     private Handler handler = new Handler();
     private Boolean isAdded;
     private int status = 0;
@@ -59,10 +57,6 @@ public class ReportActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent reportTypeIntent = new Intent(getApplicationContext(), ReportTypeActivity.class);
         startActivityForResult(reportTypeIntent, REPORT_TYPE_REQUEST_CODE);
-        loading = new ProgressDialog(ReportActivity.this);
-        loading.setCancelable(true);
-        loading.setMessage(LOADING);
-        loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     }
 
     private void addingProcess(){
@@ -87,14 +81,7 @@ public class ReportActivity extends Activity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loading.show();
-                spinningThread.start();
-                if (et_obj_no != null) {
-                    obj_no = et_obj_no.getText().toString();
-                } else {
-                    // NEED TO BE IMPLEMENTED
-                    // obj_no = get from image
-                }
+                getDataFromUser();
                 if (!topic.equals("") && !obj_no.equals("") && !descr.equals("")) {
                     FaultModel fault;
                     if (!phone_number.equals("")) {
@@ -112,7 +99,7 @@ public class ReportActivity extends Activity {
                     } catch (InterruptedException e) {
                         setError(e);
                     }
-                    fromMain.putExtra(STATUS, status);
+                    fromMain.putExtra(STATUS, isAdded);
                     setResult(RESULT_OK, fromMain);
                     finish();
                 } else {
@@ -129,16 +116,27 @@ public class ReportActivity extends Activity {
         e.printStackTrace();
     }
 
+    private void getDataFromUser(){
+        if (et_obj_no != null) {
+            obj_no = et_obj_no.getText().toString();
+            Log.i("test obj_no", obj_no);
+        } else {
+            Log.i("test obj_no2", obj_no);
+            // NEED TO BE IMPLEMENTED
+            // obj_no = get from image
+        }
+        issuer = tv_issuer_id.getText().toString();
+        topic = et_topic.getText().toString();
+        phone_number = et_phone_number.getText().toString();
+        descr = et_description.getText().toString();
+    }
+
     private void init() {
         tv_issuer_id = (TextView) findViewById(TV_ISSUER_ID);
         et_topic = (EditText) findViewById(ET_TOPIC);
         et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
         et_obj_no = (EditText) findViewById(ET_OBJ_NO);
         et_description = (EditText) findViewById(ET_DESCRIPTION);
-        issuer = tv_issuer_id.getText().toString();
-        topic = et_topic.getText().toString();
-        phone_number = et_phone_number.getText().toString();
-        descr = et_description.getText().toString();
         obj_no = "";
         fromMain = getIntent();
         user = (LoginModel) fromMain.getExtras().get(USER_DATA);
@@ -204,28 +202,6 @@ public class ReportActivity extends Activity {
             }
         }
     }
-
-    Thread spinningThread = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            while(status == 0){
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        loading.setProgress(progress);
-                        if (status != 0){
-                            loading.dismiss();
-                        }
-                    }
-                });
-                try{
-                    Thread.sleep(20);
-                }catch(InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    });
 
     private boolean add(FaultModel faultModel) throws ExecutionException, InterruptedException {
         return new ReportAsync().execute(faultModel).get();
