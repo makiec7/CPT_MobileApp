@@ -41,6 +41,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private LoginModel user;
     private Intent forReport;
     private Intent forUserPresent;
+    private Intent userIntent;
+    private Intent editIntent;
+    private Intent infoIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +51,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(MAIN_LAYOUT);
         forUserPresent = new Intent(getApplicationContext(), PresentActivity.class);
         forReport = new Intent(getApplicationContext(), ReportActivity.class);
-        Intent userIntent = getIntent();
+        userIntent = getIntent();
         user = (LoginModel) userIntent.getExtras().get(USER_DATA);
         forReport.putExtra(USER_DATA, user);
-        initialize();
+        init();
     }
 
     @Override
@@ -61,7 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivityForResult(forReport, REPORT_REQUEST_CODE);
                 break;
             case BTN_EDIT_FAULT:
-                Intent editIntent = new Intent(getApplicationContext(), EditActivity.class);
+                editIntent = new Intent(getApplicationContext(), EditActivity.class);
                 editIntent.putExtra(USER_DATA, user);
                 startActivityForResult(editIntent, EDIT_REQUEST_CODE);
                 break;
@@ -89,16 +92,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void openInfoActivity(int layoutId) {
-        Intent InfoIntent = new Intent(getApplicationContext(), InfoActivity.class);
-        InfoIntent.putExtra(LAYOUT, layoutId);
-        startActivity(InfoIntent);
+        infoIntent = new Intent(getApplicationContext(), InfoActivity.class);
+        infoIntent.putExtra(LAYOUT, layoutId);
+        startActivity(infoIntent);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REPORT_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-
                     if ((Boolean) data.getExtras().get("status")) {
                         Toast.makeText(getApplicationContext(), REPORT_SUCCESS, Toast.LENGTH_LONG).show();
                     } else {
@@ -108,7 +110,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private void initialize() {
+    private void init() {
         btnAdd = (ImageButton) findViewById(BTN_REPORT_FAULT);
         btnEdit = (ImageButton) findViewById(BTN_EDIT_FAULT);
         btnMyFaults = (ImageButton) findViewById(BTN_SHOW_FAULTS);
