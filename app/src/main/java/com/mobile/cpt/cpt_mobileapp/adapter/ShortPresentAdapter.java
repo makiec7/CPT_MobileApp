@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mobile.cpt.cpt_mobileapp.R;
@@ -23,6 +24,7 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
     private static class FaultModelHolder {
         TextView tv_datetime;
         TextView tv_topic;
+        ImageView iv_status;
     }
 
     public ShortPresentAdapter(Context context, int resource, List<FaultModel> objects) {
@@ -42,6 +44,7 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
             holder = new FaultModelHolder();
             holder.tv_datetime = (TextView) convertView.findViewById(R.id.tv_datetime);
             holder.tv_topic = (TextView) convertView.findViewById(R.id.tv_topic);
+            holder.iv_status = (ImageView) convertView.findViewById(R.id.iv_status);
             convertView.setTag(holder);
         } else {
             holder = (FaultModelHolder) convertView.getTag();
@@ -49,7 +52,12 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
         FaultModel object = objects.get(position);
         holder.tv_datetime.setText(object.getDate_time());
         holder.tv_topic.setText(object.getTopic());
-        convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.rgb(179, 179, 179));
+        if (object.getStatus() == 2){
+            holder.iv_status.setImageResource(R.drawable.tick_logo);
+        } else {
+            holder.iv_status.setImageResource(R.drawable.cross_logo);
+        }
+        convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.rgb(230, 230, 230));
         return convertView;
     }
 }
