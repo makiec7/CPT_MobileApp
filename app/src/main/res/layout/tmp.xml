@@ -38,6 +38,7 @@
             android:background="@color/colorWhite"
             android:drawablePadding="10dp"
             android:gravity="fill"
+            android:id="@+id/et_login"
             android:hint="Numer indeksu"
             android:paddingLeft="15dp" />
         <EditText
@@ -68,16 +69,8 @@
                 android:layout_marginTop="1dp"
                 android:background="@color/colorWhite"
                 android:textColor="#000000"
+                android:id="@+id/btn_login"
                 android:text="Zaloguj" />
-            <Button
-                android:id="@+id/google"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="#F44336"
-                android:text="Google"
-                android:visibility="gone"
-                android:textColor="#ffffff" />
         </LinearLayout>
     </LinearLayout>
     <ImageView
