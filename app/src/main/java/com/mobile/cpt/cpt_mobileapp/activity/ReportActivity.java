@@ -117,14 +117,7 @@ public class ReportActivity extends Activity {
     }
 
     private void getDataFromUser(){
-        if (et_obj_no != null) {
-            obj_no = et_obj_no.getText().toString();
-            Log.i("test obj_no", obj_no);
-        } else {
-            Log.i("test obj_no2", obj_no);
-            // NEED TO BE IMPLEMENTED
-            // obj_no = get from image
-        }
+        obj_no = et_obj_no.getText().toString();
         issuer = tv_issuer_id.getText().toString();
         topic = et_topic.getText().toString();
         phone_number = et_phone_number.getText().toString();
