@@ -14,8 +14,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:id="@+id/iv_status"
-            android:src="@drawable/cross_logo" />
+            android:id="@+id/iv_status" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -24,12 +23,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
-                android:text="jajko"
                 android:padding="1dp"
                 android:id="@+id/tv_topic"/>
             <TextView
                 android:layout_width="match_parent"
-                android:text="mleko"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
                 android:padding="1dp"
