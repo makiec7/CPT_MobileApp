@@ -2,7 +2,6 @@ package com.mobile.cpt.cpt_mobileapp.activity;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -13,7 +12,6 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +22,7 @@ import android.widget.Toast;
 import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.ReportAsync;
+import com.mobile.cpt.cpt_mobileapp.model.BarCodeModel;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
@@ -33,7 +32,7 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class ReportActivity extends Activity {
 
-    private Image image;
+    private Bitmap image;
     private Handler handler = new Handler();
     private Boolean isAdded;
     private int status = 0;
@@ -144,7 +143,7 @@ public class ReportActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get(DATA);
+            et_obj_no.setText(new BarCodeModel((Bitmap) extras.get(DATA)).getCode());
         } else if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
             if (extras.get("type").equals(Constant.AUTO)){
