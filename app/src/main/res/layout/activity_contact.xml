@@ -19,6 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
+                android:textColor="@color/colorBlack"
                 android:text="@string/administration_contact"/>
         </LinearLayout>
     </RelativeLayout>
