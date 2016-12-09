@@ -32,6 +32,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textColor="@color/colorBlack"
                         android:text="Dodaj zgłoszenie"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -45,6 +46,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textColor="@color/colorBlack"
                         android:text="Moje zgłoszenia"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -58,6 +60,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textColor="@color/colorBlack"
                         android:text="Numery alarmowe"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -71,6 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textColor="@color/colorBlack"
                         android:text="Kontakt z administracją"/>
 
 
@@ -94,6 +98,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textColor="@color/colorBlack"
                         android:text="Edytuj zgłoszenie"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -107,6 +112,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textColor="@color/colorBlack"
                         android:text="Wszystkie zgłoszenia"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -120,6 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textColor="@color/colorBlack"
                         android:text="O programie"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -133,6 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textColor="@color/colorBlack"
                         android:text="Wyloguj się"/>
 
                 </LinearLayout>
