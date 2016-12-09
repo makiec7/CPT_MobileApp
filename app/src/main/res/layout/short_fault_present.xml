@@ -24,12 +24,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
                 android:padding="1dp"
+                android:textColor="@color/colorBlack"
                 android:id="@+id/tv_topic"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
                 android:padding="1dp"
+                android:textColor="@color/colorBlack"
                 android:id="@+id/tv_datetime"/>
         </LinearLayout>
     </LinearLayout>
