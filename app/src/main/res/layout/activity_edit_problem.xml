@@ -20,102 +20,113 @@
             android:background="@color/colorAccent"
             android:orientation="vertical"
             android:padding="30dp">
-            <!-- ISSUER ID -->
             <LinearLayout
+                android:layout_below="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:drawablePadding="10dp"
+                android:layout_height="match_parent"
                 android:paddingLeft="15dp"
-                android:id="@+id/id_layout" >
-                <TextView
-                    android:text="Numer zgłoszenia:"
+                android:paddingRight="15dp"
+                android:layout_gravity="center_horizontal|top"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal">
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
-                    android:id="@+id/tv_id_text" />
-                <TextView
-                    android:text="id"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="#000000"
-                    android:background="@color/colorWhite"
-                    android:id="@+id/tv_id" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:drawablePadding="10dp"
-                android:paddingLeft="15dp"
-                android:id="@+id/issuer_id_layout" >
-                <TextView
-                    android:text="Użytkownik:"
-                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="fill_horizontal|left"
+                    android:id="@+id/id_layout" >
+                    <TextView
+                        android:text="Numer zgłoszenia:"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="50dp"
+                        android:gravity="fill"
+                        android:textColor="@color/colorWhite"
+                        android:padding="5dp"
+                        android:id="@+id/tv_id_text" />
+                    <TextView
+                        android:text="Użytkownik:"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="50dp"
+                        android:gravity="fill"
+                        android:textColor="@color/colorWhite"
+                        android:padding="5dp"
+                        android:id="@+id/tv_issuer" />
+                    <TextView
+                        android:text="Numer przedmiotu:"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="50dp"
+                        android:gravity="fill"
+                        android:textColor="@color/colorWhite"
+                        android:padding="5dp"
+                        android:id="@+id/tv_object_number_text" />
+                    <TextView
+                        android:text="Czas zgłoszenia:"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="fill"
+                        android:textColor="@color/colorWhite"
+                        android:padding="5dp"
+                        android:id="@+id/tv_datetime_text" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
                     android:layout_height="match_parent"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
-                    android:id="@+id/tv_issuer" />
-                <TextView
-                    android:text="issuer id"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="#000000"
-                    android:background="@color/colorWhite"
-                    android:id="@+id/tv_issuer_id" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:drawablePadding="10dp"
-                android:paddingLeft="15dp"
-                android:id="@+id/obj_number_layout" >
-                <TextView
-                    android:text="Numer przedmiotu:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
-                    android:id="@+id/tv_object_number_text" />
-                <TextView
-                    android:text="obj_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="#000000"
-                    android:background="@color/colorWhite"
-                    android:id="@+id/tv_object_number" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:drawablePadding="10dp"
-                android:paddingLeft="15dp"
-                android:id="@+id/datetime_layout" >
-                <TextView
-                    android:text="Czas zgłoszenia:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
-                    android:id="@+id/tv_datetime_text" />
-                <TextView
-                    android:text="datetime"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="#000000"
-                    android:background="@color/colorWhite"
-                    android:id="@+id/tv_datetime" />
+                    android:layout_gravity="fill_horizontal|right"
+                    android:id="@+id/issuer_id_layout" >
+                    <TextView
+                        android:text="issuer id"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="fill"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="5dp"
+                        android:textColor="#000000"
+                        android:background="@color/colorWhite"
+                        android:id="@+id/tv_issuer_id" />
+                    <TextView
+                        android:text="id"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="fill"
+                        android:padding="5dp"
+                        android:textColor="#000000"
+                        android:background="@color/colorWhite"
+                        android:id="@+id/tv_id" />
+                    <TextView
+                        android:text="obj_number"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="50dp"
+                        android:gravity="fill"
+                        android:padding="5dp"
+                        android:textColor="#000000"
+                        android:background="@color/colorWhite"
+                        android:id="@+id/tv_object_number" />
+                    <TextView
+                        android:text="datetime"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="fill"
+                        android:padding="5dp"
+                        android:textColor="#000000"
+                        android:background="@color/colorWhite"
+                        android:id="@+id/tv_datetime" />
+                </LinearLayout>
             </LinearLayout>
             <EditText
                 android:layout_width="match_parent"
