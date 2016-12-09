@@ -32,6 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:layout_weight="0"
                     android:layout_gravity="fill_horizontal|left"
                     android:id="@+id/id_layout" >
                     <TextView
@@ -48,6 +49,7 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:orientation="vertical"
+                    android:layout_weight="50"
                     android:layout_height="match_parent"
                     android:layout_gravity="fill_horizontal|right"
                     android:id="@+id/issuer_id_layout" >
