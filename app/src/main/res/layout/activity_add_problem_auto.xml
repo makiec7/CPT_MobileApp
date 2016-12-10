@@ -72,13 +72,16 @@
                 android:drawablePadding="10dp"
                 android:gravity="fill"
                 android:inputType="phone"
+                android:maxLength="12"
                 android:hint="Numer telefonu"
                 android:digits="0123456789+"
                 android:id="@+id/et_phone_number"
                 android:paddingLeft="15dp" />
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:minHeight="50dp"
+                android:maxLength="50"
                 android:layout_marginTop="15dp"
                 android:drawablePadding="10dp"
                 android:drawableLeft="@color/colorWhite"
@@ -114,7 +117,8 @@
                 android:paddingLeft="15dp" />
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:minHeight="50dp"
                 android:layout_marginTop="15dp"
                 android:drawablePadding="10dp"
                 android:drawableLeft="@color/colorWhite"
