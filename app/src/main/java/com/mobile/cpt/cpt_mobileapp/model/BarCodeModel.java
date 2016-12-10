@@ -21,7 +21,7 @@ public class BarCodeModel {
     }
 
     private Mat toGrayScale(){
-        Mat mat = new Mat (image.getHeight(), image.getWidth(), CvType.CV_8UC1);
+        Mat mat = new Mat ();
         Utils.bitmapToMat(image, mat);
         Log.i("BarCodeModel", "Bitmap is mat");
         Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY);
@@ -31,6 +31,7 @@ public class BarCodeModel {
     public String getCode() {
         Mat mat = toGrayScale();
         Log.i("BarCodeModel", "grey scale made");
+        code = "kod";
         return code;
     }
 }
