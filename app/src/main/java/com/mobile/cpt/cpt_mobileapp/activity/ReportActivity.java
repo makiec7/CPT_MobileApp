@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -143,6 +144,7 @@ public class ReportActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
+            Log.i("image", ((Bitmap) extras.get(DATA)).toString());
             et_obj_no.setText(new BarCodeModel((Bitmap) extras.get(DATA)).getCode());
         } else if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
