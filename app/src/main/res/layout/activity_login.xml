@@ -40,7 +40,6 @@
             android:background="@color/colorWhite"
             android:drawablePadding="10dp"
             android:gravity="fill"
-            android:textColorHint="@color/colorBlack"
             android:id="@+id/et_login"
             android:hint="Numer indeksu"
             android:paddingLeft="15dp" />
@@ -52,7 +51,6 @@
             android:drawableLeft="@color/colorWhite"
             android:background="@color/colorWhite"
             android:gravity="fill"
-            android:textColorHint="@color/colorBlack"
             android:id="@+id/et_password"
             android:hint="Hasło"
             android:inputType="textPassword"
