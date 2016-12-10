@@ -143,7 +143,8 @@
                 android:id="@+id/et_phone_number" />
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:minHeight="50dp"
                 android:layout_marginTop="15dp"
                 android:drawablePadding="10dp"
                 android:maxLength="50"
@@ -154,7 +155,8 @@
                 android:paddingLeft="15dp" />
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:minHeight="50dp"
                 android:layout_marginTop="15dp"
                 android:drawablePadding="10dp"
                 android:drawableLeft="@color/colorWhite"
