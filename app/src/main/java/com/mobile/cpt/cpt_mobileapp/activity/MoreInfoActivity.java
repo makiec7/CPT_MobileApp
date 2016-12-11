@@ -30,13 +30,15 @@ public class MoreInfoActivity extends Activity {
         TextView tv_id = (TextView) findViewById(TV_ID);
         TextView tv_description = (TextView) findViewById(TV_DESCRIPTION);
         TextView tv_datetime = (TextView) findViewById(TV_DATETIME);
-        TextView tv_issuer = (TextView) findViewById(TV_ISSUER);
+        TextView tv_issuer = (TextView) findViewById(R.id.tv_issuer_id);
         TextView tv_obj_no = (TextView) findViewById(TV_OBJ_NO);
         TextView tv_topic = (TextView) findViewById(TV_TOPIC);
         if (fault != null) {
             if (iv_status != null)
                 if (fault.getStatus() == 0)
                     iv_status.setImageResource(R.drawable.cross_logo);
+                else if (fault.getStatus() == 1)
+                    iv_status.setImageResource(R.drawable.ongoing_icon);
                 else
                     iv_status.setImageResource(R.drawable.tick_logo);
             tv_id.setText(Integer.toString(fault.getId()));

@@ -52,11 +52,13 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
         FaultModel object = objects.get(position);
         holder.tv_datetime.setText(object.getDate_time());
         holder.tv_topic.setText(object.getTopic());
-        if (object.getStatus() == 2){
-            holder.iv_status.setImageResource(R.drawable.tick_logo);
-        } else {
-            holder.iv_status.setImageResource(R.drawable.cross_logo);
-        }
+        if (holder.iv_status != null)
+            if (object.getStatus() == 0)
+                holder.iv_status.setImageResource(R.drawable.cross_logo);
+            else if (object.getStatus() == 1)
+                holder.iv_status.setImageResource(R.drawable.ongoing_icon);
+            else
+                holder.iv_status.setImageResource(R.drawable.tick_logo);
         convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.rgb(230, 230, 230));
         return convertView;
     }

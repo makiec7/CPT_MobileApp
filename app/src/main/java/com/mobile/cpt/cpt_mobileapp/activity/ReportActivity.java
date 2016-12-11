@@ -147,7 +147,7 @@ public class ReportActivity extends Activity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Nie wykryto kodu kreskowego.", Toast.LENGTH_LONG).show();
             } else {
                 et_obj_no.setText(result.getContents());
                 Toast.makeText(this, "Wykryty kod: " + result.getContents(), Toast.LENGTH_LONG).show();
