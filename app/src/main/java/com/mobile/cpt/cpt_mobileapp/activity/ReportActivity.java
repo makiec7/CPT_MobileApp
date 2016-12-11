@@ -20,6 +20,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.ReportAsync;
@@ -72,7 +74,7 @@ public class ReportActivity extends Activity {
                         requestPermissions(new String[]{Manifest.permission.CAMERA}, 1010);
                     } else {
                         if (cameraActivity.resolveActivity(getPackageManager()) != null) {
-                            startActivityForResult(cameraActivity, CAMERA_REQUEST_CODE);
+                            new IntentIntegrator(ReportActivity.this).initiateScan();
                         }
                     }
                 }
@@ -142,6 +144,17 @@ public class ReportActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                et_obj_no.setText(result.getContents());
+                Toast.makeText(this, "Wykryty kod: " + result.getContents(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Log.i("image", ((Bitmap) extras.get(DATA)).toString());
