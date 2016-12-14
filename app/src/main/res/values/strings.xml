@@ -12,10 +12,11 @@
         w celach testowych.\n
         \n
         Wykorzystane technologie:\n
-        - MySQL (chmura: Amazon.com)\n
+        - MySQL\n
         - Android Studio (Java 8)\n
-        - Genymotion (testowanie aplikacji)\n
         - OpenCV for Java (rozpoznawanie obrazu)\n
+        - framework zxing\n
+        - dostęp do wirtualnej maszyny w budynku CTI\n
         \n
         Projekt będzie bazą dla pracy inżynierskiej.</string>
 
