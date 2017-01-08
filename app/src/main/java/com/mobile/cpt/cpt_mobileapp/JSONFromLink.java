@@ -29,6 +29,7 @@ public class JSONFromLink {
         url = new URL(link);
         conn = (HttpURLConnection) url.openConnection();
         conn.setConnectTimeout(TIMEOUT);
+        conn.setRequestMethod("POST");
         conn.setDoInput(true);
         conn.connect();
         bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
