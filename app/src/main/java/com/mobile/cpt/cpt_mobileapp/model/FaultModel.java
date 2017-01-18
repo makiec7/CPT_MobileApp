@@ -35,22 +35,14 @@ public class FaultModel implements Serializable {
     public FaultModel(int issuer, String phone_number, String topic, String description,
                       int object_number){
         this.issuer=issuer;
-        this.phone_number=phone_number;
+        if (this.phone_number != null)
+            this.phone_number=phone_number;
+        else
+            this.phone_number="";
         this.topic=topic;
         this.description=description;
         this.object_number=object_number;
-        this.date_time = getDateTime();
-        this.status = 0;
-    }
-
-    public FaultModel(int issuer, String topic, String description, int object_number){
-        this.issuer=issuer;
-        this.topic=topic;
-        this.phone_number = "";
-        this.description=description;
-        this.object_number=object_number;
-        this.date_time = getDateTime();
-        this.phone_number = "";
+        this.date_time = getDateTimeFromSystem();
         this.status = 0;
     }
 
@@ -66,11 +58,6 @@ public class FaultModel implements Serializable {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return this.issuer+this.topic+this.description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -81,10 +68,6 @@ public class FaultModel implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setIssuer(int issuer) {
-        this.issuer = issuer;
     }
 
     public void setStatus(int status) {
@@ -123,20 +106,18 @@ public class FaultModel implements Serializable {
         return phone_number;
     }
 
-    public void setDate_time(String date_time) {
-        this.date_time = date_time;
-    }
-
-    public void setObject_number(int object_number) {
-        this.object_number = object_number;
-    }
-
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
-    public static FaultModel fromJSONObj(JSONObject jObj){
+    private String getDateTimeFromSystem() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_TIME_FORMAT,
+                Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
 
+    public static FaultModel fromJSONObj(JSONObject jObj){
         try {
             return new FaultModel(jObj.getInt(ID), jObj.getInt(ISSUER),
                     jObj.getString(PHONE_NUMBER), jObj.getString(TOPIC),
@@ -156,17 +137,11 @@ public class FaultModel implements Serializable {
                 FaultModel tmp = fromJSONObj((JSONObject) jArray.get(i));
                 faultModels.add(tmp);
             }
-            return faultModels;
         } catch (JSONException e) {
             e.printStackTrace();
-            return faultModels;
         }
+        return faultModels;
     }
 
-    private String getDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_TIME_FORMAT,
-                Locale.getDefault());
-        Date date = new Date();
-        return dateFormat.format(date);
-    }
+
 }

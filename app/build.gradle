@@ -42,6 +42,5 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
-    compile project(path: ':openCVLibrary310')
     compile 'com.journeyapps:zxing-android-embedded:3.4.0'
 }

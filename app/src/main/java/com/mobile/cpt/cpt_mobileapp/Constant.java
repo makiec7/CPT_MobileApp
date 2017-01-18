@@ -49,6 +49,8 @@ public class Constant {
     public static final int BTN_EDIT_FAULT = R.id.btn_edit_fault;
     public static final int BTN_TO_LOG = R.id.btn_login;
     public static final int BTN_REPORT_FAULT = R.id.btn_report_fault;
+    public static final int BTN_MANUAL = R.id.btn_manual;
+    public static final int BTN_AUTO = R.id.btn_auto;
 
     // EDIT TEXT
     public static final int ET_LOGIN = R.id.et_login;
@@ -127,8 +129,5 @@ public class Constant {
     public static final String UTF_8 = "UTF-8";
     public static final int LIST_FAULT = R.id.list_fault;
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
-
-
-
 
 }

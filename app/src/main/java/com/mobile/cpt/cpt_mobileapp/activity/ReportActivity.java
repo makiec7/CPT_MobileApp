@@ -4,15 +4,11 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +21,6 @@ import com.google.zxing.integration.android.IntentResult;
 import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.ReportAsync;
-import com.mobile.cpt.cpt_mobileapp.model.BarCodeModel;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
@@ -35,10 +30,7 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class ReportActivity extends Activity {
 
-    private Bitmap image;
-    private Handler handler = new Handler();
     private Boolean isAdded;
-    private int status = 0;
     private TextView tv_issuer_id;
     private EditText et_topic;
     private EditText et_phone_number;
@@ -85,17 +77,10 @@ public class ReportActivity extends Activity {
             public void onClick(View view) {
                 getDataFromUser();
                 if (!topic.equals("") && !obj_no.equals("") && !descr.equals("")) {
-                    FaultModel fault;
-                    if (!phone_number.equals("")) {
-                        fault = new FaultModel(Integer.parseInt(issuer), phone_number, topic,
-                                descr, Integer.parseInt(obj_no));
-                    } else {
-                        fault = new FaultModel(Integer.parseInt(issuer), topic,
-                                descr, Integer.parseInt(obj_no));
-                    }
+                    FaultModel fault = new FaultModel(Integer.parseInt(issuer), phone_number, topic,
+                            descr, Integer.parseInt(obj_no));
                     try {
                         isAdded = add(fault);
-                        status = 1;
                     } catch (ExecutionException e) {
                         setError(e);
                     } catch (InterruptedException e) {
@@ -113,7 +98,6 @@ public class ReportActivity extends Activity {
     }
 
     private void setError(Exception e) {
-        status = 2;
         isAdded = false;
         e.printStackTrace();
     }
@@ -150,16 +134,13 @@ public class ReportActivity extends Activity {
                 Toast.makeText(this, "Nie wykryto kodu kreskowego.", Toast.LENGTH_LONG).show();
             } else {
                 et_obj_no.setText(result.getContents());
-                Toast.makeText(this, "Wykryty kod: " + result.getContents(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Wykryty kod: " + result.getContents(),
+                        Toast.LENGTH_LONG).show();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-        if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Log.i("image", ((Bitmap) extras.get(DATA)).toString());
-            et_obj_no.setText(new BarCodeModel((Bitmap) extras.get(DATA)).getCode());
-        } else if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK){
+        if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
             if (extras.get("type").equals(Constant.AUTO)){
                 PackageManager pm = this.getPackageManager();
@@ -177,14 +158,18 @@ public class ReportActivity extends Activity {
         }
     }
 
+    private boolean add(FaultModel faultModel) throws ExecutionException, InterruptedException {
+        return new ReportAsync().execute(faultModel).get();
+    }
+
     public static class ReportTypeActivity extends Activity implements View.OnClickListener {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_set_report_type);
-            ImageButton btn_manual = (ImageButton) findViewById(R.id.btn_manual);
-            ImageButton btn_auto = (ImageButton) findViewById(R.id.btn_auto);
+            ImageButton btn_manual = (ImageButton) findViewById(BTN_MANUAL);
+            ImageButton btn_auto = (ImageButton) findViewById(BTN_AUTO);
             btn_auto.setOnClickListener(this);
             btn_manual.setOnClickListener(this);
         }
@@ -192,25 +177,17 @@ public class ReportActivity extends Activity {
 
         @Override
         public void onClick(View view) {
-            Intent typeIntent;
+            Intent typeIntent = getIntent();
             switch (view.getId()) {
-                case R.id.btn_auto:
-                    typeIntent = getIntent();
+                case BTN_AUTO:
                     typeIntent.putExtra(TYPE, AUTO);
-                    setResult(RESULT_OK, typeIntent);
-                    finish();
                     break;
-                case R.id.btn_manual:
-                    typeIntent = getIntent();
+                case BTN_MANUAL:
                     typeIntent.putExtra(TYPE, MANUAL);
-                    setResult(RESULT_OK, typeIntent);
-                    finish();
                     break;
             }
+            setResult(RESULT_OK, typeIntent);
+            finish();
         }
-    }
-
-    private boolean add(FaultModel faultModel) throws ExecutionException, InterruptedException {
-        return new ReportAsync().execute(faultModel).get();
     }
 }
