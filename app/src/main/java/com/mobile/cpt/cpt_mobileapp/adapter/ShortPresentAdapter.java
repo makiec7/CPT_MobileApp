@@ -11,12 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 import java.util.List;
 
 public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
+
 
     private Context context;
     private int resource;
@@ -42,9 +43,9 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             convertView = inflater.inflate(resource, parent, false);
             holder = new FaultModelHolder();
-            holder.tv_datetime = (TextView) convertView.findViewById(R.id.tv_datetime);
-            holder.tv_topic = (TextView) convertView.findViewById(R.id.tv_topic);
-            holder.iv_status = (ImageView) convertView.findViewById(R.id.iv_status);
+            holder.tv_datetime = (TextView) convertView.findViewById(TV_DATETIME);
+            holder.tv_topic = (TextView) convertView.findViewById(TV_TOPIC);
+            holder.iv_status = (ImageView) convertView.findViewById(IV_STATUS);
             convertView.setTag(holder);
         } else {
             holder = (FaultModelHolder) convertView.getTag();
@@ -54,11 +55,11 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
         holder.tv_topic.setText(object.getTopic());
         if (holder.iv_status != null)
             if (object.getStatus() == 0)
-                holder.iv_status.setImageResource(R.drawable.cross_logo);
+                holder.iv_status.setImageResource(CROSS_LOGO);
             else if (object.getStatus() == 1)
-                holder.iv_status.setImageResource(R.drawable.ongoing_icon);
+                holder.iv_status.setImageResource(ONGOING_ICON);
             else
-                holder.iv_status.setImageResource(R.drawable.tick_logo);
+                holder.iv_status.setImageResource(TICK_LOGO);
         convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.rgb(230, 230, 230));
         return convertView;
     }

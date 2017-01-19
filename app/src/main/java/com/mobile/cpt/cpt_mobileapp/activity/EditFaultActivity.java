@@ -10,27 +10,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mobile.cpt.cpt_mobileapp.Constant;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.DeleteAsync;
 import com.mobile.cpt.cpt_mobileapp.async.EditAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
 import java.util.concurrent.ExecutionException;
-
-import static com.mobile.cpt.cpt_mobileapp.Constant.DATA_ERROR;
-import static com.mobile.cpt.cpt_mobileapp.Constant.DELETE_SUCCESS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_LAYOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_SUCCESS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ET_DESCRIPTION;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ET_PHONE_NUMBER;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ET_TOPIC;
-import static com.mobile.cpt.cpt_mobileapp.Constant.FAULT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.FINNISH;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ID;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_OBJ_NO;
 
 public class EditFaultActivity extends Activity {
 
@@ -49,6 +35,30 @@ public class EditFaultActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        init();
+        setFields();
+        btn_edit_fault.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fault.setDescription(String.valueOf(et_description.getText().toString()));
+                fault.setTopic(String.valueOf(et_topic.getText().toString()));
+                fault.setPhone_number(String.valueOf(et_phone_number.getText().toString()));
+                edit(fault);
+                Toast.makeText(getApplicationContext(), EDIT_SUCCESS, Toast.LENGTH_LONG).show();
+                setResultAndFinish();
+            }
+        });
+        btn_delete.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                delete(fault);
+                Toast.makeText(getApplicationContext(), DELETE_SUCCESS, Toast.LENGTH_LONG).show();
+                setResultAndFinish();
+            }
+        });
+    }
+
+    private void init() {
         setContentView(EDIT_LAYOUT);
         toEdit = getIntent();
         fault = (FaultModel) toEdit.getExtras().get(FAULT);
@@ -61,6 +71,9 @@ public class EditFaultActivity extends Activity {
         et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
         btn_edit_fault = (Button) findViewById(R.id.btn_edit);
         btn_delete = (Button) findViewById(R.id.btn_delete);
+    }
+
+    private void setFields() {
         tv_id.setText(Integer.toString(fault.getId()));
         et_description.setText(fault.getDescription());
         tv_datetime.setText(fault.getDate_time());
@@ -68,40 +81,15 @@ public class EditFaultActivity extends Activity {
         et_phone_number.setText(fault.getPhone_number());
         tv_obj_no.setText(Integer.toString(fault.getObject_number()));
         et_topic.setText(fault.getTopic());
-        btn_edit_fault.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fault.setDescription(String.valueOf(et_description.getText().toString()));
-                fault.setTopic(String.valueOf(et_topic.getText().toString()));
-                fault.setPhone_number(String.valueOf(et_phone_number.getText().toString()));
-                edit(fault);
-                Toast.makeText(getApplicationContext(), EDIT_SUCCESS, Toast.LENGTH_LONG).show();
-                toEdit.putExtra(FINNISH, true);
-                setResult(RESULT_OK, toEdit);
-                finish();
-            }
-        });
-        btn_delete.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                delete(fault);
-                Toast.makeText(getApplicationContext(), DELETE_SUCCESS, Toast.LENGTH_LONG).show();
-                toEdit.putExtra(FINNISH, true);
-                setResult(RESULT_OK, toEdit);
-                finish();
-            }
-        });
     }
 
     private void delete(FaultModel fault){
         try {
             new DeleteAsync().execute(fault).get();
         } catch (InterruptedException e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+            setResultAndAbort(e);
         } catch (ExecutionException e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+            setResultAndAbort(e);
         }
     }
 
@@ -109,11 +97,20 @@ public class EditFaultActivity extends Activity {
         try {
             new EditAsync().execute(fault).get();
         } catch (InterruptedException e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+            setResultAndAbort(e);
         } catch (ExecutionException e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+            setResultAndAbort(e);
         }
+    }
+
+    private void setResultAndAbort(Exception e) {
+        e.printStackTrace();
+        Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+    }
+
+    private void setResultAndFinish() {
+        toEdit.putExtra(FINNISH, true);
+        setResult(RESULT_OK, toEdit);
+        finish();
     }
 }

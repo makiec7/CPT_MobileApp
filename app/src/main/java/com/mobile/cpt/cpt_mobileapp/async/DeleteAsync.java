@@ -10,14 +10,7 @@ import org.json.JSONObject;
 
 import java.net.URLEncoder;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.ASK;
-import static com.mobile.cpt.cpt_mobileapp.Constant.FALSE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.HTTP_DELETE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ID_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.JSON;
-import static com.mobile.cpt.cpt_mobileapp.Constant.QUERY_STATUS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TRUE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.UTF_8;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 
 public class DeleteAsync extends AsyncTask<FaultModel, String, Boolean> {

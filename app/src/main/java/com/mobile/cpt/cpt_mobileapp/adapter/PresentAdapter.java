@@ -13,12 +13,7 @@ import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
 import java.util.List;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DESCRIPTION;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ID;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_OBJ_NO;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_TOPIC;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class PresentAdapter extends ArrayAdapter<FaultModel> {
     private Context context;

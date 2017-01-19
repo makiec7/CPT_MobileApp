@@ -10,19 +10,7 @@ import org.json.JSONObject;
 
 import java.net.URLEncoder;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.AND;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ASK;
-import static com.mobile.cpt.cpt_mobileapp.Constant.DATE_TIME_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.DESCRIPTION_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.FALSE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.HTTP_REPORT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ISSUER_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.OBJECT_NUMBER_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.PHONE_NUMBER_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.QUERY_STATUS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TOPIC_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TRUE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.UTF_8;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class ReportAsync extends AsyncTask<FaultModel, String, Boolean>{
 

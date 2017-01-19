@@ -11,11 +11,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.ASK;
-import static com.mobile.cpt.cpt_mobileapp.Constant.HTTP_PRESENT_ALL_FAULTS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.HTTP_PRESENT_USER_FAULTS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.INDEX_NO_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.UTF_8;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
 

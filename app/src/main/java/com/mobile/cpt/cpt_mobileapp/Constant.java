@@ -69,11 +69,13 @@ public class Constant {
     public static final int TV_TOPIC = R.id.tv_topic;
     public static final int TV_ISSUER_ID = R.id.tv_issuer_id;
 
+    // IMAGE VIEWS
+    public static final int IV_STATUS = R.id.iv_status;
+
     // CODES
     public static final int REPORT_REQUEST_CODE = 5000;
     public static final int EDIT_REQUEST_CODE = 6500;
     public static final int MAIN_ACTIVITY_REQ_CODE = 10;
-    public static final int CAMERA_REQUEST_CODE = 1234;
     public static final int REPORT_TYPE_REQUEST_CODE = 4321;
 
     // LOGGERS
@@ -129,5 +131,10 @@ public class Constant {
     public static final String UTF_8 = "UTF-8";
     public static final int LIST_FAULT = R.id.list_fault;
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String POST = "POST";
 
+    // DRAWABLE
+    public static final int CROSS_LOGO = R.drawable.cross_logo;
+    public static final int ONGOING_ICON = R.drawable.ongoing_icon;
+    public static final int TICK_LOGO = R.drawable.tick_logo;
 }

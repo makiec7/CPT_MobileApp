@@ -1,7 +1,6 @@
 package com.mobile.cpt.cpt_mobileapp.async;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.mobile.cpt.cpt_mobileapp.JSONFromLink;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
@@ -10,19 +9,7 @@ import org.json.JSONObject;
 
 import java.net.URLEncoder;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.AND;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ASK;
-import static com.mobile.cpt.cpt_mobileapp.Constant.DESCRIPTION_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_HTTP;
-import static com.mobile.cpt.cpt_mobileapp.Constant.FALSE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ID_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.JSON;
-import static com.mobile.cpt.cpt_mobileapp.Constant.PHONE_NUMBER_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.QUERY_STATUS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TIMEOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TOPIC_EQ;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TRUE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.UTF_8;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class EditAsync extends AsyncTask<FaultModel, String, Boolean> {
 

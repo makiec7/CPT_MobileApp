@@ -1,9 +1,9 @@
 package com.mobile.cpt.cpt_mobileapp.model;
 
-
 import java.io.Serializable;
 
 public class LoginModel implements Serializable{
+    
     private boolean isLogged;
     private String index_no;
 
@@ -20,11 +20,4 @@ public class LoginModel implements Serializable{
         return isLogged;
     }
 
-    public void setIndex_no(String index_no) {
-        this.index_no = index_no;
-    }
-
-    public void setLogged(boolean logged) {
-        isLogged = logged;
-    }
 }
