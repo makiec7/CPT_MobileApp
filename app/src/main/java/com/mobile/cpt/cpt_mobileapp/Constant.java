@@ -28,6 +28,7 @@ public class Constant {
 
     // STATEMENTS
     public static final String DATA_ERROR = "Nie można wczytać danych";
+    public static final String BAD_PHONE_NUMBER = "Niepoprawny numer telefonu";
     public static final String SERVER_OUT_OF_CONNECTION = "Błąd połączenia z serwerem";
     public static final String NOT_CONNECTED_TO_INTERNET = "Brak połączenia z internetem";
     public static final String INSERT_LOGIN_DATA = "Wpisz dane logowania";
@@ -47,6 +48,8 @@ public class Constant {
     public static final int BTN_CONTACT = R.id.btn_contact;
     public static final int BTN_ABOUT = R.id.btn_about;
     public static final int BTN_ALARMS = R.id.btn_alarms;
+    public static final int BTN_EDIT = R.id.btn_edit;
+    public static final int BTN_DELETE = R.id.btn_delete;
     public static final int BTN_LOCAL_FAULTS = R.id.btn_local_faults;
     public static final int BTN_SHOW_FAULTS = R.id.btn_show_faults;
     public static final int BTN_EDIT_FAULT = R.id.btn_edit_fault;
@@ -140,10 +143,8 @@ public class Constant {
     public static final int CROSS_LOGO = R.drawable.cross_logo;
     public static final int ONGOING_ICON = R.drawable.ongoing_icon;
     public static final int TICK_LOGO = R.drawable.tick_logo;
-    public static final String BAD_PHONE_NUMBER = "Niepoprawny numer telefonu";
     public static final String PLUS = "+";
-    public static final int BTN_EDIT = R.id.btn_edit;
-    public static final int BTN_DELETE = R.id.btn_delete;
+
 
     // STATIC METHODS
     public static void showToast(Context context, String text) {
