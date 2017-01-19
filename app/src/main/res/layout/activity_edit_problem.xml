@@ -53,7 +53,7 @@
                         android:gravity="fill"
                         android:textColor="@color/colorWhite"
                         android:padding="5dp"
-                        android:id="@+id/tv_issuer" />
+                        android:id="@+id/tv_issuer_text" />
                     <TextView
                         android:text="Numer przedmiotu:"
                         android:layout_width="match_parent"
@@ -83,17 +83,6 @@
                     android:layout_gravity="fill_horizontal|right"
                     android:id="@+id/issuer_id_layout" >
                     <TextView
-                        android:text="issuer id"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="fill"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:padding="5dp"
-                        android:textColor="#000000"
-                        android:background="@color/colorWhite"
-                        android:id="@+id/tv_issuer_id" />
-                    <TextView
                         android:text="id"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -104,6 +93,17 @@
                         android:textColor="#000000"
                         android:background="@color/colorWhite"
                         android:id="@+id/tv_id" />
+                    <TextView
+                        android:text="issuer id"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="fill"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="5dp"
+                        android:textColor="#000000"
+                        android:background="@color/colorWhite"
+                        android:id="@+id/tv_issuer_id" />
                     <TextView
                         android:text="obj_number"
                         android:layout_width="match_parent"

@@ -142,6 +142,8 @@ public class Constant {
     public static final int TICK_LOGO = R.drawable.tick_logo;
     public static final String BAD_PHONE_NUMBER = "Niepoprawny numer telefonu";
     public static final String PLUS = "+";
+    public static final int BTN_EDIT = R.id.btn_edit;
+    public static final int BTN_DELETE = R.id.btn_delete;
 
     // STATIC METHODS
     public static void showToast(Context context, String text) {

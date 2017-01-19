@@ -64,13 +64,13 @@ public class EditFaultActivity extends Activity {
         fault = (FaultModel) toEdit.getExtras().get(FAULT);
         tv_id = (TextView) findViewById(TV_ID);
         et_description = (EditText) findViewById(ET_DESCRIPTION);
-        tv_issuer = (TextView) findViewById(TV_ISSUER);
+        tv_issuer = (TextView) findViewById(TV_ISSUER_ID);
         tv_obj_no = (TextView) findViewById(TV_OBJ_NO);
         tv_datetime = (TextView) findViewById(TV_DATETIME);
         et_topic = (EditText) findViewById(ET_TOPIC);
         et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
-        btn_edit_fault = (Button) findViewById(R.id.btn_edit);
-        btn_delete = (Button) findViewById(R.id.btn_delete);
+        btn_edit_fault = (Button) findViewById(BTN_EDIT);
+        btn_delete = (Button) findViewById(BTN_DELETE);
     }
 
     private void setFields() {
