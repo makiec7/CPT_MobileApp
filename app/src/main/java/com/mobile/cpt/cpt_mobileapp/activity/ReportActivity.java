@@ -30,6 +30,8 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class ReportActivity extends Activity {
 
+    public static final int NINE_DIGIT_NUBER = 9;
+    public static final int ELEVEN_DIGIT_NUMBER = 11;
     private Boolean isAdded;
     private TextView tv_issuer_id;
     private EditText et_topic;
@@ -76,25 +78,43 @@ public class ReportActivity extends Activity {
             @Override
             public void onClick(View view) {
                 getDataFromUser();
-                if (!topic.equals("") && !obj_no.equals("") && !descr.equals("")) {
-                    FaultModel fault = new FaultModel(Integer.parseInt(issuer), phone_number, topic,
-                            descr, Integer.parseInt(obj_no));
-                    try {
-                        isAdded = add(fault);
-                    } catch (ExecutionException e) {
-                        setError(e);
-                    } catch (InterruptedException e) {
-                        setError(e);
+                if (areFieldsFull()) {
+                    if (!isPhoneNumberValid())
+                        showToast(getApplicationContext(), BAD_PHONE_NUMBER);
+                    else{
+                        FaultModel fault = new FaultModel(Integer.parseInt(issuer), phone_number, topic,
+                                descr, Integer.parseInt(obj_no));
+                        try {
+                            isAdded = add(fault);
+                        } catch (ExecutionException e) {
+                            setError(e);
+                        } catch (InterruptedException e) {
+                            setError(e);
+                        }
+                        setResultAndFinish();
                     }
-                    fromMain.putExtra(STATUS, isAdded);
-                    setResult(RESULT_OK, fromMain);
-                    finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), FILL_ALL_FIELDS,
-                            Toast.LENGTH_LONG).show();
+                    showToast(getApplicationContext(), FILL_ALL_FIELDS);
                 }
             }
         });
+    }
+
+    private boolean areFieldsFull() {
+        return !topic.equals(NULL_STRING) && !obj_no.equals(NULL_STRING) && !descr.equals(NULL_STRING);
+    }
+
+    private void setResultAndFinish() {
+        fromMain.putExtra(STATUS, isAdded);
+        setResult(RESULT_OK, fromMain);
+        finish();
+    }
+
+    private boolean isPhoneNumberValid() {
+        return phone_number.length() == NINE_DIGIT_NUBER ||
+                (phone_number.length() == ELEVEN_DIGIT_NUMBER &&
+                phone_number.startsWith(PLUS))
+                || phone_number.equals(NULL_STRING);
     }
 
     private void setError(Exception e) {

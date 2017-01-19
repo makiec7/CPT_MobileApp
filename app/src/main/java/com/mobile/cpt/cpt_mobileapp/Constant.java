@@ -140,7 +140,10 @@ public class Constant {
     public static final int CROSS_LOGO = R.drawable.cross_logo;
     public static final int ONGOING_ICON = R.drawable.ongoing_icon;
     public static final int TICK_LOGO = R.drawable.tick_logo;
+    public static final String BAD_PHONE_NUMBER = "Niepoprawny numer telefonu";
+    public static final String PLUS = "+";
 
+    // STATIC METHODS
     public static void showToast(Context context, String text) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show();
     }

@@ -5,28 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.ABOUT_LAYOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_ABOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_ALARMS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_CONTACT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_EDIT_FAULT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_LOCAL_FAULTS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_LOGOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_REPORT_FAULT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_SHOW_FAULTS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.CONTACT_LAYOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.EDIT_REQUEST_CODE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.EMERGENCY_LAYOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.LAYOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.MAIN_LAYOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.REPORT_ERROR;
-import static com.mobile.cpt.cpt_mobileapp.Constant.REPORT_REQUEST_CODE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.REPORT_SUCCESS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.USER_DATA;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -49,11 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(MAIN_LAYOUT);
-        forUserPresent = new Intent(getApplicationContext(), PresentActivity.class);
-        forReport = new Intent(getApplicationContext(), ReportActivity.class);
-        userIntent = getIntent();
-        user = (LoginModel) userIntent.getExtras().get(USER_DATA);
-        forReport.putExtra(USER_DATA, user);
+        getUserInfo();
         init();
     }
 
@@ -61,20 +39,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case BTN_REPORT_FAULT:
-                startActivityForResult(forReport, REPORT_REQUEST_CODE);
+                openReportActivity();
                 break;
             case BTN_EDIT_FAULT:
-                editIntent = new Intent(getApplicationContext(), EditActivity.class);
-                editIntent.putExtra(USER_DATA, user);
-                startActivityForResult(editIntent, EDIT_REQUEST_CODE);
+                openEditActivity();
                 break;
             case BTN_SHOW_FAULTS:
-                forUserPresent.putExtra(USER_DATA, user);
-                startActivity(forUserPresent);
+                openPresentActivity(user);
                 break;
             case BTN_LOCAL_FAULTS:
-                forUserPresent.putExtra(USER_DATA, new LoginModel(false, ""));
-                startActivity(forUserPresent);
+                openPresentActivity(new LoginModel(false, NULL_STRING));
                 break;
             case BTN_ALARMS:
                 openInfoActivity(EMERGENCY_LAYOUT);
@@ -91,6 +65,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    private void openPresentActivity(LoginModel user) {
+        forUserPresent = new Intent(getApplicationContext(), PresentActivity.class);
+        forUserPresent.putExtra(USER_DATA, user);
+        startActivity(forUserPresent);
+    }
+
+    private void openEditActivity() {
+        editIntent = new Intent(getApplicationContext(), EditActivity.class);
+        editIntent.putExtra(USER_DATA, user);
+        startActivityForResult(editIntent, EDIT_REQUEST_CODE);
+    }
+
+    private void openReportActivity() {
+        forReport = new Intent(getApplicationContext(), ReportActivity.class);
+        forReport.putExtra(USER_DATA, user);
+        startActivityForResult(forReport, REPORT_REQUEST_CODE);
+    }
+
     private void openInfoActivity(int layoutId) {
         infoIntent = new Intent(getApplicationContext(), InfoActivity.class);
         infoIntent.putExtra(LAYOUT, layoutId);
@@ -99,15 +91,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REPORT_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                    if ((Boolean) data.getExtras().get("status")) {
-                        Toast.makeText(getApplicationContext(), REPORT_SUCCESS, Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), REPORT_ERROR, Toast.LENGTH_LONG).show();
-                    }
-            }
-        }
+        if (requestCode == REPORT_REQUEST_CODE)
+            if (resultCode == RESULT_OK)
+                    if ((Boolean) data.getExtras().get(STATUS))
+                        showToast(getApplicationContext(), REPORT_SUCCESS);
+                    else
+                        showToast(getApplicationContext(), REPORT_ERROR);
     }
 
     private void init() {
@@ -127,6 +116,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnAbout.setOnClickListener(this);
         btnContact.setOnClickListener(this);
         btnLogout.setOnClickListener(this);
+    }
+
+    private void getUserInfo() {
+        userIntent = getIntent();
+        user = (LoginModel) userIntent.getExtras().get(USER_DATA);
     }
 
 }
