@@ -11,25 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.async.LoginAsync;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
 import java.util.concurrent.ExecutionException;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.BTN_TO_LOG;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ET_LOGIN;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ET_PASSWORD;
-import static com.mobile.cpt.cpt_mobileapp.Constant.INSERT_LOGIN_DATA;
-import static com.mobile.cpt.cpt_mobileapp.Constant.LOGGED_AS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.LOGIN_LAYOUT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.MAIN_ACTIVITY_REQ_CODE;
-import static com.mobile.cpt.cpt_mobileapp.Constant.NOT_CONNECTED_TO_INTERNET;
-import static com.mobile.cpt.cpt_mobileapp.Constant.NULL_STRING;
-import static com.mobile.cpt.cpt_mobileapp.Constant.SERVER_OUT_OF_CONNECTION;
-import static com.mobile.cpt.cpt_mobileapp.Constant.USER_DATA;
-import static com.mobile.cpt.cpt_mobileapp.Constant.WRONG_LOGIN_DATA;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class LoginActivity extends AppCompatActivity {
+
     private Button loginButton;
     private EditText loginEdit;
     private EditText passwordEdit;
@@ -48,28 +39,22 @@ public class LoginActivity extends AppCompatActivity {
                         String login = loginEdit.getText().toString();
                         String password = passwordEdit.getText().toString();
                         if (login.equals(NULL_STRING) || password.equals(NULL_STRING)) {
-                            Toast.makeText(getApplicationContext(), INSERT_LOGIN_DATA,
-                                    Toast.LENGTH_LONG).show();
+                            showToast(getApplicationContext(), INSERT_LOGIN_DATA);
                         }
                         try {
-                            LoginModel lr = new LoginAsync().execute(login,
-                                    password).get();
-                            if (lr != null) {
-                                if (lr.isLogged()) {
-                                    Toast.makeText(getApplicationContext(),
-                                            LOGGED_AS + lr.getIndex_no(),
-                                            Toast.LENGTH_LONG).show();
+                            LoginModel user = login(login, password);
+                            if (user != null) {
+                                if (user.isLogged()) {
+                                    showToast(getApplicationContext(), LOGGED_AS + user.getIndex_no());
                                     Intent toMain = new Intent(getApplicationContext(),
                                             MainActivity.class);
-                                    toMain.putExtra(USER_DATA, lr);
+                                    toMain.putExtra(USER_DATA, user);
                                     startActivityForResult(toMain, MAIN_ACTIVITY_REQ_CODE);
                                 } else {
-                                    Toast.makeText(getApplicationContext(), WRONG_LOGIN_DATA,
-                                            Toast.LENGTH_LONG).show();
+                                    showToast(getApplicationContext(), WRONG_LOGIN_DATA);
                                 }
                             } else {
-                                Toast.makeText(getApplicationContext(), SERVER_OUT_OF_CONNECTION,
-                                        Toast.LENGTH_LONG).show();
+                                showToast(getApplicationContext(), SERVER_OUT_OF_CONNECTION);
                             }
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -77,11 +62,16 @@ public class LoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     } else {
-                        Toast.makeText(getApplicationContext(), NOT_CONNECTED_TO_INTERNET,
-                                Toast.LENGTH_LONG).show();
+                        showToast(getApplicationContext(), NOT_CONNECTED_TO_INTERNET);
                     }
             }
         });
+    }
+
+
+
+    private LoginModel login(String login, String password) throws InterruptedException, ExecutionException {
+        return new LoginAsync().execute(login, password).get();
     }
 
     public boolean checkConnection(){

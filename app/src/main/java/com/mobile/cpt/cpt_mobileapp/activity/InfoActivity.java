@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.mobile.cpt.cpt_mobileapp.Constant;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.LAYOUT;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class InfoActivity extends Activity {
 
@@ -20,4 +20,5 @@ public class InfoActivity extends Activity {
             Toast.makeText(getApplicationContext(), Constant.DATA_ERROR,
                     Toast.LENGTH_LONG);
     }
+
 }

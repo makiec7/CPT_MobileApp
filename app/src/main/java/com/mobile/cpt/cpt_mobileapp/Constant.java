@@ -1,5 +1,8 @@
 package com.mobile.cpt.cpt_mobileapp;
 
+import android.content.Context;
+import android.widget.Toast;
+
 public class Constant {
 
     // INTENT EXTRAS
@@ -137,4 +140,8 @@ public class Constant {
     public static final int CROSS_LOGO = R.drawable.cross_logo;
     public static final int ONGOING_ICON = R.drawable.ongoing_icon;
     public static final int TICK_LOGO = R.drawable.tick_logo;
+
+    public static void showToast(Context context, String text) {
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+    }
 }

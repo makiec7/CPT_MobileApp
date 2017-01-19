@@ -105,7 +105,7 @@ public class EditFaultActivity extends Activity {
 
     private void setResultAndAbort(Exception e) {
         e.printStackTrace();
-        Toast.makeText(getApplicationContext(), DATA_ERROR, Toast.LENGTH_LONG).show();
+        showToast(getApplicationContext(), DATA_ERROR);
     }
 
     private void setResultAndFinish() {
