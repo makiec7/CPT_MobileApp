@@ -6,12 +6,10 @@
     // BUTTONS
     <string name="edit_fault">Edytuj zgłoszenie</string>
     <string name="all_faults">Wszystkie zgłoszenia</string>
-    <string name="about_program">O programie</string>
     <string name="logout">Wyloguj się</string>
     <string name="contact_administration">Kontakt z administracją</string>
     <string name="alarm_numbers">Numery alarmowe</string>
     <string name="my_faults">Moje zgłoszenia</string>
-    <string name="add_fault">Dodaj zgłoszenie</string>
     <string name="delete_fault">Usuń zgłoszenie</string>
     <string name="scan_code">Zeskanuj kod kreskowy</string>
 
@@ -30,7 +28,7 @@
     <string name="auto">Przy pomocy aparatu</string>
 
     // LOGIN
-    <string name="index_number">Numer indeksu</string>
+    <string name="index_number">Numer indeksu:</string>
     <string name="password">Hasło</string>
     <string name="login">Zaloguj</string>
 
@@ -71,5 +69,7 @@
         - email: cti@adm.p.lodz.pl\n
         - telefon: + 48 42 631 24 40\n
     </string>
+    <string name="about_program">O programie</string>
+    <string name="add_fault">Dodaj zgłoszenie</string>
 
 </resources>
