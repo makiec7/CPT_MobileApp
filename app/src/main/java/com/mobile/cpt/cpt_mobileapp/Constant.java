@@ -10,6 +10,7 @@ public class Constant {
     public static final String USER_DATA = "userData";
     public static final String FAULT = "fault";
     public static final String TYPE = "type";
+    public static final String STRING = "STRING";
     public static final String MANUAL = "MANUAL";
     public static final String AUTO = "AUTO";
     public static final String DATA = "data";
@@ -20,10 +21,12 @@ public class Constant {
     public static final int LOGIN_LAYOUT = R.layout.activity_login;
     public static final int CONTACT = R.string.administration_contact;
     public static final int ABOUT = R.string.about_project;
+    public static final int INFO_STRING = R.id.info_string;
     public static final int EMERGENCY = R.string.emergency_contact;
     public static final int USER_PROBLEMS_LAYOUT = R.layout.activity_present_faults;
     public static final int EDIT_LAYOUT = R.layout.activity_edit_problem;
     public static final int SHORT_FAULT_LAYOUT = R.layout.short_fault_present;
+    public static final int ACTIVITY_INFO = R.layout.activity_info;
     public static final int ADD_LAYOUT = R.layout.activity_add_problem_manual;
 
     // STATEMENTS
@@ -138,13 +141,12 @@ public class Constant {
     public static final int LIST_FAULT = R.id.list_fault;
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String POST = "POST";
+    public static final String PLUS = "+";
 
     // DRAWABLE
     public static final int CROSS_LOGO = R.drawable.cross_logo;
     public static final int ONGOING_ICON = R.drawable.ongoing_icon;
     public static final int TICK_LOGO = R.drawable.tick_logo;
-    public static final String PLUS = "+";
-
 
     // STATIC METHODS
     public static void showToast(Context context, String text) {

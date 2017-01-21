@@ -85,7 +85,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void openInfoActivity(int stringId) {
         infoIntent = new Intent(getApplicationContext(), InfoActivity.class);
-        infoIntent.putExtra("STRING", stringId);
+        infoIntent.putExtra(STRING, stringId);
         startActivity(infoIntent);
     }
 

@@ -16,10 +16,10 @@ public class InfoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle b = getIntent().getExtras();
-        setContentView(R.layout.activity_info);
+        setContentView(ACTIVITY_INFO);
         if (b != null) {
-            TextView info = (TextView) findViewById(R.id.info_string);
-            info.setText(b.getInt("STRING"));
+            TextView info = (TextView) findViewById(INFO_STRING);
+            info.setText(b.getInt(STRING));
         } else
             Toast.makeText(getApplicationContext(), Constant.DATA_ERROR,
                     Toast.LENGTH_LONG);
