@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/colorAccent"
     android:layout_height="match_parent">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_menu">
@@ -31,7 +30,7 @@
                 android:layout_gravity="fill_horizontal|left"
                 android:id="@+id/id_layout" >
                 <TextView
-                    android:text="Numer zgłoszenia:"
+                    android:text="@string/fault_number"
                     android:layout_width="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
@@ -41,7 +40,7 @@
                     android:padding="5dp"
                     android:id="@+id/tv_id_text" />
                 <TextView
-                    android:text="Status:"
+                    android:text="@string/status"
                     android:layout_width="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
@@ -51,7 +50,7 @@
                     android:padding="5dp"
                     android:id="@+id/tv_status" />
                 <TextView
-                    android:text="Użytkownik:"
+                    android:text="@string/user"
                     android:layout_width="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
@@ -61,7 +60,7 @@
                     android:padding="5dp"
                     android:id="@+id/tv_issuer" />
                 <TextView
-                    android:text="Numer przedmiotu:"
+                    android:text="@string/obj_number"
                     android:layout_width="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
@@ -71,7 +70,7 @@
                     android:padding="5dp"
                     android:id="@+id/tv_object_number_text" />
                 <TextView
-                    android:text="Czas zgłoszenia:"
+                    android:text="@string/datetime"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="10dp"
@@ -88,7 +87,7 @@
                     android:gravity="fill"
                     android:textColor="@color/colorWhite"
                     android:padding="5dp"
-                    android:text="Temat:"
+                    android:text="@string/topic"
                     android:id="@+id/tv_topic_text" />
                 <TextView
                     android:layout_width="match_parent"
@@ -98,7 +97,7 @@
                     android:gravity="fill"
                     android:textColor="@color/colorWhite"
                     android:padding="5dp"
-                    android:text="Opis:"
+                    android:text="@string/description"
                     android:id="@+id/tv_description_text" />
             </LinearLayout>
             <LinearLayout
@@ -110,14 +109,13 @@
                 android:layout_gravity="fill_horizontal|right"
                 android:id="@+id/issuer_id_layout" >
                 <TextView
-                    android:text="id"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="fill"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:padding="5dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorWhite"
                     android:id="@+id/tv_id" />
                 <ImageView
@@ -130,40 +128,36 @@
                     android:id="@+id/iv_status"
                     android:background="@color/colorWhite"/>
                 <TextView
-                    android:text="issuer id"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:gravity="fill"
                     android:padding="5dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorWhite"
                     android:id="@+id/tv_issuer_id" />
                 <TextView
-                    android:text="obj_number"
                     android:layout_width="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_height="50dp"
                     android:gravity="fill"
                     android:padding="5dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorWhite"
                     android:id="@+id/tv_object_number" />
                 <TextView
-                    android:text="datetime"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:gravity="fill"
                     android:padding="5dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorWhite"
                     android:id="@+id/tv_datetime" />
                 <TextView
-                    android:text="topic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="50dp"
@@ -171,11 +165,10 @@
                     android:layout_marginTop="10dp"
                     android:gravity="fill"
                     android:padding="5dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorWhite"
                     android:id="@+id/tv_topic" />
                 <TextView
-                    android:text="description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="50dp"
@@ -183,7 +176,7 @@
                     android:layout_marginTop="10dp"
                     android:gravity="fill"
                     android:padding="5dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:background="@color/colorWhite"
                     android:id="@+id/tv_description" />
             </LinearLayout>

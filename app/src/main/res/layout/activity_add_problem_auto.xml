@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="@color/colorAccent"
     android:layout_height="match_parent">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_menu">
@@ -35,7 +35,7 @@
                     android:layout_gravity="fill_horizontal|left"
                     android:id="@+id/id_layout" >
                     <TextView
-                        android:text="Użytkownik:"
+                        android:text="@string/user"
                         android:layout_width="match_parent"
                         android:layout_marginBottom="15dp"
                         android:layout_marginTop="10dp"
@@ -52,14 +52,13 @@
                     android:layout_gravity="fill_horizontal|right"
                     android:id="@+id/issuer_id_layout" >
                     <TextView
-                        android:text="issuer id"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:gravity="fill"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
                         android:padding="5dp"
-                        android:textColor="#000000"
+                        android:textColor="@color/colorBlack"
                         android:background="@color/colorWhite"
                         android:id="@+id/tv_issuer_id" />
                 </LinearLayout>
@@ -73,7 +72,7 @@
                 android:gravity="fill"
                 android:inputType="phone"
                 android:maxLength="12"
-                android:hint="Numer telefonu"
+                android:hint="@string/phone_number"
                 android:digits="0123456789+"
                 android:id="@+id/et_phone_number"
                 android:paddingLeft="15dp" />
@@ -86,7 +85,7 @@
                 android:drawablePadding="10dp"
                 android:drawableLeft="@color/colorWhite"
                 android:background="@color/colorWhite"
-                android:hint="Temat"
+                android:hint="@string/topic"
                 android:id="@+id/et_topic"
                 android:paddingLeft="15dp" />
             <LinearLayout
@@ -98,9 +97,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorWhite"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:id="@+id/btn_scan"
-                    android:text="Zeskanuj kod kreskowy" />
+                    android:text="@string/scan_code" />
             </LinearLayout>
             <EditText
                 android:layout_width="match_parent"
@@ -110,7 +109,7 @@
                 android:enabled="false"
                 android:drawableLeft="@color/colorWhite"
                 android:background="@color/colorWhite"
-                android:hint="Numer przedmiotu"
+                android:hint="@string/obj_number"
                 android:digits="0123456789"
                 android:inputType="number"
                 android:id="@+id/et_obj_no"
@@ -123,7 +122,7 @@
                 android:drawablePadding="10dp"
                 android:drawableLeft="@color/colorWhite"
                 android:background="@color/colorWhite"
-                android:hint="Opis"
+                android:hint="@string/description"
                 android:id="@+id/et_description"
                 android:paddingLeft="15dp" />
             <LinearLayout
@@ -141,9 +140,9 @@
                     android:layout_marginRight="1dp"
                     android:layout_marginTop="1dp"
                     android:background="@color/colorWhite"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:id="@+id/btn_add"
-                    android:text="Dodaj zgłoszenie" />
+                    android:text="@string/add_fault" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

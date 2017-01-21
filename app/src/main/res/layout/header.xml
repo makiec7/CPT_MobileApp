@@ -11,7 +11,7 @@
         android:background="@color/colorAccent"
         android:src="@drawable/logo_pl"/>
     <TextView
-        android:text="Centrum Pomocy Technicznej"
+        android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:background="@color/colorAccent"
         android:textColor="@color/colorWhite"

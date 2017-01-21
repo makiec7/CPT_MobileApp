@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_menu">
@@ -33,7 +33,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/colorBlack"
-                        android:text="Dodaj zgłoszenie"/>
+                        android:text="@string/add_fault"/>
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/colorBlack"
-                        android:text="Moje zgłoszenia"/>
+                        android:text="@string/my_faults"/>
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/colorBlack"
-                        android:text="Numery alarmowe"/>
+                        android:text="@string/alarm_numbers"/>
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/colorBlack"
-                        android:text="Kontakt z administracją"/>
+                        android:text="@string/contact_administration"/>
 
 
                 </LinearLayout>
@@ -99,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/colorBlack"
-                        android:text="Edytuj zgłoszenie"/>
+                        android:text="@string/edit_fault"/>
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/colorBlack"
-                        android:text="Wszystkie zgłoszenia"/>
+                        android:text="@string/all_faults"/>
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/colorBlack"
-                        android:text="O programie"/>
+                        android:text="@string/about_program"/>
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -141,8 +141,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/colorBlack"
-                        android:text="Wyloguj się"/>
-
+                        android:text="@string/logout"/>
                 </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

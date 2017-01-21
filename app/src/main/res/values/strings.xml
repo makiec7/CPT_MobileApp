@@ -1,8 +1,40 @@
 <resources>
+    // CONFIG
     <string name="app_name">Centrum Pomocy Technicznej</string>
     <string name="short_app_name">CPT</string>
 
+    // BUTTONS
+    <string name="edit_fault">Edytuj zgłoszenie</string>
+    <string name="all_faults">Wszystkie zgłoszenia</string>
+    <string name="about_program">O programie</string>
+    <string name="logout">Wyloguj się</string>
+    <string name="contact_administration">Kontakt z administracją</string>
+    <string name="alarm_numbers">Numery alarmowe</string>
+    <string name="my_faults">Moje zgłoszenia</string>
+    <string name="add_fault">Dodaj zgłoszenie</string>
+    <string name="delete_fault">Usuń zgłoszenie</string>
+    <string name="scan_code">Zeskanuj kod kreskowy</string>
 
+    // ABOUT FAULTS
+    <string name="description">Opis:</string>
+    <string name="topic">Temat:</string>
+    <string name="datetime">Czas zgłoszenia:</string>
+    <string name="obj_number">Numer przedmiotu:</string>
+    <string name="user">Użytkownik:</string>
+    <string name="status">Status:</string>
+    <string name="fault_number">Numer zgłoszenia:</string>
+    <string name="phone_number">Numer telefonu:</string>
+
+    // REPORT
+    <string name="manual">Ręcznie</string>
+    <string name="auto">Przy pomocy aparatu</string>
+
+    // LOGIN
+    <string name="index_number">Numer indeksu</string>
+    <string name="password">Hasło</string>
+    <string name="login">Zaloguj</string>
+
+    // INFO
     <string name="about_project">Projekt napisany pod katem zaliczenia z przedmiotów:\n
         - Przetwarzanie w chmurze dla aplikacji mobilnych\n
         - Systemy operacyjne na platformach mobilnych.\n
@@ -19,7 +51,6 @@
         - dostęp do wirtualnej maszyny w budynku CTI\n
         \n
         Projekt będzie bazą dla pracy inżynierskiej.</string>
-
     <string name="emergency_contact">
         Numery alarmowe:\n
         - numer alarmowy: 112\n
@@ -35,7 +66,6 @@
         - Straż Pożarna: 998\n
         - Pogotowie Ratunkowe: 999\n
     </string>
-
     <string name="administration_contact">
         Kontakt z administracją Centrum Technologii Informatycznych:\n
         - email: cti@adm.p.lodz.pl\n

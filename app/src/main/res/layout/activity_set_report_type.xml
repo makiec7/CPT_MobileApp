@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textColor="@color/colorBlack"
-                    android:text="Przy pomocy aparatu"/>
+                    android:text="@string/auto"/>
             </LinearLayout>
             <!--- MANUAL BUTTON -->
             <LinearLayout
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textColor="@color/colorBlack"
-                    android:text="Ręcznie"/>
+                    android:text="@string/manual"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
