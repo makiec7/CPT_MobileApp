@@ -18,9 +18,9 @@ public class Constant {
     // LAYOUTS
     public static final int MAIN_LAYOUT = R.layout.activity_main;
     public static final int LOGIN_LAYOUT = R.layout.activity_login;
-    public static final int CONTACT_LAYOUT = R.layout.activity_contact;
-    public static final int ABOUT_LAYOUT = R.layout.activity_about;
-    public static final int EMERGENCY_LAYOUT = R.layout.activity_emergency;
+    public static final int CONTACT = R.string.administration_contact;
+    public static final int ABOUT = R.string.about_project;
+    public static final int EMERGENCY = R.string.emergency_contact;
     public static final int USER_PROBLEMS_LAYOUT = R.layout.activity_present_faults;
     public static final int EDIT_LAYOUT = R.layout.activity_edit_problem;
     public static final int SHORT_FAULT_LAYOUT = R.layout.short_fault_present;

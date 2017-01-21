@@ -16,11 +16,12 @@
             android:layout_margin="10dp"
             android:layout_below="@+id/app_name_layout">
             <TextView
+                android:id="@+id/info_string"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="20dp"
                 android:textColor="@color/colorBlack"
-                android:text="@string/emergency_contact"/>
+                android:text=""/>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

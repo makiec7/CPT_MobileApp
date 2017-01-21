@@ -51,13 +51,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 openPresentActivity(new LoginModel(false, NULL_STRING));
                 break;
             case BTN_ALARMS:
-                openInfoActivity(EMERGENCY_LAYOUT);
+                openInfoActivity(EMERGENCY);
                 break;
             case BTN_ABOUT:
-                openInfoActivity(ABOUT_LAYOUT);
+                openInfoActivity(ABOUT);
                 break;
             case BTN_CONTACT:
-                openInfoActivity(CONTACT_LAYOUT);
+                openInfoActivity(CONTACT);
                 break;
             case BTN_LOGOUT:
                 finish();
@@ -83,9 +83,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         startActivityForResult(forReport, REPORT_REQUEST_CODE);
     }
 
-    private void openInfoActivity(int layoutId) {
+    private void openInfoActivity(int stringId) {
         infoIntent = new Intent(getApplicationContext(), InfoActivity.class);
-        infoIntent.putExtra(LAYOUT, layoutId);
+        infoIntent.putExtra("STRING", stringId);
         startActivity(infoIntent);
     }
 
