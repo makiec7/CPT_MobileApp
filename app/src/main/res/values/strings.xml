@@ -33,7 +33,7 @@
     <string name="login">Zaloguj</string>
 
     // INFO
-    <string name="about_project">Projekt napisany pod katem zaliczenia z przedmiotów:\n
+    <string name="about_project" translatable="false">Projekt napisany pod katem zaliczenia z przedmiotów:\n
         - Przetwarzanie w chmurze dla aplikacji mobilnych\n
         - Systemy operacyjne na platformach mobilnych.\n
         Równolegle wykonywana jest aplikacja webowa o tej samej tematyce, która będzie
@@ -49,7 +49,7 @@
         - dostęp do wirtualnej maszyny w budynku CTI\n
         \n
         Projekt będzie bazą dla pracy inżynierskiej.</string>
-    <string name="emergency_contact">
+    <string name="emergency_contact" translatable="false">
         Numery alarmowe:\n
         - numer alarmowy: 112\n
         - Pogotowie Rzeczne: 984\n
@@ -64,7 +64,7 @@
         - Straż Pożarna: 998\n
         - Pogotowie Ratunkowe: 999\n
     </string>
-    <string name="administration_contact">
+    <string name="administration_contact" translatable="false">
         Kontakt z administracją Centrum Technologii Informatycznych:\n
         - email: cti@adm.p.lodz.pl\n
         - telefon: + 48 42 631 24 40\n
