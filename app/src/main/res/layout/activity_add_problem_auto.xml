@@ -35,14 +35,8 @@
                     android:layout_gravity="fill_horizontal|left"
                     android:id="@+id/id_layout" >
                     <TextView
+                        style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                         android:text="@string/user"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="15dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="50dp"
-                        android:gravity="fill"
-                        android:textColor="@color/colorWhite"
-                        android:padding="5dp"
                         android:id="@+id/tv_issuer" />
                 </LinearLayout>
                 <LinearLayout
@@ -94,10 +88,7 @@
                 android:layout_marginTop="15dp"
                 android:orientation="vertical">
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorBlack"
+                    style="@style/AppTheme.ButtonWhite"
                     android:id="@+id/btn_scan"
                     android:text="@string/scan_code" />
             </LinearLayout>
@@ -133,14 +124,7 @@
                 android:layout_marginTop="15dp"
                 android:orientation="vertical">
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginTop="1dp"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorBlack"
+                    style="@style/AppTheme.ButtonWhite"
                     android:id="@+id/btn_add"
                     android:text="@string/add_fault" />
             </LinearLayout>

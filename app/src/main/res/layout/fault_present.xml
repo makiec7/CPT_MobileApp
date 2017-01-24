@@ -30,73 +30,31 @@
                 android:layout_gravity="fill_horizontal|left"
                 android:id="@+id/id_layout" >
                 <TextView
+                    style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                     android:text="@string/fault_number"
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="50dp"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
                     android:id="@+id/tv_id_text" />
                 <TextView
+                    style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                     android:text="@string/status"
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="50dp"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
                     android:id="@+id/tv_status" />
                 <TextView
+                    style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                     android:text="@string/user"
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="50dp"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
                     android:id="@+id/tv_issuer" />
                 <TextView
+                    style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                     android:text="@string/obj_number"
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="50dp"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
                     android:id="@+id/tv_object_number_text" />
                 <TextView
+                    style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                     android:text="@string/datetime"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
                     android:id="@+id/tv_datetime_text" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
+                    style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                     android:text="@string/topic"
                     android:id="@+id/tv_topic_text" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="fill"
-                    android:textColor="@color/colorWhite"
-                    android:padding="5dp"
+                    style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                     android:text="@string/description"
                     android:id="@+id/tv_description_text" />
             </LinearLayout>
@@ -109,16 +67,10 @@
                 android:layout_gravity="fill_horizontal|right"
                 android:id="@+id/issuer_id_layout" >
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="fill"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:textColor="@color/colorBlack"
-                    android:background="@color/colorWhite"
+                    style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_id" />
                 <ImageView
+
                     android:gravity="fill"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"

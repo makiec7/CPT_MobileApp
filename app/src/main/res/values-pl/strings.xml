@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Centrum Pomocy Technicznej</string>
+    <string name="about_program">O programie</string>
+    <string name="about_project">Projekt napisany pod katem zaliczenia z przedmiotów:          - Przetwarzanie w chmurze dla aplikacji mobilnych          - Systemy operacyjne na platformach mobilnych.          Równolegle wykonywana jest aplikacja webowa o tej samej tematyce, która będzie         współpracowała z aplikacją mobilną.          Początkowo aplikacja zostanie wdrożona jedynie w Centrum Technologii Informatycznych         w celach testowych.                    Wykorzystane technologie:          - MySQL          - Android Studio (Java 8)          - OpenCV for Java (rozpoznawanie obrazu)          - framework zxing          - dostęp do wirtualnej maszyny w budynku CTI                    Projekt będzie bazą dla pracy inżynierskiej.</string>
+    <string name="add_fault">Dodaj zgłoszenie</string>
+    <string name="administration_contact">"         Kontakt z administracją Centrum Technologii Informatycznych:          - email: cti@adm.p.lodz.pl          - telefon: + 48 42 631 24 40"</string>
+    <string name="alarm_numbers">Numery alarmowe</string>
+    <string name="all_faults">Wszystkie zgłoszenia</string>
+    <string name="auto">Przy pomocy aparatu</string>
+    <string name="contact_administration">Kontakt z administracją</string>
+    <string name="datetime">Czas zgłoszenia:</string>
+    <string name="delete_fault">Usuń zgłoszenie</string>
+    <string name="description">Opis:</string>
+    <string name="edit_fault">Edytuj zgłoszenie</string>
+    <string name="emergency_contact">"         Numery alarmowe:          - numer alarmowy: 112          - Pogotowie Rzeczne: 984          - Ratownictwo Morskie i Górskie: 985          - Straż Miejska: 986          - woj. zarządzanie kryzysowe: 987          - Pogotowie Energetyczne: 991          - Pogotowie Gazowe: 992          - Pogotowie Ciepłownicze: 993          - Pogotowie Wodociągowe: 994          - Policja: 997          - Straż Pożarna: 998          - Pogotowie Ratunkowe: 999      "</string>
+    <string name="fault_number">Numer zgłoszenia:</string>
+    <string name="index_number">Numer indeksu:</string>
+    <string name="login">Zaloguj</string>
+    <string name="logout">Wyloguj się</string>
+    <string name="manual">Ręcznie</string>
+    <string name="my_faults">Moje zgłoszenia</string>
+    <string name="obj_number">Numer przedmiotu:</string>
+    <string name="password">Hasło</string>
+    <string name="phone_number">Numer telefonu:</string>
+    <string name="scan_code">Zeskanuj kod kreskowy</string>
+    <string name="short_app_name">CPT</string>
+    <string name="status">Status:</string>
+    <string name="topic">Temat:</string>
+    <string name="user">Użytkownik:</string>
+</resources>

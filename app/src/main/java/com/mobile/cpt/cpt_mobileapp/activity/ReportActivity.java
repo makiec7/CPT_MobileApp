@@ -146,7 +146,6 @@ public class ReportActivity extends Activity {
         btn_scan = (Button) findViewById(R.id.btn_scan);
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -196,7 +195,6 @@ public class ReportActivity extends Activity {
             btn_auto.setOnClickListener(this);
             btn_manual.setOnClickListener(this);
         }
-
 
         @Override
         public void onClick(View view) {
