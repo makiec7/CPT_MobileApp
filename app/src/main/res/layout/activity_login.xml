@@ -33,29 +33,16 @@
         android:orientation="vertical"
         android:padding="40dp">
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:drawableLeft="@color/colorWhite"
-            android:background="@color/colorWhite"
-            android:drawablePadding="10dp"
-            android:gravity="fill"
+            style="@style/AppTheme.EditText"
             android:maxLength="20"
             android:id="@+id/et_login"
-            android:hint="@string/index_number"
-            android:paddingLeft="15dp" />
+            android:hint="@string/index_number" />
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:drawablePadding="10dp"
-            android:drawableLeft="@color/colorWhite"
-            android:background="@color/colorWhite"
-            android:gravity="fill"
+            style="@style/AppTheme.EditText"
             android:id="@+id/et_password"
             android:hint="@string/password"
             android:maxLength="20"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp" />
+            android:inputType="textPassword" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

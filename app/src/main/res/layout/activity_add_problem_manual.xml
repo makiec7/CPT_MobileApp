@@ -53,54 +53,28 @@
                 </LinearLayout>
             </LinearLayout>
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:drawableLeft="@color/colorWhite"
-                android:background="@color/colorWhite"
-                android:drawablePadding="10dp"
-                android:gravity="fill"
+                style="@style/AppTheme.EditText"
                 android:inputType="phone"
                 android:hint="@string/phone_number"
                 android:maxLength="12"
                 android:digits="0123456789+"
-                android:id="@+id/et_phone_number"
-                android:paddingLeft="15dp" />
+                android:id="@+id/et_phone_number" />
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="50dp"
+                style="@style/AppTheme.EditText"
                 android:maxLength="50"
-                android:layout_marginTop="15dp"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@color/colorWhite"
-                android:background="@color/colorWhite"
                 android:hint="@string/topic"
-                android:id="@+id/et_topic"
-                android:paddingLeft="15dp" />
+                android:id="@+id/et_topic" />
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="15dp"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@color/colorWhite"
-                android:background="@color/colorWhite"
+                style="@style/AppTheme.EditText"
                 android:maxLength="10"
                 android:hint="@string/obj_number"
                 android:digits="0123456789"
                 android:inputType="number"
-                android:id="@+id/et_obj_no"
-                android:paddingLeft="15dp" />
+                android:id="@+id/et_obj_no" />
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="50dp"
-                android:layout_marginTop="15dp"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@color/colorWhite"
-                android:background="@color/colorWhite"
+                style="@style/AppTheme.EditText"
                 android:hint="@string/description"
-                android:id="@+id/et_description"
-                android:paddingLeft="15dp" />
+                android:id="@+id/et_description" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
