@@ -21,13 +21,9 @@
                 android:id="@+id/auto_layout"
                 android:layout_margin="5dp">
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.ImageButton"
                     android:id="@+id/btn_auto"
-                    android:layout_margin="10dp"
-                    android:background="@color/colorAccent"
-                    android:src="@drawable/camera_icon"
-                    android:scaleType="centerInside"/>
+                    android:src="@drawable/camera_icon"/>
                 <TextView
                     style="@style/AppTheme.SmallTextView"
                     android:text="@string/auto"/>
@@ -42,13 +38,9 @@
                 android:id="@+id/manual_layout"
                 android:layout_margin="5dp">
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.ImageButton"
                     android:id="@+id/btn_manual"
-                    android:layout_margin="10dp"
-                    android:background="@color/colorAccent"
-                    android:src="@drawable/manual_icon"
-                    android:scaleType="centerInside"/>
+                    android:src="@drawable/manual_icon" />
                 <TextView
                     style="@style/AppTheme.SmallTextView"
                     android:text="@string/manual"/>

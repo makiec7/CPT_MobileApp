@@ -19,53 +19,34 @@
                     android:id="@+id/menu_left"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
                     <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_report_fault"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/add_icon"
-                        android:scaleType="centerInside"/>
+                        android:src="@drawable/add_icon"/>
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/add_fault"/>
                     <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_show_faults"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/my_icon"
-                        android:scaleType="centerInside"/>
+                        android:src="@drawable/my_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/my_faults"/>
                     <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_alarms"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/emergency_icon"
-                        android:scaleType="centerInside"/>
+                        android:src="@drawable/emergency_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/alarm_numbers"/>
                     <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_contact"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/contact_icon"
-                        android:scaleType="centerInside"/>
+                        android:src="@drawable/contact_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/contact_administration"/>
-
-
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -75,46 +56,30 @@
                     android:layout_toRightOf="@+id/menu_left"
                     android:orientation="vertical">
                     <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_edit_fault"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/edit_icon"
-                        android:scaleType="centerInside"/>
+                        android:src="@drawable/edit_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/edit_fault"/>
                     <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_local_faults"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/all_icon"
-                        android:scaleType="centerInside"/>
+                        android:src="@drawable/all_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/all_faults"/>
                     <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_about"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/info_icon"
-                        android:scaleType="centerInside"/>
+                        android:src="@drawable/info_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/about_program"/>
                     <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_logout"
-                        android:layout_margin="10dp"
-                        android:background="@color/colorAccent"
-                        android:src="@drawable/logout_icon"
-                        android:scaleType="centerInside"/>
+                        android:src="@drawable/logout_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/logout"/>
