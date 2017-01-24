@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                vibrate(ONE_MILISECOND, getApplicationContext());
                     if (checkConnection()) {
                         String login = loginEdit.getText().toString();
                         String password = passwordEdit.getText().toString();

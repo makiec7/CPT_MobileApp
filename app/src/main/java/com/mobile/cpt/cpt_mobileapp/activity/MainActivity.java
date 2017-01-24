@@ -39,27 +39,35 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case BTN_REPORT_FAULT:
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 openReportActivity();
                 break;
             case BTN_EDIT_FAULT:
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 openEditActivity();
                 break;
             case BTN_SHOW_FAULTS:
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 openPresentActivity(user);
                 break;
             case BTN_LOCAL_FAULTS:
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 openPresentActivity(new LoginModel(false, NULL_STRING));
                 break;
             case BTN_ALARMS:
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 openInfoActivity(EMERGENCY);
                 break;
             case BTN_ABOUT:
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 openInfoActivity(ABOUT);
                 break;
             case BTN_CONTACT:
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 openInfoActivity(CONTACT);
                 break;
             case BTN_LOGOUT:
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 finish();
                 break;
         }

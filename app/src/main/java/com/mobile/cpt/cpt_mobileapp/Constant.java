@@ -1,6 +1,7 @@
 package com.mobile.cpt.cpt_mobileapp;
 
 import android.content.Context;
+import android.os.Vibrator;
 import android.widget.Toast;
 
 public class Constant {
@@ -147,9 +148,20 @@ public class Constant {
     public static final int CROSS_LOGO = R.drawable.cross_logo;
     public static final int ONGOING_ICON = R.drawable.ongoing_icon;
     public static final int TICK_LOGO = R.drawable.tick_logo;
+    public static final int ONE_MILISECOND = 1;
+    public static final String BARCODE_NOT_DETECTED = "Nie wykryto kodu kreskowego.";
+    public static final String DETECTED_BARCODE = "Wykryty kod: ";
+    public static final int ACTIVITY_ADD_PROBLEM_AUTO = R.layout.activity_add_problem_auto;
+    public static final int ACTIVITY_ADD_PROBLEM_MANUAL = R.layout.activity_add_problem_manual;
 
     // STATIC METHODS
     public static void showToast(Context context, String text) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+    }
+
+    public static void vibrate(int milis, Context context){
+        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        // Vibrate for 500 milliseconds
+        v.vibrate(milis);
     }
 }

@@ -52,6 +52,7 @@ public class EditActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 Intent edition = new Intent(getApplicationContext(), EditFaultActivity.class);
                 fault = (FaultModel) listView.getItemAtPosition(i);
                 edition.putExtra(FAULT, fault);

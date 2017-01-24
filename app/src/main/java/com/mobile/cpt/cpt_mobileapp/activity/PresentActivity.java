@@ -51,6 +51,7 @@ public class PresentActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 details = new Intent(getApplicationContext(), MoreInfoActivity.class);
                 fault = (FaultModel) listView.getItemAtPosition(i);
                 details.putExtra(FAULT, fault);

@@ -57,26 +57,27 @@ public class ReportActivity extends Activity {
 
     private void addingProcess(){
         init();
-        if (btn_scan!= null) {
+        if (btn_scan != null)
             btn_scan.setOnClickListener(new View.OnClickListener() {
-                @RequiresApi(api = Build.VERSION_CODES.M)
-                @Override
-                public void onClick(View view) {
-                    Intent cameraActivity = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    if (ActivityCompat.checkSelfPermission(getApplicationContext(),
-                            Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        requestPermissions(new String[]{Manifest.permission.CAMERA}, 1010);
-                    } else {
-                        if (cameraActivity.resolveActivity(getPackageManager()) != null) {
-                            new IntentIntegrator(ReportActivity.this).initiateScan();
+                    @RequiresApi(api = Build.VERSION_CODES.M)
+                    @Override
+                    public void onClick(View view) {
+                        vibrate(ONE_MILISECOND, getApplicationContext());
+                        Intent cameraActivity = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (ActivityCompat.checkSelfPermission(getApplicationContext(),
+                                Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                            requestPermissions(new String[]{Manifest.permission.CAMERA}, 1010);
+                        } else {
+                            if (cameraActivity.resolveActivity(getPackageManager()) != null) {
+                                new IntentIntegrator(ReportActivity.this).initiateScan();
+                            }
                         }
                     }
-                }
             });
-        }
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                vibrate(ONE_MILISECOND, getApplicationContext());
                 getDataFromUser();
                 if (areFieldsFull()) {
                     if (!isPhoneNumberValid())
@@ -151,10 +152,10 @@ public class ReportActivity extends Activity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
-                Toast.makeText(this, "Nie wykryto kodu kreskowego.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, BARCODE_NOT_DETECTED, Toast.LENGTH_LONG).show();
             } else {
                 et_obj_no.setText(result.getContents());
-                Toast.makeText(this, "Wykryty kod: " + result.getContents(),
+                Toast.makeText(this, DETECTED_BARCODE + result.getContents(),
                         Toast.LENGTH_LONG).show();
             }
         } else {
@@ -162,19 +163,21 @@ public class ReportActivity extends Activity {
         }
         if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
-            if (extras.get("type").equals(Constant.AUTO)){
+            if (extras.get(TYPE).equals(Constant.AUTO)){
                 PackageManager pm = this.getPackageManager();
                 if (pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-                    setContentView(R.layout.activity_add_problem_auto);
+                    setContentView(ACTIVITY_ADD_PROBLEM_AUTO);
                     addingProcess();
                 } else {
                     Toast.makeText(getApplicationContext(), CANNOT_DETECT_CAMERA,
                             Toast.LENGTH_LONG).show();
                 }
             } else {
-                setContentView(R.layout.activity_add_problem_manual);
+                setContentView(ACTIVITY_ADD_PROBLEM_MANUAL);
                 addingProcess();
             }
+        } else {
+            finish();
         }
     }
 
