@@ -201,9 +201,11 @@ public class ReportActivity extends Activity {
             Intent typeIntent = getIntent();
             switch (view.getId()) {
                 case BTN_AUTO:
+                    vibrate(ONE_MILISECOND,getApplicationContext());
                     typeIntent.putExtra(TYPE, AUTO);
                     break;
                 case BTN_MANUAL:
+                    vibrate(ONE_MILISECOND,getApplicationContext());
                     typeIntent.putExtra(TYPE, MANUAL);
                     break;
             }
