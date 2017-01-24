@@ -29,8 +29,10 @@ public class Constant {
     public static final int SHORT_FAULT_LAYOUT = R.layout.short_fault_present;
     public static final int ACTIVITY_INFO = R.layout.activity_info;
     public static final int ADD_LAYOUT = R.layout.activity_add_problem_manual;
+    public static final int ACTIVITY_ADD_PROBLEM_AUTO = R.layout.activity_add_problem_auto;
+    public static final int ACTIVITY_ADD_PROBLEM_MANUAL = R.layout.activity_add_problem_manual;
 
-    // STATEMENTS
+    // ALERTS
     public static final String DATA_ERROR = "Nie można wczytać danych";
     public static final String BAD_PHONE_NUMBER = "Niepoprawny numer telefonu";
     public static final String SERVER_OUT_OF_CONNECTION = "Błąd połączenia z serwerem";
@@ -45,6 +47,8 @@ public class Constant {
     public static final String EDIT_SUCCESS = "Edytowano poprawnie";
     public static final String DELETE_SUCCESS = "Usunięto poprawnie";
     public static final String LOADING = "Wczytywanie";
+    public static final String BARCODE_NOT_DETECTED = "Nie wykryto kodu kreskowego.";
+    public static final String DETECTED_BARCODE = "Wykryty kod: ";
 
 
     // BUTTONS
@@ -143,25 +147,20 @@ public class Constant {
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String POST = "POST";
     public static final String PLUS = "+";
+    public static final int ONE_MILLISECOND = 1;
 
     // DRAWABLE
     public static final int CROSS_LOGO = R.drawable.cross_logo;
     public static final int ONGOING_ICON = R.drawable.ongoing_icon;
     public static final int TICK_LOGO = R.drawable.tick_logo;
-    public static final int ONE_MILISECOND = 1;
-    public static final String BARCODE_NOT_DETECTED = "Nie wykryto kodu kreskowego.";
-    public static final String DETECTED_BARCODE = "Wykryty kod: ";
-    public static final int ACTIVITY_ADD_PROBLEM_AUTO = R.layout.activity_add_problem_auto;
-    public static final int ACTIVITY_ADD_PROBLEM_MANUAL = R.layout.activity_add_problem_manual;
 
     // STATIC METHODS
     public static void showToast(Context context, String text) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show();
     }
 
-    public static void vibrate(int milis, Context context){
+    public static void vibrate(int millis, Context context){
         Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        // Vibrate for 500 milliseconds
-        v.vibrate(milis);
+        v.vibrate(millis);
     }
 }

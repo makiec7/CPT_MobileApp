@@ -65,7 +65,7 @@
                     <ImageButton
                         style="@style/AppTheme.ImageButton"
                         android:id="@+id/btn_local_faults"
-                        android:src="@drawable/all_icon" />
+                        android:src="@drawable/search_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"
                         android:text="@string/all_faults"/>

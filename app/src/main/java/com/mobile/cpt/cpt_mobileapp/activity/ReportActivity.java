@@ -62,7 +62,7 @@ public class ReportActivity extends Activity {
                     @RequiresApi(api = Build.VERSION_CODES.M)
                     @Override
                     public void onClick(View view) {
-                        vibrate(ONE_MILISECOND, getApplicationContext());
+                        vibrate(ONE_MILLISECOND, getApplicationContext());
                         Intent cameraActivity = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         if (ActivityCompat.checkSelfPermission(getApplicationContext(),
                                 Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -77,7 +77,7 @@ public class ReportActivity extends Activity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                vibrate(ONE_MILISECOND, getApplicationContext());
+                vibrate(ONE_MILLISECOND, getApplicationContext());
                 getDataFromUser();
                 if (areFieldsFull()) {
                     if (!isPhoneNumberValid())
@@ -201,11 +201,11 @@ public class ReportActivity extends Activity {
             Intent typeIntent = getIntent();
             switch (view.getId()) {
                 case BTN_AUTO:
-                    vibrate(ONE_MILISECOND,getApplicationContext());
+                    vibrate(ONE_MILLISECOND,getApplicationContext());
                     typeIntent.putExtra(TYPE, AUTO);
                     break;
                 case BTN_MANUAL:
-                    vibrate(ONE_MILISECOND,getApplicationContext());
+                    vibrate(ONE_MILLISECOND,getApplicationContext());
                     typeIntent.putExtra(TYPE, MANUAL);
                     break;
             }

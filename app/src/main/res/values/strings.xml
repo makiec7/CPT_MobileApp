@@ -5,7 +5,7 @@
 
     // BUTTONS
     <string name="edit_fault">Edytuj zgłoszenie</string>
-    <string name="all_faults">Wszystkie zgłoszenia</string>
+    <string name="all_faults">Wyszukaj złoszenie</string>
     <string name="logout">Wyloguj się</string>
     <string name="contact_administration">Kontakt z administracją</string>
     <string name="alarm_numbers">Numery alarmowe</string>
