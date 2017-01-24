@@ -59,7 +59,7 @@
 
     <style name="AppTheme.TextViewHalfScreenWhiteBackground" parent="AppTheme.TextView">
         <item name="android:background">@color/colorWhite</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="AppTheme.EditText">
@@ -68,6 +68,7 @@
         <item name="android:drawableLeft">@color/colorWhite</item>
         <item name="android:background">@color/colorWhite</item>
         <item name="android:paddingLeft">15dp</item>
+        <item name="android:textColorHint">@color/colorGrey</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">50dp</item>
@@ -80,6 +81,14 @@
         <item name="android:layout_margin">10dp</item>
         <item name="android:scaleType">centerInside</item>
         <item name="android:background">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.ImageView">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:gravity">fill</item>
+        <item name="android:background">@color/colorWhite</item>
+
     </style>
 
 </resources>

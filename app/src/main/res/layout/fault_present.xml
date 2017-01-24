@@ -70,14 +70,10 @@
                     style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_id" />
                 <ImageView
-                    android:gravity="fill"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
+                    style="@style/AppTheme.ImageView"
+                    android:layout_marginTop="15dp"
                     android:padding="5dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/iv_status"
-                    android:background="@color/colorWhite"/>
+                    android:id="@+id/iv_status" />
                 <TextView
                     style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_issuer_id" />

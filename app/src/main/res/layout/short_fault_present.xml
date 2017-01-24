@@ -11,8 +11,7 @@
         android:layout_margin="5dp"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            style="@style/AppTheme.ImageView"
             android:padding="10dp"
             android:id="@+id/iv_status" />
         <LinearLayout
