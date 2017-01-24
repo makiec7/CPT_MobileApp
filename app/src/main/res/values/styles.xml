@@ -29,6 +29,21 @@
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
+    <style name="AppTheme.SmallTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="AppTheme.ShortTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:padding">1dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
     <style name="AppTheme.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginBottom">10dp</item>

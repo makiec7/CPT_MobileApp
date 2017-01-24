@@ -22,8 +22,8 @@
             android:background="@color/colorAccent"
             android:orientation="horizontal">
             <LinearLayout
-                android:layout_width="wrap_content"
                 android:layout_weight="40"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="10dp"
@@ -70,7 +70,6 @@
                     style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_id" />
                 <ImageView
-
                     android:gravity="fill"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
@@ -80,56 +79,19 @@
                     android:id="@+id/iv_status"
                     android:background="@color/colorWhite"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="@color/colorBlack"
-                    android:background="@color/colorWhite"
+                    style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_issuer_id" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="50dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="@color/colorBlack"
-                    android:background="@color/colorWhite"
+                    style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_object_number" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="@color/colorBlack"
-                    android:background="@color/colorWhite"
+                    style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_datetime" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="@color/colorBlack"
-                    android:background="@color/colorWhite"
+                    style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_topic" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="50dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="fill"
-                    android:padding="5dp"
-                    android:textColor="@color/colorBlack"
-                    android:background="@color/colorWhite"
+                    style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_description" />
             </LinearLayout>
         </LinearLayout>

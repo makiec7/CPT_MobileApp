@@ -29,10 +29,7 @@
                         android:src="@drawable/add_icon"
                         android:scaleType="centerInside"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/colorBlack"
+                        style="@style/AppTheme.SmallTextView"
                         android:text="@string/add_fault"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -43,10 +40,7 @@
                         android:src="@drawable/my_icon"
                         android:scaleType="centerInside"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/colorBlack"
+                        style="@style/AppTheme.SmallTextView"
                         android:text="@string/my_faults"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -57,10 +51,7 @@
                         android:src="@drawable/emergency_icon"
                         android:scaleType="centerInside"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/colorBlack"
+                        style="@style/AppTheme.SmallTextView"
                         android:text="@string/alarm_numbers"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -71,10 +62,7 @@
                         android:src="@drawable/contact_icon"
                         android:scaleType="centerInside"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/colorBlack"
+                        style="@style/AppTheme.SmallTextView"
                         android:text="@string/contact_administration"/>
 
 
@@ -95,10 +83,7 @@
                         android:src="@drawable/edit_icon"
                         android:scaleType="centerInside"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/colorBlack"
+                        style="@style/AppTheme.SmallTextView"
                         android:text="@string/edit_fault"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -109,10 +94,7 @@
                         android:src="@drawable/all_icon"
                         android:scaleType="centerInside"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/colorBlack"
+                        style="@style/AppTheme.SmallTextView"
                         android:text="@string/all_faults"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -123,10 +105,7 @@
                         android:src="@drawable/info_icon"
                         android:scaleType="centerInside"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/colorBlack"
+                        style="@style/AppTheme.SmallTextView"
                         android:text="@string/about_program"/>
                     <ImageButton
                         android:layout_width="match_parent"
@@ -137,10 +116,7 @@
                         android:src="@drawable/logout_icon"
                         android:scaleType="centerInside"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/colorBlack"
+                        style="@style/AppTheme.SmallTextView"
                         android:text="@string/logout"/>
                 </LinearLayout>
         </LinearLayout>

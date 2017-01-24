@@ -16,11 +16,8 @@
             android:layout_margin="10dp"
             android:layout_below="@+id/app_name_layout">
             <TextView
+                style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                 android:id="@+id/info_string"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="20dp"
-                android:textColor="@color/colorBlack"
                 android:text=""/>
         </LinearLayout>
     </RelativeLayout>

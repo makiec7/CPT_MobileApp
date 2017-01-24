@@ -29,10 +29,7 @@
                     android:src="@drawable/camera_icon"
                     android:scaleType="centerInside"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="@color/colorBlack"
+                    style="@style/AppTheme.SmallTextView"
                     android:text="@string/auto"/>
             </LinearLayout>
             <!--- MANUAL BUTTON -->
@@ -53,10 +50,7 @@
                     android:src="@drawable/manual_icon"
                     android:scaleType="centerInside"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="@color/colorBlack"
+                    style="@style/AppTheme.SmallTextView"
                     android:text="@string/manual"/>
             </LinearLayout>
         </LinearLayout>

@@ -35,44 +35,20 @@
                     android:layout_gravity="fill_horizontal|left"
                     android:id="@+id/id_layout" >
                     <TextView
+                        style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                         android:text="@string/fault_number"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="50dp"
-                        android:gravity="fill"
-                        android:textColor="@color/colorWhite"
-                        android:padding="5dp"
                         android:id="@+id/tv_id_text" />
                     <TextView
+                        style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                         android:text="@string/user"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="50dp"
-                        android:gravity="fill"
-                        android:textColor="@color/colorWhite"
-                        android:padding="5dp"
                         android:id="@+id/tv_issuer_text" />
                     <TextView
+                        style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                         android:text="@string/obj_number"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="50dp"
-                        android:gravity="fill"
-                        android:textColor="@color/colorWhite"
-                        android:padding="5dp"
                         android:id="@+id/tv_object_number_text" />
                     <TextView
+                        style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                         android:text="@string/datetime"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="fill"
-                        android:textColor="@color/colorWhite"
-                        android:padding="5dp"
                         android:id="@+id/tv_datetime_text" />
                 </LinearLayout>
                 <LinearLayout
@@ -83,44 +59,16 @@
                     android:layout_gravity="fill_horizontal|right"
                     android:id="@+id/issuer_id_layout" >
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="fill"
-                        android:padding="5dp"
-                        android:textColor="@color/colorBlack"
-                        android:background="@color/colorWhite"
+                        style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                         android:id="@+id/tv_id" />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="fill"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:padding="5dp"
-                        android:textColor="@color/colorBlack"
-                        android:background="@color/colorWhite"
+                        style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                         android:id="@+id/tv_issuer_id" />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="50dp"
-                        android:gravity="fill"
-                        android:padding="5dp"
-                        android:textColor="@color/colorBlack"
-                        android:background="@color/colorWhite"
+                        style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                         android:id="@+id/tv_object_number" />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="fill"
-                        android:padding="5dp"
-                        android:textColor="@color/colorBlack"
-                        android:background="@color/colorWhite"
+                        style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                         android:id="@+id/tv_datetime" />
                 </LinearLayout>
             </LinearLayout>
