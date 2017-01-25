@@ -21,11 +21,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ImageButton btnContact;
     private ImageButton btnLogout;
     private LoginModel user;
-    private Intent forReport;
-    private Intent forUserPresent;
-    private Intent userIntent;
-    private Intent editIntent;
-    private Intent infoIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,25 +69,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void openPresentActivity(LoginModel user) {
-        forUserPresent = new Intent(getApplicationContext(), PresentActivity.class);
+        Intent forUserPresent = new Intent(getApplicationContext(), PresentActivity.class);
         forUserPresent.putExtra(USER_DATA, user);
         startActivity(forUserPresent);
     }
 
     private void openEditActivity() {
-        editIntent = new Intent(getApplicationContext(), EditActivity.class);
+        Intent editIntent = new Intent(getApplicationContext(), EditActivity.class);
         editIntent.putExtra(USER_DATA, user);
         startActivityForResult(editIntent, EDIT_REQUEST_CODE);
     }
 
     private void openReportActivity() {
-        forReport = new Intent(getApplicationContext(), ReportActivity.class);
+        Intent forReport = new Intent(getApplicationContext(), ReportActivity.class);
         forReport.putExtra(USER_DATA, user);
         startActivityForResult(forReport, REPORT_REQUEST_CODE);
     }
 
     private void openInfoActivity(int stringId) {
-        infoIntent = new Intent(getApplicationContext(), InfoActivity.class);
+        Intent infoIntent = new Intent(getApplicationContext(), InfoActivity.class);
         infoIntent.putExtra(STRING, stringId);
         startActivity(infoIntent);
     }
@@ -128,7 +123,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void getUserInfo() {
-        userIntent = getIntent();
+        Intent userIntent = getIntent();
         user = (LoginModel) userIntent.getExtras().get(USER_DATA);
     }
 

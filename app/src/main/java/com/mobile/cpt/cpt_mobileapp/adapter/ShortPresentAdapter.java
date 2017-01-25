@@ -37,7 +37,7 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         FaultModelHolder holder;
         if (convertView == null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();

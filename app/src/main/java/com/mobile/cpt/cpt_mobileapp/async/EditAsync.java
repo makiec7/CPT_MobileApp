@@ -31,7 +31,7 @@ public class EditAsync extends AsyncTask<FaultModel, String, Boolean> {
                     return true;
                 }
             }
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
         return false;
     }
 }

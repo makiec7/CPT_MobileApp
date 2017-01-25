@@ -44,7 +44,6 @@ public class ReportActivity extends Activity {
     private String descr;
     private String obj_no;
     private Intent fromMain;
-    private LoginModel user;
     private Button btn_add;
     private Button btn_scan;
 
@@ -87,9 +86,7 @@ public class ReportActivity extends Activity {
                                 descr, Integer.parseInt(obj_no));
                         try {
                             isAdded = add(fault);
-                        } catch (ExecutionException e) {
-                            setError(e);
-                        } catch (InterruptedException e) {
+                        } catch (ExecutionException | InterruptedException e) {
                             setError(e);
                         }
                         setResultAndFinish();
@@ -139,7 +136,7 @@ public class ReportActivity extends Activity {
         et_description = (EditText) findViewById(ET_DESCRIPTION);
         obj_no = "";
         fromMain = getIntent();
-        user = (LoginModel) fromMain.getExtras().get(USER_DATA);
+        LoginModel user = (LoginModel) fromMain.getExtras().get(USER_DATA);
         tv_issuer_id = (TextView) findViewById(R.id.tv_issuer_id);
         tv_issuer_id.setText(user.getIndex_no());
         btn_add = (Button) findViewById(R.id.btn_add);

@@ -33,7 +33,7 @@ public class PresentAsync extends AsyncTask <String, String, List<FaultModel>> {
                     return faultsJSON;
                 }
             }
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
         return new ArrayList<>();
     }
 }

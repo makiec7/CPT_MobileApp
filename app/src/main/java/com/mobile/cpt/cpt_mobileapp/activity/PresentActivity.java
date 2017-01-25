@@ -22,10 +22,7 @@ public class PresentActivity extends Activity {
     private ListView listView;
     private Intent details;
     private List<FaultModel> faults;
-    private Intent fromMain;
-    private LoginModel user;
     private FaultModel fault;
-    private ShortPresentAdapter presentAdapter;
 
     public PresentActivity() {
         listView = null;
@@ -35,8 +32,8 @@ public class PresentActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fromMain = getIntent();
-        user = (LoginModel) fromMain.getExtras().get(USER_DATA);
+        Intent fromMain = getIntent();
+        LoginModel user = (LoginModel) fromMain.getExtras().get(USER_DATA);
         if (user.isLogged()) {
             faults = presentWithParameters(user.getIndex_no());
         } else {
@@ -45,7 +42,7 @@ public class PresentActivity extends Activity {
         this.setContentView(USER_PROBLEMS_LAYOUT);
         listView = (ListView) findViewById(LIST_FAULT);
         listView.setClickable(true);
-        presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
+        ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
                 faults);
         listView.setAdapter(presentAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,9 +60,7 @@ public class PresentActivity extends Activity {
     private List<FaultModel> presentWithoutParameters(){
         try {
             return new PresentAsync().execute().get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
         return null;
@@ -74,9 +69,7 @@ public class PresentActivity extends Activity {
     private List<FaultModel> presentWithParameters(String index_no){
         try {
             return new PresentAsync().execute(index_no).get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
         return null;

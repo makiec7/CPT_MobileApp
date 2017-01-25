@@ -9,18 +9,7 @@ import android.widget.TextView;
 import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 
-import static com.mobile.cpt.cpt_mobileapp.Constant.CROSS_LOGO;
-import static com.mobile.cpt.cpt_mobileapp.Constant.FAULT;
-import static com.mobile.cpt.cpt_mobileapp.Constant.IV_STATUS;
-import static com.mobile.cpt.cpt_mobileapp.Constant.ONGOING_ICON;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TICK_LOGO;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DATETIME;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_DESCRIPTION;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ID;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_ISSUER_ID;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_OBJ_NO;
-import static com.mobile.cpt.cpt_mobileapp.Constant.TV_TOPIC;
+import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 
 public class MoreInfoActivity extends Activity {
@@ -28,7 +17,6 @@ public class MoreInfoActivity extends Activity {
     public static final int ONGOING = 1;
     public static final int NOT_RESOLVED = 0;
     public static final int FAULT_PRESENT_LAYOUT = R.layout.fault_present;
-    private Intent toPresent;
     private ImageView iv_status;
     private FaultModel fault;
     private TextView tv_id;
@@ -65,7 +53,7 @@ public class MoreInfoActivity extends Activity {
     }
 
     private void init() {
-        toPresent = getIntent();
+        Intent toPresent = getIntent();
         iv_status = (ImageView) findViewById(IV_STATUS);
         fault = (FaultModel) toPresent.getExtras().get(FAULT);
         tv_id = (TextView) findViewById(TV_ID);

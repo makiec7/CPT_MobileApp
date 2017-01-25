@@ -117,7 +117,7 @@ public class FaultModel implements Serializable {
         return dateFormat.format(date);
     }
 
-    public static FaultModel fromJSONObj(JSONObject jObj){
+    private static FaultModel fromJSONObj(JSONObject jObj){
         try {
             return new FaultModel(jObj.getInt(ID), jObj.getInt(ISSUER),
                     jObj.getString(PHONE_NUMBER), jObj.getString(TOPIC),
@@ -130,7 +130,7 @@ public class FaultModel implements Serializable {
     }
 
     public static List<FaultModel> fromJSONArray(JSONObject jObj){
-        List<FaultModel> faultModels = new ArrayList<FaultModel>();
+        List<FaultModel> faultModels = new ArrayList<>();
         try {
             JSONArray jArray = jObj.getJSONArray("list");
             for (int i=0; i<jArray.length(); i++){

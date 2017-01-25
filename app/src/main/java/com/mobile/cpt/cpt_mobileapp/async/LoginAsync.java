@@ -29,7 +29,7 @@ public class LoginAsync extends AsyncTask<String, String, LoginModel> {
                     return new LoginModel(true, (String) jsonObj.get(USER));
                 }
             }
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
         return new LoginModel(false, NULL_STRING);
     }
 }
