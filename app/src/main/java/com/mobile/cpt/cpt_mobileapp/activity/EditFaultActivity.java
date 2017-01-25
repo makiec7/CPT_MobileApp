@@ -43,7 +43,7 @@ public class EditFaultActivity extends Activity {
                 fault.setTopic(String.valueOf(et_topic.getText().toString()));
                 fault.setPhone_number(String.valueOf(et_phone_number.getText().toString()));
                 edit(fault);
-                Toast.makeText(getApplicationContext(), EDIT_SUCCESS, Toast.LENGTH_LONG).show();
+                showToast(getApplicationContext(), EDIT_SUCCESS);
                 setResultAndFinish();
             }
         });
@@ -51,7 +51,7 @@ public class EditFaultActivity extends Activity {
             @Override
             public void onClick(View view) {
                 delete(fault);
-                Toast.makeText(getApplicationContext(), DELETE_SUCCESS, Toast.LENGTH_LONG).show();
+                showToast(getApplicationContext(), DELETE_SUCCESS);
                 setResultAndFinish();
             }
         });

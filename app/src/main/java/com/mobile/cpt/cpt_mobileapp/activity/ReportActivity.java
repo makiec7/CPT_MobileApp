@@ -151,11 +151,10 @@ public class ReportActivity extends Activity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
-                Toast.makeText(this, BARCODE_NOT_DETECTED, Toast.LENGTH_LONG).show();
+                showToast(this, BARCODE_NOT_DETECTED);
             } else {
                 et_obj_no.setText(result.getContents());
-                Toast.makeText(this, DETECTED_BARCODE + result.getContents(),
-                        Toast.LENGTH_LONG).show();
+                showToast(this, DETECTED_BARCODE + result.getContents());
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -168,8 +167,7 @@ public class ReportActivity extends Activity {
                     setContentView(ACTIVITY_ADD_PROBLEM_AUTO);
                     addingProcess();
                 } else {
-                    Toast.makeText(getApplicationContext(), CANNOT_DETECT_CAMERA,
-                            Toast.LENGTH_LONG).show();
+                    showToast(getApplicationContext(), CANNOT_DETECT_CAMERA);
                 }
             } else {
                 setContentView(ACTIVITY_ADD_PROBLEM_MANUAL);

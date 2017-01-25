@@ -9,9 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.mobile.cpt.cpt_mobileapp.Constant;
 import com.mobile.cpt.cpt_mobileapp.async.LoginAsync;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
@@ -21,7 +19,6 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button loginButton;
     private EditText loginEdit;
     private EditText passwordEdit;
 
@@ -29,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(LOGIN_LAYOUT);
-        loginButton = (Button) findViewById(BTN_TO_LOG);
+        Button loginButton = (Button) findViewById(BTN_TO_LOG);
         loginEdit = (EditText) findViewById(ET_LOGIN);
         passwordEdit = (EditText) findViewById(ET_PASSWORD);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                             } else {
                                 showToast(getApplicationContext(), SERVER_OUT_OF_CONNECTION);
                             }
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        } catch (ExecutionException e) {
+                        } catch (InterruptedException | ExecutionException e) {
                             e.printStackTrace();
                         }
                     } else {

@@ -101,8 +101,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REPORT_REQUEST_CODE)
             if (resultCode == RESULT_OK)
-                    if ((Boolean) data.getExtras().get(STATUS))
+                    if ((Boolean) data.getExtras().get(STATUS)) {
                         showToast(getApplicationContext(), REPORT_SUCCESS);
+                    }
                     else
                         showToast(getApplicationContext(), REPORT_ERROR);
     }
