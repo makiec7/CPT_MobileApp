@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/main_menu">
         <!-- HEADER -->
         <include layout="@layout/header"
@@ -22,7 +22,6 @@
             android:padding="30dp">
             <!-- ISSUER ID -->
             <LinearLayout
-                android:layout_below="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal|top"
