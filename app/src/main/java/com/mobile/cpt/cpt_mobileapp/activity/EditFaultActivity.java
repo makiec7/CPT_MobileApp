@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import static com.mobile.cpt.cpt_mobileapp.Constant.*;
-import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.async.DeleteAsync;
 import com.mobile.cpt.cpt_mobileapp.async.EditAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
@@ -86,9 +85,7 @@ public class EditFaultActivity extends Activity {
     private void delete(FaultModel fault){
         try {
             new DeleteAsync().execute(fault).get();
-        } catch (InterruptedException e) {
-            setResultAndAbort(e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             setResultAndAbort(e);
         }
     }
@@ -96,9 +93,7 @@ public class EditFaultActivity extends Activity {
     private void edit(FaultModel fault){
         try {
             new EditAsync().execute(fault).get();
-        } catch (InterruptedException e) {
-            setResultAndAbort(e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             setResultAndAbort(e);
         }
     }
