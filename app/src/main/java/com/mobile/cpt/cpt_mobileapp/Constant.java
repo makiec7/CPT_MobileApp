@@ -1,21 +1,20 @@
 package com.mobile.cpt.cpt_mobileapp;
 
 import android.content.Context;
+import android.os.StrictMode;
 import android.os.Vibrator;
 import android.widget.Toast;
 
 public class Constant {
 
     // INTENT EXTRAS
-    public static final String LAYOUT = "LAYOUT";
-    public static final String USER_DATA = "userData";
-    public static final String FAULT = "fault";
-    public static final String TYPE = "type";
+    public static final String USER_DATA = "USER_DATA";
+    public static final String FAULT = "FAULT";
+    public static final String TYPE = "TYPE";
     public static final String STRING = "STRING";
     public static final String MANUAL = "MANUAL";
     public static final String AUTO = "AUTO";
-    public static final String DATA = "data";
-    public static final String FINNISH = "finnish";
+    public static final String FINNISH = "FINNISH";
 
     // LAYOUTS
     public static final int MAIN_LAYOUT = R.layout.activity_main;
@@ -28,7 +27,6 @@ public class Constant {
     public static final int EDIT_LAYOUT = R.layout.activity_edit_problem;
     public static final int SHORT_FAULT_LAYOUT = R.layout.short_fault_present;
     public static final int ACTIVITY_INFO = R.layout.activity_info;
-    public static final int ADD_LAYOUT = R.layout.activity_add_problem_manual;
     public static final int ACTIVITY_ADD_PROBLEM_AUTO = R.layout.activity_add_problem_auto;
     public static final int ACTIVITY_ADD_PROBLEM_MANUAL = R.layout.activity_add_problem_manual;
 
@@ -46,7 +44,6 @@ public class Constant {
     public static final String REPORT_SUCCESS = "Zgłoszenie dodane";
     public static final String EDIT_SUCCESS = "Edytowano poprawnie";
     public static final String DELETE_SUCCESS = "Usunięto poprawnie";
-    public static final String LOADING = "Wczytywanie";
     public static final String BARCODE_NOT_DETECTED = "Nie wykryto kodu kreskowego.";
     public static final String DETECTED_BARCODE = "Wykryty kod: ";
 
@@ -93,10 +90,7 @@ public class Constant {
     public static final int REPORT_TYPE_REQUEST_CODE = 4321;
 
     // LOGGERS
-    public static final String IS_LOGGED = "islogged";
     public static final String JSON = "JSON";
-    public static final String URL = "URL";
-    public static final String LINK = "link";
 
     // BOOLEAN STRING
     public static final String TRUE = "true";
@@ -120,13 +114,13 @@ public class Constant {
     public static final int TIMEOUT = 1000;
 
     // API LINK
-    public static final String HTTP_LOGIN = "http://cpt4cti.24tm.pl/login.php";
-    public static final String HTTP_REPORT = "http://cpt4cti.24tm.pl/add_fault.php";
-    public static final String EDIT_HTTP = "http://cpt4cti.24tm.pl/edit_fault.php";
-    public static final String HTTP_PRESENT_USER_FAULTS = "http://cpt4cti.24tm.pl/select_fault.php";
-    public static final String HTTP_PRESENT_ALL_FAULTS =
-            "http://cpt4cti.24tm.pl/select_all_faults.php";
-    public static final String HTTP_DELETE = "http://cpt4cti.24tm.pl/delete_fault.php";
+    public static final String LINK = "http://cpt4cti.24tm.pl/";
+    public static final String HTTP_LOGIN = LINK + "login.php";
+    public static final String HTTP_REPORT = LINK + "add_fault.php";
+    public static final String EDIT_HTTP = LINK + "edit_fault.php";
+    public static final String HTTP_PRESENT_USER_FAULTS = LINK + "select_fault.php";
+    public static final String HTTP_PRESENT_ALL_FAULTS = LINK + "select_all_faults.php";
+    public static final String HTTP_DELETE = LINK + "delete_fault.php";
 
     // FOR API LINK
     public static final String ASK = "?";
