@@ -20,33 +20,29 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.*;
 public class EditActivity extends Activity {
 
     private List<FaultModel> faults = null;
-    private Intent fromMain;
-    private LoginModel user;
-    private ShortPresentAdapter presentAdapter;
     private FaultModel fault;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fromMain = getIntent();
-        user = (LoginModel) fromMain.getExtras().get(USER_DATA);
+        Intent fromMain = getIntent();
+        LoginModel user = (LoginModel) fromMain.getExtras().get(USER_DATA);
         try {
-            if (user.isLogged()) {
-                faults = new PresentAsync().execute(user.getIndex_no()).get();
-            } else {
-                faults = new PresentAsync().execute().get();
+            if (user != null) {
+                if (user.isLogged()) {
+                    faults = new PresentAsync().execute(user.getIndex_no()).get();
+                } else {
+                    faults = new PresentAsync().execute().get();
+                }
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            finish();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
             finish();
         }
         this.setContentView(USER_PROBLEMS_LAYOUT);
         final ListView listView = (ListView) findViewById(LIST_FAULT);
         listView.setClickable(true);
-        presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
+        ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
                 faults);
         listView.setAdapter(presentAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
