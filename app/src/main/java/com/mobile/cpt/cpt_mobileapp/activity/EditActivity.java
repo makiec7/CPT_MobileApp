@@ -12,6 +12,7 @@ import com.mobile.cpt.cpt_mobileapp.async.PresentAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
 import com.mobile.cpt.cpt_mobileapp.model.LoginModel;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -39,9 +40,11 @@ public class EditActivity extends Activity {
             e.printStackTrace();
             finish();
         }
+
         this.setContentView(USER_PROBLEMS_LAYOUT);
         final ListView listView = (ListView) findViewById(LIST_FAULT);
         listView.setClickable(true);
+        faults = clearFinished(faults);
         ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
                 faults);
         listView.setAdapter(presentAdapter);
@@ -64,5 +67,13 @@ public class EditActivity extends Activity {
                 finish();
             }
         }
+    }
+
+    private List<FaultModel> clearFinished(List<FaultModel> faults){
+        List<FaultModel> faultsList = new ArrayList<>();
+        for (FaultModel faultTmp : faults)
+            if (faultTmp.getStatus() != 2)
+                faultsList.add(faultTmp);
+        return faultsList;
     }
 }

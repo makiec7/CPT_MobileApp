@@ -43,7 +43,8 @@ public class LoginActivity extends AppCompatActivity {
                             LoginModel user = login(login, password);
                             if (user != null) {
                                 if (user.isLogged()) {
-                                    showToast(getApplicationContext(), LOGGED_AS + user.getIndex_no());
+                                    showToast(getApplicationContext(), LOGGED_AS +
+                                            user.getIndex_no());
                                     Intent toMain = new Intent(getApplicationContext(),
                                             MainActivity.class);
                                     toMain.putExtra(USER_DATA, user);
@@ -66,7 +67,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-    private LoginModel login(String login, String password) throws InterruptedException, ExecutionException {
+    private LoginModel login(String login, String password) throws InterruptedException,
+            ExecutionException {
         return new LoginAsync().execute(login, password).get();
     }
 

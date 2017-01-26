@@ -114,7 +114,7 @@ public class Constant {
     public static final int TIMEOUT = 1000;
 
     // API LINK
-    public static final String LINK = "http://cpt4cti.24tm.pl/";
+    public static final String LINK = "http://212.191.92.101:6009/";
     public static final String HTTP_LOGIN = LINK + "login.php";
     public static final String HTTP_REPORT = LINK + "add_fault.php";
     public static final String EDIT_HTTP = LINK + "edit_fault.php";
