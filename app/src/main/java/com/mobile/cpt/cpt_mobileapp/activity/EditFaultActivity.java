@@ -59,6 +59,7 @@ public class EditFaultActivity extends Activity {
 
     private void init() {
         setContentView(EDIT_LAYOUT);
+        setHeader("Edycja zgłoszenia");
         toEdit = getIntent();
         fault = (FaultModel) toEdit.getExtras().get(FAULT);
         tv_id = (TextView) findViewById(TV_ID);
@@ -107,5 +108,10 @@ public class EditFaultActivity extends Activity {
         toEdit.putExtra(FINNISH, true);
         setResult(RESULT_OK, toEdit);
         finish();
+    }
+
+    public void setHeader(String headerStr) {
+        TextView header = (TextView) findViewById(HEADER);
+        header.setText(headerStr);
     }
 }

@@ -64,7 +64,7 @@
                         android:text="@string/edit_fault"/>
                     <ImageButton
                         style="@style/AppTheme.ImageButton"
-                        android:id="@+id/btn_local_faults"
+                        android:id="@+id/btn_search_fault"
                         android:src="@drawable/search_icon" />
                     <TextView
                         style="@style/AppTheme.SmallTextView"

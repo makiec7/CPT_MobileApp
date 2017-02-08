@@ -44,6 +44,7 @@ public class MoreInfoActivity extends Activity {
     }
 
     private void setFaultInfo() {
+        setHeader("Szczególy zgłoszenia " + Integer.toString(fault.getId()));
         tv_id.setText(Integer.toString(fault.getId()));
         tv_datetime.setText(fault.getDate_time());
         tv_description.setText(fault.getDescription());
@@ -62,5 +63,10 @@ public class MoreInfoActivity extends Activity {
         tv_issuer = (TextView) findViewById(TV_ISSUER_ID);
         tv_obj_no = (TextView) findViewById(TV_OBJ_NO);
         tv_topic = (TextView) findViewById(TV_TOPIC);
+    }
+
+    public void setHeader(String headerStr) {
+        TextView header = (TextView) findViewById(HEADER);
+        header.setText(headerStr);
     }
 }

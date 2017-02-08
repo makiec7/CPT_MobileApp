@@ -129,18 +129,18 @@ public class ReportActivity extends Activity {
     }
 
     private void init() {
+        setHeader("Dodawanie zgłoszenia");
         tv_issuer_id = (TextView) findViewById(TV_ISSUER_ID);
         et_topic = (EditText) findViewById(ET_TOPIC);
         et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
         et_obj_no = (EditText) findViewById(ET_OBJ_NO);
         et_description = (EditText) findViewById(ET_DESCRIPTION);
-        obj_no = "";
+        obj_no = NULL_STRING;
         fromMain = getIntent();
         LoginModel user = (LoginModel) fromMain.getExtras().get(USER_DATA);
-        tv_issuer_id = (TextView) findViewById(R.id.tv_issuer_id);
         tv_issuer_id.setText(user.getIndex_no());
-        btn_add = (Button) findViewById(R.id.btn_add);
-        btn_scan = (Button) findViewById(R.id.btn_scan);
+        btn_add = (Button) findViewById(BTN_ADD);
+        btn_scan = (Button) findViewById(BTN_SCAN);
     }
 
     @Override
@@ -179,12 +179,18 @@ public class ReportActivity extends Activity {
         return new ReportAsync().execute(faultModel).get();
     }
 
+    public void setHeader(String headerStr) {
+        TextView header = (TextView) findViewById(HEADER);
+        header.setText(headerStr);
+    }
+
     public static class ReportTypeActivity extends Activity implements View.OnClickListener {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_set_report_type);
+            setContentView(ACTIVITY_SET_REPORT_TYPE);
+            setHeader("Wybierz rodzaj dodawania");
             ImageButton btn_manual = (ImageButton) findViewById(BTN_MANUAL);
             ImageButton btn_auto = (ImageButton) findViewById(BTN_AUTO);
             btn_auto.setOnClickListener(this);
@@ -206,6 +212,11 @@ public class ReportActivity extends Activity {
             }
             setResult(RESULT_OK, typeIntent);
             finish();
+        }
+
+        public void setHeader(String headerStr) {
+            TextView header = (TextView) findViewById(HEADER);
+            header.setText(headerStr);
         }
     }
 }

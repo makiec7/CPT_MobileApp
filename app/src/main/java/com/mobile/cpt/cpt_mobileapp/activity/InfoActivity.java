@@ -14,9 +14,15 @@ public class InfoActivity extends Activity {
         Bundle b = getIntent().getExtras();
         setContentView(ACTIVITY_INFO);
         if (b != null) {
+            setHeader("Dodatkowe informacje");
             TextView info = (TextView) findViewById(INFO_STRING);
             info.setText(b.getInt(STRING));
         } else
             showToast(getApplicationContext(), DATA_ERROR);
+    }
+
+    public void setHeader(String headerStr) {
+        TextView header = (TextView) findViewById(HEADER);
+        header.setText(headerStr);
     }
 }

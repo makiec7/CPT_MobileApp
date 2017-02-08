@@ -20,7 +20,6 @@
             android:background="@color/colorAccent"
             android:orientation="vertical"
             android:padding="30dp">
-            <!-- ISSUER ID -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -31,21 +30,16 @@
             </LinearLayout>
             <EditText
                 style="@style/AppTheme.EditText"
-                android:maxLength="50"
+                android:maxLength="20"
+
+                android:hint="@string/fault_number"
+                android:id="@+id/et_id" />
+            <EditText
+                style="@style/AppTheme.EditText"
+                android:maxLength="20"
+
                 android:hint="@string/user"
                 android:id="@+id/et_issuer" />
-            <EditText
-                style="@style/AppTheme.EditText"
-                android:inputType="phone"
-                android:hint="@string/phone_number"
-                android:maxLength="12"
-                android:digits="0123456789+"
-                android:id="@+id/et_phone_number" />
-            <EditText
-                style="@style/AppTheme.EditText"
-                android:maxLength="50"
-                android:hint="@string/topic"
-                android:id="@+id/et_topic" />
             <EditText
                 style="@style/AppTheme.EditText"
                 android:maxLength="10"
@@ -55,8 +49,38 @@
                 android:id="@+id/et_obj_no" />
             <EditText
                 style="@style/AppTheme.EditText"
-                android:hint="@string/description"
-                android:id="@+id/et_description" />
+                android:maxLength="50"
+                android:hint="@string/topic"
+                android:id="@+id/et_topic" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="fill"
+            android:textSize="17sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"/>
+            <CheckBox android:id="@+id/registered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zgłoszone"
+                />
+            <CheckBox android:id="@+id/ongoing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="W trakcie naprawy"/>
+            <CheckBox android:id="@+id/solved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rozwiązane"/>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +90,7 @@
                 android:orientation="vertical">
                 <Button
                     style="@style/AppTheme.ButtonWhite"
-                    android:id="@+id/btn_add"
+                    android:id="@+id/btn_search_fault"
                     android:text="@string/search" />
             </LinearLayout>
         </LinearLayout>

@@ -19,7 +19,7 @@
     <string name="datetime">Czas zgłoszenia:</string>
     <string name="obj_number">Numer przedmiotu:</string>
     <string name="user">Użytkownik:</string>
-    <string name="status">Status:</string>
+    <string name="status">Status zgłoszenia:</string>
     <string name="fault_number">Numer zgłoszenia:</string>
     <string name="phone_number">Numer telefonu:</string>
 

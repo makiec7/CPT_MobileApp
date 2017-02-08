@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mobile.cpt.cpt_mobileapp.adapter.ShortPresentAdapter;
 import com.mobile.cpt.cpt_mobileapp.async.PresentAsync;
@@ -42,6 +43,7 @@ public class EditActivity extends Activity {
         }
 
         this.setContentView(USER_PROBLEMS_LAYOUT);
+        setHeader("Wybierz zgłoszenie do edycji");
         final ListView listView = (ListView) findViewById(LIST_FAULT);
         listView.setClickable(true);
         faults = clearFinished(faults);
@@ -75,5 +77,10 @@ public class EditActivity extends Activity {
             if (faultTmp.getStatus() != 2)
                 faultsList.add(faultTmp);
         return faultsList;
+    }
+
+    public void setHeader(String headerStr) {
+        TextView header = (TextView) findViewById(HEADER);
+        header.setText(headerStr);
     }
 }

@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.mobile.cpt.cpt_mobileapp.R;
 import com.mobile.cpt.cpt_mobileapp.adapter.ShortPresentAdapter;
 import com.mobile.cpt.cpt_mobileapp.async.PresentAsync;
 import com.mobile.cpt.cpt_mobileapp.model.FaultModel;
@@ -32,14 +34,17 @@ public class PresentActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setContentView(USER_PROBLEMS_LAYOUT);
         Intent fromMain = getIntent();
         LoginModel user = (LoginModel) fromMain.getExtras().get(USER_DATA);
         if (user.isLogged()) {
+            setHeader("Zgłoszenia użytkownika " + user.getIndex_no());
             faults = presentWithParameters(user.getIndex_no());
         } else {
+            setHeader("Wszystkie zgłoszenia");
             faults = presentWithoutParameters();
         }
-        this.setContentView(USER_PROBLEMS_LAYOUT);
+
         listView = (ListView) findViewById(LIST_FAULT);
         listView.setClickable(true);
         ShortPresentAdapter presentAdapter = new ShortPresentAdapter(this, SHORT_FAULT_LAYOUT,
@@ -73,5 +78,10 @@ public class PresentActivity extends Activity {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void setHeader(String headerStr) {
+        TextView header = (TextView) findViewById(HEADER);
+        header.setText(headerStr);
     }
 }

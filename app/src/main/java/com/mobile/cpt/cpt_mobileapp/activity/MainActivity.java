@@ -45,9 +45,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 vibrate(ONE_MILLISECOND, getApplicationContext());
                 openPresentActivity(user);
                 break;
-            case BTN_LOCAL_FAULTS:
+            case BTN_SEARCH_FAULT:
                 vibrate(ONE_MILLISECOND, getApplicationContext());
-                openPresentActivity(new LoginModel(false, NULL_STRING));
+                openSearchActivity();
                 break;
             case BTN_ALARMS:
                 vibrate(ONE_MILLISECOND, getApplicationContext());
@@ -72,6 +72,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Intent forUserPresent = new Intent(getApplicationContext(), PresentActivity.class);
         forUserPresent.putExtra(USER_DATA, user);
         startActivity(forUserPresent);
+    }
+
+    private void openSearchActivity() {
+        Intent forSearch = new Intent(getApplicationContext(), SearchActivity.class);
+        forSearch.putExtra(USER_DATA, user);
+        startActivity(forSearch);
     }
 
     private void openEditActivity() {
@@ -107,7 +113,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnAdd = (ImageButton) findViewById(BTN_REPORT_FAULT);
         btnEdit = (ImageButton) findViewById(BTN_EDIT_FAULT);
         btnMyFaults = (ImageButton) findViewById(BTN_SHOW_FAULTS);
-        btnShowAll = (ImageButton) findViewById(BTN_LOCAL_FAULTS);
+        btnShowAll = (ImageButton) findViewById(BTN_SEARCH_FAULT);
         btnEmergency = (ImageButton) findViewById(BTN_ALARMS);
         btnAbout = (ImageButton) findViewById(BTN_ABOUT);
         btnContact = (ImageButton) findViewById(BTN_CONTACT);

@@ -55,13 +55,15 @@ public class Constant {
     public static final int BTN_ALARMS = R.id.btn_alarms;
     public static final int BTN_EDIT = R.id.btn_edit;
     public static final int BTN_DELETE = R.id.btn_delete;
-    public static final int BTN_LOCAL_FAULTS = R.id.btn_local_faults;
+    public static final int BTN_SEARCH_FAULT = R.id.btn_search_fault;
     public static final int BTN_SHOW_FAULTS = R.id.btn_show_faults;
     public static final int BTN_EDIT_FAULT = R.id.btn_edit_fault;
     public static final int BTN_TO_LOG = R.id.btn_login;
     public static final int BTN_REPORT_FAULT = R.id.btn_report_fault;
     public static final int BTN_MANUAL = R.id.btn_manual;
     public static final int BTN_AUTO = R.id.btn_auto;
+    public static final int BTN_SCAN = R.id.btn_scan;
+    public static final int BTN_ADD = R.id.btn_add;
 
     // EDIT TEXT
     public static final int ET_LOGIN = R.id.et_login;
@@ -114,7 +116,7 @@ public class Constant {
     public static final int TIMEOUT = 1000;
 
     // API LINK
-    public static final String LINK = "http://212.191.92.101:6009/";
+    public static final String LINK = "http://cpt4cti.24tm.pl/";
     public static final String HTTP_LOGIN = LINK + "login.php";
     public static final String HTTP_REPORT = LINK + "add_fault.php";
     public static final String EDIT_HTTP = LINK + "edit_fault.php";
@@ -147,6 +149,8 @@ public class Constant {
     public static final int CROSS_LOGO = R.drawable.cross_logo;
     public static final int ONGOING_ICON = R.drawable.ongoing_icon;
     public static final int TICK_LOGO = R.drawable.tick_logo;
+    public static final int ACTIVITY_SET_REPORT_TYPE = R.layout.activity_set_report_type;
+    public static final int HEADER = R.id.app_name;
 
     // STATIC METHODS
     public static void showToast(Context context, String text) {
