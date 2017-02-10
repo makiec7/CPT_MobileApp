@@ -12,6 +12,9 @@
     <string name="my_faults">Moje zgłoszenia</string>
     <string name="delete_fault">Usuń zgłoszenie</string>
     <string name="scan_code">Zeskanuj kod kreskowy</string>
+    <string name="about_program">O programie</string>
+    <string name="add_fault">Dodaj zgłoszenie</string>
+    <string name="search">Wyszukaj</string>
 
     // ABOUT FAULTS
     <string name="description">Opis:</string>
@@ -22,6 +25,8 @@
     <string name="status">Status zgłoszenia:</string>
     <string name="fault_number">Numer zgłoszenia:</string>
     <string name="phone_number">Numer telefonu:</string>
+    <string name="room_number">Numer sali:</string>
+    <string name="obj_name">Nazwa przedmiotu:</string>
 
     // REPORT
     <string name="manual">Ręcznie</string>
@@ -69,9 +74,5 @@
         - email: cti@adm.p.lodz.pl\n
         - telefon: + 48 42 631 24 40\n
     </string>
-    <string name="about_program">O programie</string>
-    <string name="add_fault">Dodaj zgłoszenie</string>
-    <string name="search">Wyszukaj</string>
-    <string name="room_number">Numer sali:</string>
-    <string name="obj_name">Nazwa przedmiotu:</string>
+
 </resources>
