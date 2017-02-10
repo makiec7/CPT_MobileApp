@@ -72,4 +72,6 @@
     <string name="about_program">O programie</string>
     <string name="add_fault">Dodaj zgłoszenie</string>
     <string name="search">Wyszukaj</string>
+    <string name="room_number">Numer sali:</string>
+    <string name="obj_name">Nazwa przedmiotu:</string>
 </resources>

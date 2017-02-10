@@ -37,9 +37,13 @@
             <EditText
                 style="@style/AppTheme.EditText"
                 android:maxLength="20"
-
                 android:hint="@string/user"
                 android:id="@+id/et_issuer" />
+            <EditText
+                style="@style/AppTheme.EditText"
+                android:maxLength="50"
+                android:hint="@string/topic"
+                android:id="@+id/et_topic" />
             <EditText
                 style="@style/AppTheme.EditText"
                 android:maxLength="10"
@@ -50,8 +54,15 @@
             <EditText
                 style="@style/AppTheme.EditText"
                 android:maxLength="50"
-                android:hint="@string/topic"
-                android:id="@+id/et_topic" />
+                android:hint="@string/obj_name"
+                android:id="@+id/et_obj_name" />
+            <EditText
+                style="@style/AppTheme.EditText"
+                android:maxLength="5"
+                android:inputType="phone"
+                android:hint="@string/room_number"
+                android:digits="0123456789."
+                android:id="@+id/et_room_no" />
         <LinearLayout
             android:orientation="vertical"
             android:background="@color/colorWhite"
