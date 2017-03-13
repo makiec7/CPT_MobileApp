@@ -1,5 +1,7 @@
 package com.mobile.cpt.cpt_mobileapp;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -27,13 +29,14 @@ public class JSONFromLink {
         url = new URL(link);
         conn = (HttpURLConnection) url.openConnection();
         conn.setConnectTimeout(TIMEOUT);
-        conn.setRequestMethod(POST);
+        conn.setRequestMethod("GET");
         conn.setDoInput(true);
         conn.connect();
         bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         jsonStr = bufferedReader.readLine().toString();
         bufferedReader.close();
         conn.disconnect();
+        Log.i("json", jsonStr);
         return new JSONObject(jsonStr);
     }
 }
