@@ -48,6 +48,10 @@
                     android:id="@+id/tv_object_number_text" />
                 <TextView
                     style="@style/AppTheme.TextViewHalfScreenDarkBackground"
+                    android:text="@string/room_number"
+                    android:id="@+id/tv_room_number_text" />
+                <TextView
+                    style="@style/AppTheme.TextViewHalfScreenDarkBackground"
                     android:text="@string/datetime"
                     android:id="@+id/tv_datetime_text" />
                 <TextView
@@ -81,6 +85,10 @@
                 <TextView
                     style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_object_number" />
+                <TextView
+                    style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
+                    android:text="1.02"
+                    android:id="@+id/tv_room_number" />
                 <TextView
                     style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
                     android:id="@+id/tv_datetime" />

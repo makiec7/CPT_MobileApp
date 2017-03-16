@@ -151,6 +151,8 @@ public class Constant {
     public static final int TICK_LOGO = R.drawable.tick_logo;
     public static final int ACTIVITY_SET_REPORT_TYPE = R.layout.activity_set_report_type;
     public static final int HEADER = R.id.app_name;
+    public static final String REPORTING_FAULT = "Dodawanie zgłoszenia";
+    public static final String SET_REPORT_TYPE = "Wybierz rodzaj dodawania";
 
     // STATIC METHODS
     public static void showToast(Context context, String text) {

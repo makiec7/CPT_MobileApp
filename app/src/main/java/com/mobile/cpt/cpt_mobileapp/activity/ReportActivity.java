@@ -99,7 +99,9 @@ public class ReportActivity extends Activity {
     }
 
     private boolean areFieldsFull() {
-        return !topic.equals(NULL_STRING) && !obj_no.equals(NULL_STRING) && !descr.equals(NULL_STRING);
+        return !topic.equals(NULL_STRING) && !obj_no.equals(NULL_STRING) &&
+                !descr.equals(NULL_STRING);
+
     }
 
     private void setResultAndFinish() {
@@ -129,7 +131,7 @@ public class ReportActivity extends Activity {
     }
 
     private void init() {
-        setHeader("Dodawanie zgłoszenia");
+        setHeader(REPORTING_FAULT);
         tv_issuer_id = (TextView) findViewById(TV_ISSUER_ID);
         et_topic = (EditText) findViewById(ET_TOPIC);
         et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
@@ -190,7 +192,7 @@ public class ReportActivity extends Activity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(ACTIVITY_SET_REPORT_TYPE);
-            setHeader("Wybierz rodzaj dodawania");
+            setHeader(SET_REPORT_TYPE);
             ImageButton btn_manual = (ImageButton) findViewById(BTN_MANUAL);
             ImageButton btn_auto = (ImageButton) findViewById(BTN_AUTO);
             btn_auto.setOnClickListener(this);
