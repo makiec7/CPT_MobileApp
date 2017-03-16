@@ -34,7 +34,7 @@ public class Constant {
     public static final String DATA_ERROR = "Nie można wczytać danych";
     public static final String BAD_PHONE_NUMBER = "Niepoprawny numer telefonu";
     public static final String SERVER_OUT_OF_CONNECTION = "Błąd połączenia z serwerem";
-    public static final String NOT_CONNECTED_TO_INTERNET = "Brak połączenia z internetem";
+    public static final String NOT_CONNECTED_TO_INTERNET = "Brak połączenia z Internetem";
     public static final String INSERT_LOGIN_DATA = "Wpisz dane logowania";
     public static final String LOGGED_AS = "Zalogowany jako: ";
     public static final String FILL_ALL_FIELDS = "Uzupełnij wszystkie pola";

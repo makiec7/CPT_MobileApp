@@ -9,7 +9,7 @@
     <string name="logout">Wyloguj się</string>
     <string name="contact_administration">Kontakt z administracją</string>
     <string name="alarm_numbers">Numery alarmowe</string>
-    <string name="my_faults">Moje zgłoszenia</string>
+    <string name="my_faults">Twoje zgłoszenia</string>
     <string name="delete_fault">Usuń zgłoszenie</string>
     <string name="scan_code">Zeskanuj kod kreskowy</string>
     <string name="about_program">O programie</string>

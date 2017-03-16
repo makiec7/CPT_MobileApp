@@ -94,9 +94,11 @@
                     android:id="@+id/tv_datetime" />
                 <TextView
                     style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
+                    android:layout_height="wrap_content"
                     android:id="@+id/tv_topic" />
                 <TextView
                     style="@style/AppTheme.TextViewHalfScreenWhiteBackground"
+                    android:layout_height="wrap_content"
                     android:id="@+id/tv_description" />
             </LinearLayout>
         </LinearLayout>

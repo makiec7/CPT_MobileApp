@@ -147,20 +147,9 @@ public class ReportActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if(result != null) {
-            if(result.getContents() == null) {
-                showToast(this, BARCODE_NOT_DETECTED);
-            } else {
-                et_obj_no.setText(result.getContents());
-                showToast(this, DETECTED_BARCODE + result.getContents());
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-        if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK){
+        if (requestCode == REPORT_TYPE_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            if (extras.get(TYPE).equals(Constant.AUTO)){
+            if (extras.get(TYPE).equals(Constant.AUTO)) {
                 PackageManager pm = this.getPackageManager();
                 if (pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
                     setContentView(ACTIVITY_ADD_PROBLEM_AUTO);
@@ -172,8 +161,16 @@ public class ReportActivity extends Activity {
                 setContentView(ACTIVITY_ADD_PROBLEM_MANUAL);
                 addingProcess();
             }
-        } else {
-            finish();
+        }else {
+            IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+            if (result != null) {
+                if (result.getContents() == null) {
+                    showToast(this, BARCODE_NOT_DETECTED);
+                } else {
+                    et_obj_no.setText(result.getContents());
+                    showToast(this, DETECTED_BARCODE + result.getContents());
+                }
+            }
         }
     }
 
