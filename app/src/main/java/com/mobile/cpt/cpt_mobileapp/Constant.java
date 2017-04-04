@@ -46,6 +46,9 @@ public class Constant {
     public static final String DELETE_SUCCESS = "Usunięto poprawnie";
     public static final String BARCODE_NOT_DETECTED = "Nie wykryto kodu kreskowego.";
     public static final String DETECTED_BARCODE = "Wykryty kod: ";
+    public static final String REPORTING_FAULT = "Dodawanie zgłoszenia";
+    public static final String SET_REPORT_TYPE = "Wybierz rodzaj dodawania";
+    public static final String FIND_FAULT = "Wyszukaj zgłoszenie";
 
 
     // BUTTONS
@@ -111,6 +114,7 @@ public class Constant {
     public static final String OBJECT_NUMBER = "object_number";
     public static final String DATE_TIME = "date_time";
     public static final String STATUS = "status";
+    public static final String LIST = "list";
 
     // TIMEOUT
     public static final int TIMEOUT = 1000;
@@ -144,6 +148,9 @@ public class Constant {
     public static final String POST = "POST";
     public static final String PLUS = "+";
     public static final int ONE_MILLISECOND = 1;
+    public static final int RED = 230;
+    public static final int GREEN = 230;
+    public static final int BLUE = 230;
 
     // DRAWABLE
     public static final int CROSS_LOGO = R.drawable.cross_logo;
@@ -151,8 +158,7 @@ public class Constant {
     public static final int TICK_LOGO = R.drawable.tick_logo;
     public static final int ACTIVITY_SET_REPORT_TYPE = R.layout.activity_set_report_type;
     public static final int HEADER = R.id.app_name;
-    public static final String REPORTING_FAULT = "Dodawanie zgłoszenia";
-    public static final String SET_REPORT_TYPE = "Wybierz rodzaj dodawania";
+
 
     // STATIC METHODS
     public static void showToast(Context context, String text) {

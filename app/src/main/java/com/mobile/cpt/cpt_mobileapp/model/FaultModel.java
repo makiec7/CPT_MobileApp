@@ -1,5 +1,7 @@
 package com.mobile.cpt.cpt_mobileapp.model;
 
+import com.mobile.cpt.cpt_mobileapp.Constant;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +18,7 @@ import static com.mobile.cpt.cpt_mobileapp.Constant.DATE_TIME_FORMAT;
 import static com.mobile.cpt.cpt_mobileapp.Constant.DESCRIPTION;
 import static com.mobile.cpt.cpt_mobileapp.Constant.ID;
 import static com.mobile.cpt.cpt_mobileapp.Constant.ISSUER;
+import static com.mobile.cpt.cpt_mobileapp.Constant.NULL_STRING;
 import static com.mobile.cpt.cpt_mobileapp.Constant.OBJECT_NUMBER;
 import static com.mobile.cpt.cpt_mobileapp.Constant.PHONE_NUMBER;
 import static com.mobile.cpt.cpt_mobileapp.Constant.STATUS;
@@ -38,7 +41,7 @@ public class FaultModel implements Serializable {
         if (this.phone_number != null)
             this.phone_number=phone_number;
         else
-            this.phone_number="";
+            this.phone_number=NULL_STRING;
         this.topic=topic;
         this.description=description;
         this.object_number=object_number;
@@ -132,7 +135,7 @@ public class FaultModel implements Serializable {
     public static List<FaultModel> fromJSONArray(JSONObject jObj){
         List<FaultModel> faultModels = new ArrayList<>();
         try {
-            JSONArray jArray = jObj.getJSONArray("list");
+            JSONArray jArray = jObj.getJSONArray(Constant.LIST);
             for (int i=0; i<jArray.length(); i++){
                 FaultModel tmp = fromJSONObj((JSONObject) jArray.get(i));
                 faultModels.add(tmp);

@@ -60,7 +60,7 @@ public class ShortPresentAdapter extends ArrayAdapter<FaultModel> {
                 holder.iv_status.setImageResource(ONGOING_ICON);
             else
                 holder.iv_status.setImageResource(TICK_LOGO);
-        convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.rgb(230, 230, 230));
+        convertView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.rgb(RED, GREEN, BLUE));
         return convertView;
     }
 }

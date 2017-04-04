@@ -36,7 +36,6 @@ public class JSONFromLink {
         jsonStr = bufferedReader.readLine().toString();
         bufferedReader.close();
         conn.disconnect();
-        Log.i("json", jsonStr);
         return new JSONObject(jsonStr);
     }
 }

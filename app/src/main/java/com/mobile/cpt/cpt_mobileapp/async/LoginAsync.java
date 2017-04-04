@@ -20,7 +20,6 @@ public class LoginAsync extends AsyncTask<String, String, LoginModel> {
         String link;
         try {
             link = HTTP_LOGIN;
-            //link = "http://212.191.92.101:6009/login_mobile/";
             link += ASK + INDEX_NO_EQ + URLEncoder.encode(indexNo, UTF_8);
             link += AND + PASSWORD_EQ + URLEncoder.encode(password, UTF_8);
             JSONObject jsonObj = new JSONFromLink(link).getFromLink();

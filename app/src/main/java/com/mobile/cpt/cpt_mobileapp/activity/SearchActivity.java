@@ -39,7 +39,7 @@ public class SearchActivity extends Activity {
     }
 
     private void init() {
-        setHeader("Wyszukaj zgłoszenie");
+        setHeader(FIND_FAULT);
         tv_issuer_id = (TextView) findViewById(TV_ISSUER_ID);
         et_topic = (EditText) findViewById(ET_TOPIC);
         et_phone_number = (EditText) findViewById(ET_PHONE_NUMBER);
